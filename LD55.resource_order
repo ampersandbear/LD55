@@ -18,5 +18,6 @@
   ],
   "ResourceOrderSettings":[
     {"name":"spr_none","order":16,"path":"sprites/spr_none/spr_none.yy",},
+    {"name":"spr_turnip","order":17,"path":"sprites/spr_turnip/spr_turnip.yy",},
   ],
 }
