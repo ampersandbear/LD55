@@ -35,6 +35,7 @@
   "name":"LD55",
   "resources":[
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"spr_none","path":"sprites/spr_none/spr_none.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
