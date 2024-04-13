@@ -1,5 +1,6 @@
 enum card {
-	SUPERHEAD
+	SUPERHEAD,
+	ATK
 }
 
 
@@ -9,6 +10,7 @@ function build_data(){
 	card_data = [];
 	
 	card_add("Superhead", "Draws a card at the start of the turn", 1, c_purple);
+	card_add("Headacher", "Deals 2[spr_attack] to the opposing enemy", 1, c_red);
 
 }
 

@@ -24,6 +24,7 @@
     {"name":"Quick Functions","order":8,"path":"folders/Scribble/Quick Functions.yy",},
     {"name":"Superfonts","order":9,"path":"folders/Scribble/Superfonts.yy",},
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
+    {"name":"ext","order":4,"path":"folders/Scripts/ext.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
@@ -36,6 +37,7 @@
     {"name":"obj_card","order":2,"path":"objects/obj_card/obj_card.yy",},
     {"name":"obj_control","order":1,"path":"objects/obj_control/obj_control.yy",},
     {"name":"obj_unit","order":3,"path":"objects/obj_unit/obj_unit.yy",},
+    {"name":"obj_cell","order":4,"path":"objects/obj_cell/obj_cell.yy",},
     {"name":"__scribble_class_event","order":1,"path":"scripts/__scribble_class_event/__scribble_class_event.yy",},
     {"name":"__scribble_class_font","order":2,"path":"scripts/__scribble_class_font/__scribble_class_font.yy",},
     {"name":"__scribble_class_model","order":3,"path":"scripts/__scribble_class_model/__scribble_class_model.yy",},
@@ -141,6 +143,6 @@
     {"name":"__shd_scribble_bake_shadow","order":4,"path":"shaders/__shd_scribble_bake_shadow/__shd_scribble_bake_shadow.yy",},
     {"name":"__shd_scribble_msdf","order":5,"path":"shaders/__shd_scribble_msdf/__shd_scribble_msdf.yy",},
     {"name":"scribble_fallback_bulletpoint","order":12,"path":"sprites/scribble_fallback_bulletpoint/scribble_fallback_bulletpoint.yy",},
-    {"name":"spr_none","order":1,"path":"sprites/spr_none/spr_none.yy",},
+    {"name":"spr_cell","order":1,"path":"sprites/spr_cell/spr_cell.yy",},
   ],
 }

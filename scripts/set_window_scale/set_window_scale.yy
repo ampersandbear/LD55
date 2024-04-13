@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"set_window_scale",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"set_window_scale",
+  "parent":{
+    "name":"ext",
+    "path":"folders/Scripts/ext.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
