@@ -1,0 +1,2 @@
+active = false;
+mouseover = false;
