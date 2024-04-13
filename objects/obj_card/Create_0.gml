@@ -13,6 +13,7 @@ in_hand = false;
 card_pos = 3;
 temp_card_pos = 3;
 
+unit = noone;
 type = noone;
 hp = 0;
 name = "";

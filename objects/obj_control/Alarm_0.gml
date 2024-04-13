@@ -17,6 +17,7 @@ _base.in_hand = true;
 
 with (unit_create(card.SUPERHEAD, 3, 4)) {
 	owner = _base;
+	_base.unit = id;
 }
 
 card_draw();

@@ -1,4 +1,4 @@
-global.card_drag = false;
+global.card_drag = noone;
 global.hand_size = 1;
 global.left_hand = 3;
 global.right_hand = 3;

@@ -2,6 +2,10 @@
 var _x = drag ? x : draw_x;
 var _y = y;
 
+if (global.card_drag != noone && !drag && global.card_drag.y > 100) {
+	_y += 50;
+}
+
 draw_sprite(spr_hydra_card, 1, _x, _y);
 draw_sprite_ext(spr_hydra_card, 0, _x, _y, 1, 1, 0, color, 1);
 
