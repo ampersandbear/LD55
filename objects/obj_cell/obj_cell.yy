@@ -30,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_cell",
+    "path":"sprites/spr_cell/spr_cell.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

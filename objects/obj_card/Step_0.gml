@@ -12,6 +12,16 @@ if (drag) {
 		
 		x = drag_xstart;
 		y = drag_ystart;
+		draw_x = x;
 		depth = card_default_depth;
     }
+	exit;
+}
+
+var _card = instance_place(x, y, obj_card);
+// move cards to account for the one that is dragged:
+if (_card != noone && _card.drag && !_card.in_hand) {
+	draw_x = drag_xstart + card_width;
+} else {
+	draw_x = drag_xstart;
 }

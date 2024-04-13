@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"trace",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"trace",
+  "parent":{
+    "name":"ext",
+    "path":"folders/Scripts/ext.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

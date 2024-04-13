@@ -9,9 +9,13 @@ function macros(){
 	#macro card_total_count		global.g_card_total_count
 	#macro card_data			global.g_card_data
 	
+	#macro card_width			90
 	#macro card_default_depth   10
 	
 	#macro cell_size			32
 	#macro board_width			7
 	#macro board_height			3
+	
+	#macro cc_red				#E72929
+	#macro cc_red_string		"#E72929"
 }
