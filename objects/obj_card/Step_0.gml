@@ -34,24 +34,34 @@ if (drag) {
 			var _replace = false;
 			global.card_drag = noone;
 			
+			// Hypnohead ability:
+			if (global.unit_to_move != noone) {
+				unit_move(global.unit_to_move, card_pos, global.unit_to_move.ypos);
+				global.unit_to_move = noone;
+			}
+			
 			with (obj_card) if (in_hand) { 
 				if (card_pos == other.card_pos) {
 					in_hand = false;
-					x = card_xstart + 3 * card_width;//mouse_x - 45;
-					y = 45;//mouse_y - 55;
-					draw_x = x;
-					//event_user(0);
+					x = card_draw_xstart;
+					y = card_draw_ystart;
 					_replace = true;
+					if (type == __card.MOVE) {
+						global.unit_to_move = unit_find_up(card_pos);
+					}
 				}
 			}
-			
 			
 			drag = false;
 			in_hand = true;
 			mouseover = false;
 			active = false;
-			temp_card_pos = card_pos;
+			unit.xpos = card_pos;
 			y = card_ystart;
+			x = card_xstart + card_pos * card_width;
+			
+
+			
 			if (card_pos < global.left_hand) {
 				global.left_hand--;
 			}
@@ -59,15 +69,15 @@ if (drag) {
 				global.right_hand++;
 			}
 			if (!_replace) {
-				card_draw();
+				//card_draw();
 				global.hand_size++;
+				global.card_picked = true;
 			}
 		} else { // cancel dragging:
 			drag = false;
 	        global.card_drag = noone;
 			with (unit) instance_destroy();
 			unit = noone;
-			with (obj_card) if (in_hand) temp_card_pos = card_pos;
 			x = drag_xstart;
 			y = drag_ystart;
 		}
@@ -75,7 +85,6 @@ if (drag) {
 	exit;
 }
 
-if (global.card_drag == noone) draw_x = card_xstart + temp_card_pos * card_width;
 depth = mouseover ? -10000 : card_default_depth;
 if (instance_exists(unit)) unit.depth = unit_default_depth;
 

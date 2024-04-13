@@ -1,3 +1,4 @@
 function card_draw(){
-	card_create(global.hand_size, card_xstart + 3 * card_width, 45)
+	card_create(2, card_draw_xstart, card_draw_ystart);
+	global.card_picked = false;
 }

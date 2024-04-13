@@ -7,17 +7,21 @@ function macros(){
 	#macro window_scale			2
 	
 	#macro card_total_count		global.g_card_total_count
+	#macro unit_total_count		global.g_unit_total_count
 	#macro card_data			global.g_card_data
+	#macro unit_data			global.g_unit_data
 	
 	#macro card_xstart			5
 	#macro card_ystart			200
+	#macro card_draw_xstart		500
+	#macro card_draw_ystart		30
 	#macro card_width			90
 	#macro card_default_depth   -10
 	
 	#macro unit_default_depth	-5
 	
 	#macro cell_xstart			173
-	#macro cell_ystart			50
+	#macro cell_ystart			30
 	#macro cell_width			42
 	#macro cell_height			32
 	#macro board_width			7

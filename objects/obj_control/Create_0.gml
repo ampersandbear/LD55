@@ -1,7 +1,9 @@
 global.card_drag = noone;
+global.card_picked = false;
 global.hand_size = 1;
 global.left_hand = 3;
 global.right_hand = 3;
+global.unit_to_move = noone;
 
 alarm[0] = 1;
 
@@ -16,5 +18,9 @@ for (var i = 0; i < board_width; i++) {
 		);
 		_cell.xpos = i;
 		_cell.ypos = j;
+		_cell.tile = (i + j) mod 2 * 2 + irandom(1);
 	}
 }
+
+// end turn button:
+btn_create(__btn.END_TURN, 480, 60);

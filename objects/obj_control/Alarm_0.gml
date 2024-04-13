@@ -12,14 +12,16 @@ with (card_create(card.ATK, 200, 200)) {
 }*/
 
 
-var _base = card_create(card.SUPERHEAD, card_xstart + 3 * card_width, 200);
+var _base = card_create(__card.SUPERHEAD, card_xstart + 3 * card_width, 200);
 _base.in_hand = true;
 
-with (unit_create(card.SUPERHEAD, 3, 4)) {
+with (unit_create(__card.SUPERHEAD, 3, 3)) {
 	owner = _base;
 	_base.unit = id;
 }
 
 card_draw();
 
-//unit_create(card.MOVE, 4, 4);
+unit_create(__unit.KNIGHT, 3, 1);
+
+unit_create(__unit.MAGE, 3, 0);

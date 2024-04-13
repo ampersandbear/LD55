@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"unit_find_up",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"unit_find_up",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,12 +1,25 @@
 {
-  "FolderOrderSettings":[],
+  "FolderOrderSettings":[
+    {"name":"units","order":3,"path":"folders/Sprites/units.yy",},
+  ],
   "ResourceOrderSettings":[
     {"name":"obj_btn","order":1,"path":"objects/obj_btn/obj_btn.yy",},
+    {"name":"btn_create","order":4,"path":"scripts/btn_create/btn_create.yy",},
     {"name":"card_draw","order":2,"path":"scripts/card_draw/card_draw.yy",},
     {"name":"card_row_move","order":3,"path":"scripts/card_row_move/card_row_move.yy",},
-    {"name":"btn_create","order":4,"path":"scripts/btn_create/btn_create.yy",},
+    {"name":"damage_masterhead","order":10,"path":"scripts/damage_masterhead/damage_masterhead.yy",},
     {"name":"unit_create","order":1,"path":"scripts/unit_create/unit_create.yy",},
-    {"name":"spr_heart","order":1,"path":"sprites/spr_heart/spr_heart.yy",},
+    {"name":"unit_find_up","order":7,"path":"scripts/unit_find_up/unit_find_up.yy",},
+    {"name":"unit_find","order":6,"path":"scripts/unit_find/unit_find.yy",},
+    {"name":"unit_get_xpos","order":9,"path":"scripts/unit_get_xpos/unit_get_xpos.yy",},
+    {"name":"unit_move","order":8,"path":"scripts/unit_move/unit_move.yy",},
+    {"name":"unit_take_damage","order":5,"path":"scripts/unit_take_damage/unit_take_damage.yy",},
+    {"name":"spr_attack_warn","order":6,"path":"sprites/spr_attack_warn/spr_attack_warn.yy",},
+    {"name":"spr_btn","order":5,"path":"sprites/spr_btn/spr_btn.yy",},
     {"name":"spr_checkerboard","order":2,"path":"sprites/spr_checkerboard/spr_checkerboard.yy",},
+    {"name":"spr_heart","order":1,"path":"sprites/spr_heart/spr_heart.yy",},
+    {"name":"spr_knight","order":1,"path":"sprites/spr_knight/spr_knight.yy",},
+    {"name":"spr_land","order":4,"path":"sprites/spr_land/spr_land.yy",},
+    {"name":"spr_mage","order":2,"path":"sprites/spr_mage/spr_mage.yy",},
   ],
 }
