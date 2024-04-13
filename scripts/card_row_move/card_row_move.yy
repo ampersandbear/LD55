@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"card_row_move",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"card_row_move",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

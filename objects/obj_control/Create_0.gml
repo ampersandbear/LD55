@@ -1,4 +1,7 @@
 global.card_drag = false;
+global.hand_size = 1;
+global.left_hand = 3;
+global.right_hand = 3;
 
 alarm[0] = 1;
 

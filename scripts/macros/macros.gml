@@ -10,6 +10,7 @@ function macros(){
 	#macro card_data			global.g_card_data
 	
 	#macro card_xstart			5
+	#macro card_ystart			200
 	#macro card_width			90
 	#macro card_default_depth   -10
 	

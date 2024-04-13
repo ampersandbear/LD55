@@ -1,6 +1,8 @@
 {
   "FolderOrderSettings":[],
   "ResourceOrderSettings":[
+    {"name":"card_draw","order":2,"path":"scripts/card_draw/card_draw.yy",},
+    {"name":"card_row_move","order":3,"path":"scripts/card_row_move/card_row_move.yy",},
     {"name":"unit_create","order":1,"path":"scripts/unit_create/unit_create.yy",},
     {"name":"spr_heart","order":1,"path":"sprites/spr_heart/spr_heart.yy",},
   ],
