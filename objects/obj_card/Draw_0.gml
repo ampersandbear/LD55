@@ -2,10 +2,12 @@
 var _x = drag ? x : draw_x;
 var _y = y;
 
+if (mouseover && !drag) _y -= 4;
+
 draw_sprite(spr_hydra_card, 1, _x, _y);
 draw_sprite_ext(spr_hydra_card, 0, _x, _y, 1, 1, 0, color, 1);
 
-if (mouseover) draw_sprite(spr_hydra_card, 2, _x, _y);
+//if (mouseover) draw_sprite(spr_hydra_card, 2, _x, _y);
 
 draw_sprite(spr_heart, 0, _x + 4, _y + 4);
 draw_sprite(spr_heart_numbers, hp, _x + 14, _y + 4);

@@ -1,0 +1,1 @@
+draw_sprite(spr_hydra_body, 0, game_width / 2, 330);

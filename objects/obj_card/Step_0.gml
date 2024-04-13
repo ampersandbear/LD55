@@ -13,10 +13,11 @@ if (drag) {
 		x = drag_xstart;
 		y = drag_ystart;
 		draw_x = x;
-		depth = card_default_depth;
     }
 	exit;
 }
+
+depth = mouseover ? -10000 : card_default_depth;
 
 var _card = instance_place(x, y, obj_card);
 // move cards to account for the one that is dragged:
