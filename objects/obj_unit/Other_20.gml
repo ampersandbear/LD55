@@ -1,7 +1,8 @@
-if (ypos > 2) {
+if (ypos > 3) {
 	sprite = card_data[type].unit_sprite;
 	hp	   = card_data[type].card_hp;
 	hp_max = hp;
+	head = true;
 	
 } else {
 	sprite = unit_data[type].unit_sprite;

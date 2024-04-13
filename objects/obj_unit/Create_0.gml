@@ -9,3 +9,4 @@ hp = 0;
 hp_max = 0;
 atk = 0;
 melee = true;
+head = false;

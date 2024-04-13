@@ -12,7 +12,7 @@ drag_ystart = y;
 global.card_drag = id;
 
 if (unit == noone) {
-	with (unit_create(type, 3, 3)) {
+	with (unit_create(type, 3, 4)) {
 		owner = other.id;
 		other.unit = id;
 	}

@@ -3,11 +3,13 @@
     {"name":"units","order":3,"path":"folders/Sprites/units.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"fnt_huge","order":1,"path":"fonts/fnt_huge/fnt_huge.yy",},
     {"name":"obj_btn","order":1,"path":"objects/obj_btn/obj_btn.yy",},
     {"name":"btn_create","order":4,"path":"scripts/btn_create/btn_create.yy",},
     {"name":"card_draw","order":2,"path":"scripts/card_draw/card_draw.yy",},
     {"name":"card_row_move","order":3,"path":"scripts/card_row_move/card_row_move.yy",},
     {"name":"damage_masterhead","order":10,"path":"scripts/damage_masterhead/damage_masterhead.yy",},
+    {"name":"spawn_enemies","order":11,"path":"scripts/spawn_enemies/spawn_enemies.yy",},
     {"name":"unit_create","order":1,"path":"scripts/unit_create/unit_create.yy",},
     {"name":"unit_find_up","order":7,"path":"scripts/unit_find_up/unit_find_up.yy",},
     {"name":"unit_find","order":6,"path":"scripts/unit_find/unit_find.yy",},

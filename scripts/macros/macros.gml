@@ -21,15 +21,16 @@ function macros(){
 	#macro unit_default_depth	-5
 	
 	#macro cell_xstart			173
-	#macro cell_ystart			30
+	#macro cell_ystart			0
 	#macro cell_width			42
 	#macro cell_height			32
 	#macro board_width			7
-	#macro board_height			3
+	#macro board_height			4
 	
 	#macro cc_atk				#E72929
 	#macro cc_atk_string		"#E72929"
 	#macro cc_red				#E74747
+	#macro cc_red_text			"#E74747"
 	#macro cc_purple			#5F41B0
 	#macro cc_green				#32BC61
 }
