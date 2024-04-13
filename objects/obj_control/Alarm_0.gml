@@ -22,6 +22,7 @@ with (unit_create(__card.SUPERHEAD, 3, 3)) {
 
 card_draw();
 
-unit_create(__unit.KNIGHT, 3, 1);
+unit_create(__unit.PEASANT, 3, 0);
 
-unit_create(__unit.MAGE, 3, 0);
+unit_create(__unit.MAGE, 4, 0);
+unit_create(__unit.KNIGHT, 5, 0);

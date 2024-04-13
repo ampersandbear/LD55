@@ -26,6 +26,7 @@ if (ypos < 3) {
 	_y -= 5;
 	// mage attack warning:
 	if (type == __unit.MAGE) {
+		draw_sprite_ext(spr_attack_warn, 2, x, y, 1, 1, 0, cc_red, 1);
 		if (unit_find(xpos, 2) != noone) {
 			draw_sprite_ext(spr_attack_warn, 1, unit_get_x(xpos), unit_get_y(1), 1, 1, 0, cc_red, 1);
 		} else if (unit_find(xpos, 1) == noone) {
