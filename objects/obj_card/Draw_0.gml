@@ -6,6 +6,17 @@ if (global.card_drag != noone && !drag && (global.card_drag.y > 100 || global.ca
 	_y += 50;
 }
 
+// card add preview for the shop:
+if (room == rm_shop && y > 100 && drag_ystart < 100 && drag) {
+	draw_sprite_ext(
+		spr_card_add,
+		0,
+		shop_deck_xstart + (ds_list_size(deck) + 1) * card_width,
+		shop_deck_ystart,
+		1, 1, 0, c_white, .25
+	);
+}
+
 lerp_x = lerp( lerp_x, _x, 0.3);
 lerp_y = lerp( lerp_y, _y, 0.3);
 
@@ -30,9 +41,7 @@ scribble("[fa_center][fnt_bold]" + name).draw(_x + card_width / 2, _y + 86);
 var _desc = scribble("[fa_center]" + desc).wrap(card_width - 12).line_height(12, 12);
 _desc.draw(_x + card_width / 2, _y + 22 + (60 - _desc.get_height()) div 2);
 
-if (room == rm_shop && y > 100 && drag_ystart < 100) {
-	//draw
-}
+
 
 /*
 draw_set_color(color);
