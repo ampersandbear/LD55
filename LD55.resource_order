@@ -5,6 +5,8 @@
   "ResourceOrderSettings":[
     {"name":"fnt_huge","order":1,"path":"fonts/fnt_huge/fnt_huge.yy",},
     {"name":"obj_btn","order":1,"path":"objects/obj_btn/obj_btn.yy",},
+    {"name":"obj_shop","order":2,"path":"objects/obj_shop/obj_shop.yy",},
+    {"name":"rm_shop","order":1,"path":"rooms/rm_shop/rm_shop.yy",},
     {"name":"btn_create","order":4,"path":"scripts/btn_create/btn_create.yy",},
     {"name":"card_create_on_start","order":14,"path":"scripts/card_create_on_start/card_create_on_start.yy",},
     {"name":"card_draw","order":2,"path":"scripts/card_draw/card_draw.yy",},
@@ -40,5 +42,6 @@
     {"name":"spr_skeleton","order":9,"path":"sprites/spr_skeleton/spr_skeleton.yy",},
     {"name":"spr_spearman","order":5,"path":"sprites/spr_spearman/spr_spearman.yy",},
     {"name":"spr_stun","order":7,"path":"sprites/spr_stun/spr_stun.yy",},
+    {"name":"spr_btn_9_sliced","order":8,"path":"sprites/spr_btn_9_sliced/spr_btn_9_sliced.yy",},
   ],
 }

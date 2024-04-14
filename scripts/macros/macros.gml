@@ -15,6 +15,7 @@ function macros(){
 	#macro wave_total_count		global.g_wave_total_count
 	
 	#macro deck					global.g_deck
+	#macro temp_deck			global.g_temp_deck
 	
 	#macro card_xstart			5
 	#macro card_ystart			200
