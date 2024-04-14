@@ -5,7 +5,7 @@ global.left_hand = 3;
 global.right_hand = 3;
 global.unit_to_move = noone;
 global.wave = 0;
-
+global.shop = false;
 
 alarm[0] = 1;
 

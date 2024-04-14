@@ -39,11 +39,14 @@ function build_data(){
 	wave_data = [];
 	
 	deck = ds_list_create(); 
+	temp_deck = ds_list_create();
 	ds_list_add(deck, __card.ATK, __card.STUN);
 	ds_list_shuffle(deck);
+	ds_list_copy(temp_deck, deck);
 	
-	wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
-	wave_add(__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT);
+	//wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
+	//wave_add(__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
 	
 	card_add("Masterhead", "Takes damage from empty cell attacks", 5, cc_purple, spr_head_purple, spr_neck_purple);
 	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);

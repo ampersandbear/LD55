@@ -10,9 +10,7 @@ for (var i = 0; i < 7; i++) {
 		}
 	}
 }
-
-card_draw();
-		
+	
 var _enemies = choose(1, 2);
 repeat(_enemies) spawn_enemy();
 		
@@ -21,5 +19,7 @@ var _enemy_count = 0;
 with (obj_unit) if (!head) _enemy_count++;
 if (_enemy_count == 0) { // it was!
 	global.wave++;
-	with (obj_unit) if (head && type != __card.SUPERHEAD) instance_destroy();
-}
+	with (obj_unit) if (head) instance_destroy();
+	room_goto(rm_shop);
+	
+} else card_draw();
