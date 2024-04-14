@@ -6,6 +6,7 @@
     {"name":"fnt_huge","order":1,"path":"fonts/fnt_huge/fnt_huge.yy",},
     {"name":"obj_btn","order":1,"path":"objects/obj_btn/obj_btn.yy",},
     {"name":"obj_shop","order":2,"path":"objects/obj_shop/obj_shop.yy",},
+    {"name":"obj_vfx","order":3,"path":"objects/obj_vfx/obj_vfx.yy",},
     {"name":"rm_shop","order":1,"path":"rooms/rm_shop/rm_shop.yy",},
     {"name":"btn_create","order":4,"path":"scripts/btn_create/btn_create.yy",},
     {"name":"card_create_on_start","order":14,"path":"scripts/card_create_on_start/card_create_on_start.yy",},
@@ -22,7 +23,6 @@
     {"name":"unit_move","order":8,"path":"scripts/unit_move/unit_move.yy",},
     {"name":"unit_take_damage","order":5,"path":"scripts/unit_take_damage/unit_take_damage.yy",},
     {"name":"shd_hurt","order":1,"path":"shaders/shd_hurt/shd_hurt.yy",},
-    {"name":"vfx_explosion","order":11,"path":"sprites/vfx_explosion/vfx_explosion.yy",},
     {"name":"spr_archer","order":3,"path":"sprites/spr_archer/spr_archer.yy",},
     {"name":"spr_attack_warn","order":6,"path":"sprites/spr_attack_warn/spr_attack_warn.yy",},
     {"name":"spr_axeman","order":4,"path":"sprites/spr_axeman/spr_axeman.yy",},
@@ -46,6 +46,7 @@
     {"name":"spr_spearman","order":5,"path":"sprites/spr_spearman/spr_spearman.yy",},
     {"name":"spr_stun","order":7,"path":"sprites/spr_stun/spr_stun.yy",},
     {"name":"vfx_attack","order":10,"path":"sprites/vfx_attack/vfx_attack.yy",},
+    {"name":"vfx_explosion","order":11,"path":"sprites/vfx_explosion/vfx_explosion.yy",},
     {"name":"vfx_fireball","order":9,"path":"sprites/vfx_fireball/vfx_fireball.yy",},
   ],
 }
