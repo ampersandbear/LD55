@@ -36,7 +36,7 @@ if (drag) {
 			global.card_drag = noone;
 			
 			// Hypnohead ability:
-			if (global.unit_to_move != noone) {
+			if (type == __card.MOVE && global.unit_to_move != noone) {
 				unit_move(global.unit_to_move, card_pos, global.unit_to_move.ypos);
 				global.unit_to_move = noone;
 			}
@@ -55,13 +55,11 @@ if (drag) {
 					x = card_draw_xstart;
 					y = card_draw_ystart;
 					_replace = true;
-					if (type == __card.MOVE) {
-						global.unit_to_move = unit_find_up(card_pos);
-					}
 				}
 			}
 			
 			drag = false;
+			in_hand = true;
 			mouseover = false;
 			active = false;
 			unit.xpos = card_pos;
@@ -75,12 +73,11 @@ if (drag) {
 			if (card_pos > global.right_hand) {
 				global.right_hand++;
 			}
-			if (!in_hand && !_replace) {
-				//card_draw();
-				global.hand_size++;
-				global.card_picked = true;
-				in_hand = true;
-			}
+			
+			var _cards_to_pick = 0;
+			with (obj_card) if (!in_hand) _cards_to_pick++;
+			global.card_picked = (_cards_to_pick == 0);
+
 		} else { // cancel dragging:
 			drag = false;
 	        global.card_drag = noone;
