@@ -19,7 +19,10 @@ var _enemy_count = 0;
 with (obj_unit) if (!head) _enemy_count++;
 if (_enemy_count == 0) { // it was!
 	global.wave++;
-	with (obj_unit) if (head) instance_destroy();
+	spawn_enemy();
+	with (obj_unit) if (head && type != __card.SUPERHEAD) instance_destroy();
 	room_goto(rm_shop);
-	
-} else card_draw_from_deck();
+	exit;
+}
+
+card_draw_from_deck();
