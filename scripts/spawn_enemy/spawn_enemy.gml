@@ -9,7 +9,7 @@ function spawn_enemy(){
 	var _tries = 0;
 	
 	do {
-		var _x	  = clamp(irandom_range(global.left_hand - 1, global.right_hand + 1), 0, 6);
+		var _x	  = irandom_range(0, 6);//clamp(irandom_range(global.left_hand - 1, global.right_hand + 1), 0, 6);
 		var _unit = unit_find_down(_x);
 		_tries++;
 	} until (_unit == noone || (_unit.melee && _unit.ypos > 0) || _tries > 100);

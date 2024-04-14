@@ -24,6 +24,9 @@ function macros(){
 	#macro card_width			90
 	#macro card_default_depth   -10
 	
+	#macro shop_deck_xstart		10
+	#macro shop_deck_ystart		250
+	
 	#macro unit_default_depth	-5
 	
 	#macro cell_xstart			173

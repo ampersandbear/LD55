@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"card_draw",
+  "%Name":"card_draw_from_deck",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"card_draw",
+  "name":"card_draw_from_deck",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

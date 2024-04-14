@@ -30,6 +30,10 @@ scribble("[fa_center][fnt_bold]" + name).draw(_x + card_width / 2, _y + 86);
 var _desc = scribble("[fa_center]" + desc).wrap(card_width - 12).line_height(12, 12);
 _desc.draw(_x + card_width / 2, _y + 22 + (60 - _desc.get_height()) div 2);
 
+if (room == rm_shop && y > 100 && drag_ystart < 100) {
+	//draw
+}
+
 /*
 draw_set_color(color);
 var _pos = card_pos; //drag ? card_pos : temp_card_pos;

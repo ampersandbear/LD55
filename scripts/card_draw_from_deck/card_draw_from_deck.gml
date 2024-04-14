@@ -1,4 +1,4 @@
-function card_draw(){
+function card_draw_from_deck(){
 	
 	if (ds_list_empty(temp_deck)) return;
 	

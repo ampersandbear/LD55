@@ -18,7 +18,7 @@ card_create_on_start(__card.SUPERHEAD, 3);
 //card_create_on_start(__card.ATK, 2);
 //card_create_on_start(__card.MOVE, 4);
 
-card_draw();
+card_draw_from_deck();
 spawn_enemy();
 
 /*
