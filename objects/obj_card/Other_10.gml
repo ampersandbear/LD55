@@ -1,5 +1,9 @@
 /// @description start drag
 
+if (type == __card.MOVE && in_hand) {
+	global.unit_to_move = unit_find_up(card_pos);
+}
+
 active = true;
 mouseover = true;
 drag = true;
@@ -18,6 +22,3 @@ if (unit == noone) {
 	}
 }
 
-if (type == __card.MOVE) {
-	global.unit_to_move = unit_find_up(card_pos);
-}

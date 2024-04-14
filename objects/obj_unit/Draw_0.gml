@@ -62,13 +62,13 @@ if (head && instance_exists(owner)) { // head unit
 	}
 }
 
-var _attack_warn = ypos == 3;
+var _attack_warn = ypos == 3 && !stun;
 
 if (!head)
 {
 	_y -= 5;
 	// mage attack warning:
-	if (type == __unit.MAGE && ypos > 0) {
+	if (type == __unit.MAGE && ypos > 0 && !stun) {
 		draw_sprite_ext(spr_attack_warn, 2, x, y, 1, 1, 0, cc_red, 1);
 		if (unit_find(xpos, 3) != noone) {
 			draw_sprite_ext(spr_attack_warn, 1, unit_get_x(xpos), unit_get_y(2), 1, 1, 0, cc_red, 1);
@@ -79,14 +79,14 @@ if (!head)
 		}
 	}
 	// archer attack warning:
-	if (type == __unit.ARCHER && ypos > 0) {
+	if (type == __unit.ARCHER && ypos > 0 && !stun) {
 		for (var i = 1; i < 4; i++) {
 			draw_sprite_ext(spr_attack_warn, 2, unit_get_x(xpos), unit_get_y(i), 1, 1, 0, cc_red, 1);
 		}
 		_attack_warn = true;
 	}
 	// spearman attack warning:
-	if (type == __unit.SPEARMAN && ypos > 1) {
+	if (type == __unit.SPEARMAN && ypos > 1 && !stun) {
 		for (var i = 2; i < 4; i++) {
 			draw_sprite_ext(spr_attack_warn, 2, unit_get_x(xpos), unit_get_y(i), 1, 1, 0, cc_red, 1);
 		}

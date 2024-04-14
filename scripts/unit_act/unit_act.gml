@@ -4,6 +4,12 @@ function unit_act(_obj){
 		acted = true;
 			
 		if (!head) {
+			
+			if (stun) {
+				stun--;
+				return;
+			}
+			
 			if (ypos == 0) { // spawn:
 				unit_move(id, xpos, 1);
 				return;
@@ -19,12 +25,12 @@ function unit_act(_obj){
 						break;
 					}
 				}
-				if (!_damaged_unit) damage_head(xpos, atk);
+				if (!_damaged_unit) damage_head(id, xpos, atk);
 				return;
 			}
 				
 			if (type == __unit.ARCHER) { // archer attacks:
-				damage_head(xpos, atk);
+				damage_head(id, xpos, atk);
 				return;
 			}
 				
@@ -32,7 +38,7 @@ function unit_act(_obj){
 				if (ypos < 2) {
 					unit_move(id, xpos, ypos + 1);
 				} else {
-					damage_head(xpos, atk);
+					damage_head(id, xpos, atk);
 				}
 				return;
 			}
@@ -47,11 +53,11 @@ function unit_act(_obj){
 			if (melee && ypos < 3) { // units move:
 				unit_move(id, xpos, ypos + 1);
 			} else { // units attack:
-				damage_head(xpos, atk);
+				damage_head(id, xpos, atk);
 					
 				if (type == __unit.AXEMAN) {
-					damage_head(xpos + 1, atk);
-					damage_head(xpos - 1, atk);
+					damage_head(id, xpos + 1, atk);
+					damage_head(id, xpos - 1, atk);
 				}
 			}
 		}
