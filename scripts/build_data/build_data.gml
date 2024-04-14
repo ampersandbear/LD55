@@ -23,7 +23,8 @@ enum __unit {
 
 
 enum __btn {
-	END_TURN
+	END_TURN,
+	EXIT_SHOP
 }
 
 function build_data(){
@@ -44,8 +45,8 @@ function build_data(){
 	ds_list_shuffle(deck);
 	ds_list_copy(temp_deck, deck);
 	
-	//wave_add(__unit.PEASANT);
-	wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
+	wave_add(__unit.PEASANT);
+	//wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
 	//wave_add(__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
 	
 	card_add("Masterhead", "Takes damage from empty cell attacks", 5, cc_purple, spr_head_purple, spr_neck_purple);
