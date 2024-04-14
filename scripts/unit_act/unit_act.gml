@@ -20,16 +20,27 @@ function unit_act(_obj){
 				// VFX
 				nudge_y = ATTACK_NUDGE;
 				
+				// fireball VFX
+				var _distance = unit_get_y(4) + 42 - y + cell_height;
+				
 				var _damaged_unit = false;
 				for (var j = 2; j < 4; j++) {
 					var _unit = unit_find(xpos, j);
 					if (_unit != noone) {
+							_distance = _unit.y - y;
 							unit_take_damage(_unit, atk, 1);
 						_damaged_unit = true;
 						break;
 					}
 				}
 				if (!_damaged_unit) damage_head(id, xpos, atk);
+				
+				with vfx_create( vfx_fireball, x, y + _distance, 0.05, 0.2)
+				{
+					image_yscale   = -_distance/48;
+					destroy_on_end = false;
+				}
+				
 				return;
 			}
 				
@@ -89,6 +100,18 @@ function unit_act(_obj){
 				vfx_head_attack( id);
 				
 				var _unit = unit_find_up(xpos);
+				
+				// fireball VFX
+				var _y = y + 52;
+				var _distance = _y + cell_height;
+				if _unit != noone { _distance = _y - _unit.y; }
+				
+				with vfx_create( vfx_fireball, unit_get_x(xpos), _y - _distance, 0.05, 0.25)
+				{
+					image_yscale = _distance/48;
+					destroy_on_end = false;
+				}
+				// deal damage
 				if (_unit != noone) unit_take_damage(_unit, 1);
 			}
 			if (type == __card.BUFF)

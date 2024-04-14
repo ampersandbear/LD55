@@ -9,11 +9,9 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 		
 		hp = max(0, hp - _dmg);
 		if (hp == 0)
-		{
-			// Explode!
-			vfx_create( vfx_explosion, x, y);
-			
-			if (!head) { // enemy unit dies:
+		{			
+			if (!head)
+			{ // enemy unit dies:
 				 if (type == __unit.RAM) {
 					 unit_create(__unit.RAM_KNIGHT, xpos, ypos);
 					 var _x = choose(1, -1);
@@ -24,6 +22,14 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 					 }
 					 if (_cell == noone) unit_create(__unit.RAM_KNIGHT, xpos + _x, ypos);
 				 }
+				 
+				 // Explode!
+				vfx_create( vfx_explosion, x, y);
+			}
+			else // head uses different coordinates
+			{
+				// Explode!
+				vfx_create( vfx_explosion, unit_get_x( xpos), y + 52);
 			}
 			xpos = noone;
 			ypos = noone;

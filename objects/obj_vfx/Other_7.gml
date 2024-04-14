@@ -1,2 +1,2 @@
 /// @description 
-instance_destroy();
+if destroy_on_end { instance_destroy(); }

@@ -17,12 +17,17 @@ function shader_set_color(_color, _alpha = 1)
 						,color_get_blue( _color)/255
 						,_alpha);	
 }
-function vfx_create(_sprite, _x, _y)
+function vfx_create(_sprite, _x, _y, _xscale_lerp = 0, _yscale_lerp = 0)
 {
 	with instance_create_depth(_x, _y, -100, obj_vfx)
 	{
 		sprite_index = _sprite;
 		image_index  = 0;
 		image_speed  = random_range( 0.95, 1.05);
+		
+		image_xscale_lerp = _xscale_lerp;
+		image_yscale_lerp = _yscale_lerp;
+		
+		return id;
 	}
 }
