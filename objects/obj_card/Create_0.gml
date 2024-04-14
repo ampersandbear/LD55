@@ -1,6 +1,9 @@
 event_inherited();
 active = true;
 
+lerp_x = 0;
+lerp_y = 0;
+
 drag = false;
 drag_x = 0;
 drag_y = 0;

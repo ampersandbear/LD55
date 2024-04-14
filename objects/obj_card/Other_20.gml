@@ -12,5 +12,8 @@ hp	   = card_data[type].card_hp;
 sprite = card_data[type].unit_sprite;
 hp_max = hp;
 
+lerp_x = x;
+lerp_y = y;
+
 drag_xstart = x;
 ability_used = false;

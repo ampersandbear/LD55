@@ -1,8 +1,11 @@
 if (sprite == noone) exit;
 
 var _a = 1;
-var _x = x;
-var _y = y;
+
+lerp_x = lerp( lerp_x, x, 0.25);
+lerp_y = lerp( lerp_y, y, 0.25);
+var _x = lerp_x;
+var _y = lerp_y;
 
 if (head && instance_exists(owner)) { // head unit
 	_x = unit_get_x(owner.card_pos);
@@ -10,6 +13,7 @@ if (head && instance_exists(owner)) { // head unit
 	if (owner.y <= 100) exit;
 	
 	_y += 52;
+	var _card_pos = owner.card_pos;
 	
 	if (owner.in_hand 
 	&& global.card_drag != noone 
@@ -17,6 +21,7 @@ if (head && instance_exists(owner)) { // head unit
 	&& owner.card_pos == global.card_drag.card_pos
 	) { 
 		_y += 20;
+		_card_pos = global.card_drag.card_pos;
 	}
 	
 	// Animate head:
@@ -27,13 +32,13 @@ if (head && instance_exists(owner)) { // head unit
 	_y += lengthdir_y( 5, head_animate_angle);
 	
 	// Draw neck unless we aren't fully visible?
-	if _a == 1 and neck_sprite != noone
+	if neck_sprite != noone
 	{
 		var _balls = 1;
 		var _nx = game_width*0.5;
 		var _ny = 240;
 		
-		switch xpos
+		switch _card_pos
 		{
 			case 0: _nx -= 30; _ny += 30; _balls = 4; break;
 			case 1: _nx -= 20; _ny += 20; _balls = 3; break;
@@ -50,15 +55,17 @@ if (head && instance_exists(owner)) { // head unit
 		
 		for(var i= 1; i <= _balls; i++)
 		{
-			draw_sprite( neck_sprite, 0, _nx + lengthdir_x(_interval*i, _angle)
-									   , _ny + lengthdir_y(_interval*i, _angle));
+			draw_sprite_ext( neck_sprite, 0, _nx + lengthdir_x(_interval*i, _angle)
+										   , _ny + lengthdir_y(_interval*i, _angle)
+										   , 1, 1, 0, c_white, _a);
 		}
 	}
 }
 
 var _attack_warn = ypos == 3;
 
-if (!head) {
+if (!head)
+{
 	_y -= 5;
 	// mage attack warning:
 	if (type == __unit.MAGE && ypos > 0) {

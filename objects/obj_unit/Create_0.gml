@@ -13,6 +13,10 @@ melee = true;
 head = false;
 acted = false;
 
+// lerp
+lerp_x = 0;
+lerp_y = 0;
+
 // head: wobbly idle
 head_animate_angle = 0;
 head_animate_speed = random_range( 1, 5)*choose(-1,1);

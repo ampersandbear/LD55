@@ -6,6 +6,12 @@ if (global.card_drag != noone && !drag && global.card_drag.y > 100 && in_hand) {
 	_y += 50;
 }
 
+lerp_x = lerp( lerp_x, _x, 0.3);
+lerp_y = lerp( lerp_y, _y, 0.3);
+
+_x = lerp_x;
+_y = lerp_y;
+
 draw_sprite(spr_hydra_card, 1, _x, _y);
 draw_sprite_ext(spr_hydra_card, 0, _x, _y, 1, 1, 0, color, 1);
 
@@ -18,7 +24,6 @@ var _hp_max		= instance_exists(unit) ? unit.hp_max : hp_max;
 var _hp_color	= (_hp < _hp_max) ? cc_atk : c_white;
 
 draw_sprite_ext(spr_heart_numbers, _hp, _x + 14, _y + 4, 1, 1, 0, _hp_color, 1);
-
 
 scribble("[fa_center][fnt_bold]" + name).draw(_x + card_width / 2, _y + 86);
 
