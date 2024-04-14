@@ -7,6 +7,6 @@ switch (type) {
 	break;
 	
 	case __btn.EXIT_SHOP:
-		room_goto(rm_game);
+		transition_to(rm_game);
 	break;
 }

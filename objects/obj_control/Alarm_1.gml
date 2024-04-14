@@ -21,7 +21,7 @@ if (_enemy_count == 0) { // it was!
 	global.wave++;
 	spawn_enemy();
 	with (obj_unit) if (head && type != __card.SUPERHEAD) instance_destroy();
-	room_goto(rm_shop);
+	transition_to(rm_shop);
 	exit;
 }
 

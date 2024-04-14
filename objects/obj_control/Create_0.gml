@@ -24,6 +24,11 @@ for (var i = 0; i < board_width; i++) {
 	}
 }
 
+// transition
+transition = 0;
+transition_speed = 0;
+transition_room = noone;
+
 // camera draw stuff
 nudge_x = 0;
 nudge_y = 0;

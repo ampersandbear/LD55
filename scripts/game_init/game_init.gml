@@ -31,3 +31,12 @@ function vfx_create(_sprite, _x, _y, _xscale_lerp = 0, _yscale_lerp = 0)
 		return id;
 	}
 }
+
+function transition_to(_room, _speed = 0.05)
+{
+	with obj_control
+	{
+		transition_speed = _speed;
+		transition_room = _room;
+	}
+}
