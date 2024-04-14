@@ -11,6 +11,17 @@ function unit_create(_type, _x, _y){
 	_unit.lerp_x = _xx;
 	_unit.lerp_y = _yy - 16;
 	
+	// unit_power per type
+	_unit.unit_power = 2;
+	
+	switch _type
+	{
+		case __unit.PEASANT: _unit.unit_power = 1; break;
+		case __unit.AXEMAN:	 _unit.unit_power = 3; break;
+		case __unit.NECRO:	 _unit.unit_power = 4; break;
+		case __unit.RAM:	 _unit.unit_power = 3; break;
+	}
+	
 	_unit.depth = -_y
 	with (_unit) event_user(10);
 	return _unit;

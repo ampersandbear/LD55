@@ -24,6 +24,9 @@ for (var i = 0; i < board_width; i++) {
 	}
 }
 
+// previous power, in case we made too many powerful units in one turn
+previous_power = 0;
+
 // transition
 transition = 0;
 transition_speed = 0;

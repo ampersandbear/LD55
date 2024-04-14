@@ -35,12 +35,7 @@ function unit_act(_obj){
 				}
 				if (!_damaged_unit) damage_head(id, xpos, atk);
 				
-				with vfx_create( vfx_fireball, x, y + _distance, 0.05, 0.2)
-				{
-					image_yscale   = -_distance/48;
-					destroy_on_end = false;
-				}
-				
+				vfx_fire_attack(_distance, noone, x, y, -1);
 				return;
 			}
 				
@@ -102,15 +97,8 @@ function unit_act(_obj){
 				var _unit = unit_find_up(xpos);
 				
 				// fireball VFX
-				var _y = y + 52;
-				var _distance = _y + cell_height;
-				if _unit != noone { _distance = _y - _unit.y; }
+				vfx_fire_attack( y + cell_height, _unit, unit_get_x(xpos), y + 52);
 				
-				with vfx_create( vfx_fireball, unit_get_x(xpos), _y - _distance, 0.05, 0.25)
-				{
-					image_yscale = _distance/48;
-					destroy_on_end = false;
-				}
 				// deal damage
 				if (_unit != noone) unit_take_damage(_unit, 1);
 			}
@@ -120,7 +108,11 @@ function unit_act(_obj){
 				if (_left_unit != noone) {
 					var _unit = unit_find_up(_left_unit.xpos);
 					vfx_head_attack(_left_unit);
-					if (_unit != noone) {
+					// fireball VFX
+					vfx_fire_attack(_left_unit.y + cell_height, _unit, unit_get_x(_left_unit.xpos), _left_unit.y + 52);
+					
+					if (_unit != noone)
+					{
 						unit_take_damage(_unit, 1);
 					}
 				}
@@ -128,6 +120,8 @@ function unit_act(_obj){
 				if (_right_unit != noone) {
 					var _unit = unit_find_up(_right_unit.xpos);
 					vfx_head_attack(_right_unit);
+					// fireball VFX
+					vfx_fire_attack(_right_unit.y + cell_height, _unit, unit_get_x(_right_unit.xpos), _right_unit.y + 52);
 					if (_unit != noone) {
 						unit_take_damage(_unit, 1);
 					}
@@ -135,6 +129,18 @@ function unit_act(_obj){
 			}
 		}
 	}
+}
+
+function vfx_fire_attack(_distance, _unit, _x, _y, _direction = 1)
+{
+	// fireball VFX
+	if _unit != noone { _distance = _y - _unit.y; }
+	
+	with vfx_create( vfx_fireball, _x, _y - _distance*_direction, 0.17, 0.1)
+	{
+		image_yscale = _distance/48*_direction;
+		destroy_on_end = false;
+	}	
 }
 
 function vfx_head_attack(_unit)

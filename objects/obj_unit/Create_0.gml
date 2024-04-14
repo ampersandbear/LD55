@@ -8,6 +8,9 @@ ypos = 0;
 stun = 0;
 stun_anim = 0;
 
+// unit's power
+unit_power = 0;
+
 // draw stuff
 hurt = 0;
 pulse = 0;
