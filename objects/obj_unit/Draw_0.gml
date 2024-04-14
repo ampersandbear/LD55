@@ -10,7 +10,7 @@ var _y = lerp_y;
 if (head && instance_exists(owner)) { // head unit
 	_x = unit_get_x(owner.card_pos);
 	_a = owner.in_hand ? 1 : .25;
-	if (owner.y <= 100) exit;
+	if (owner.y <= 100 && owner.drag_ystart < 100) exit;
 	
 	_y += 52;
 	var _card_pos = owner.card_pos;
