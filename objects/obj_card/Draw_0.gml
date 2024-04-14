@@ -7,14 +7,16 @@ if (global.card_drag != noone && !drag && (global.card_drag.y > 100 || global.ca
 }
 
 // card add preview for the shop:
-if (room == rm_shop && y > 100 && drag_ystart < 100 && drag) {
+if (room == rm_shop && drag_ystart < 100 && drag) {
+	/*var _a = (y > 100) ? 0.9 : 0.6;
 	draw_sprite_ext(
-		spr_card_add,
-		0,
+		spr_card_preview,
+		(y > 100),
 		shop_deck_xstart + (ds_list_size(deck) + 1) * card_width,
 		shop_deck_ystart,
-		1, 1, 0, c_white, .25
-	);
+		1, 1, 0, c_white, _a
+	);*/
+	draw_sprite_ext( spr_card_preview, 1, shop_deck_xstart + (ds_list_size(deck) + 1) * card_width, shop_deck_ystart, 1, 1, 0, c_white, 0.9);
 }
 
 lerp_x = lerp( lerp_x, _x, 0.3);
