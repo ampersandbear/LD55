@@ -19,7 +19,6 @@ card_create_on_start(__card.SUPERHEAD, 3);
 //card_create_on_start(__card.MOVE, 4);
 
 //card_draw_from_deck();
-spawn_enemy();
 
 /*
 unit_create(__unit.PEASANT, 3, 1);
