@@ -15,9 +15,8 @@ with (card_create(card.ATK, 200, 200)) {
 
 
 card_create_on_start(__card.SUPERHEAD, 3);
-card_create_on_start(__card.ATK, 2);
-card_create_on_start(__card.MOVE, 4);
-
+//card_create_on_start(__card.ATK, 2);
+//card_create_on_start(__card.MOVE, 4);
 
 card_draw();
 spawn_enemy();
