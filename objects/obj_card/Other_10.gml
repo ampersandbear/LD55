@@ -4,6 +4,8 @@ if (type == __card.MOVE && in_hand) {
 	global.unit_to_move = unit_find_up(card_pos);
 }
 
+audio_pplay( sfx_card_pick);
+
 active = true;
 mouseover = true;
 drag = true;

@@ -43,6 +43,8 @@ function unit_act(_obj){
 				// VFX
 				nudge_y = ATTACK_NUDGE;
 				damage_head(id, xpos, atk);
+				// SFX
+				audio_pplay(sfx_fast_woosh);
 				return;
 			}
 				
@@ -50,6 +52,7 @@ function unit_act(_obj){
 				if (ypos < 2) {
 					unit_move(id, xpos, ypos + 1);
 				} else {
+					audio_pplay( sfx_melee_attack);
 					vfx_create( vfx_attack, x, y + cell_height*2);
 					damage_head(id, xpos, atk);
 				}
@@ -73,12 +76,14 @@ function unit_act(_obj){
 			if (melee && ypos < 3) { // units move:
 				unit_move(id, xpos, ypos + 1);
 			} else { // units attack:
+				audio_pplay( sfx_melee_attack);
 				vfx_create( vfx_attack, x, y + cell_height*0.5);
 				damage_head(id, xpos, atk);
 				nudge_y = 10;
 				
 				if (type == __unit.AXEMAN)
 				{
+					audio_pplay(sfx_rock_impact,,,0.85);
 					vfx_create( vfx_attack, x - cell_width, y + cell_height*0.5);
 					vfx_create( vfx_attack, x - cell_width, y + cell_height*0.5);
 					
@@ -135,6 +140,9 @@ function vfx_fire_attack(_distance, _unit, _x, _y, _direction = 1)
 {
 	// fireball VFX
 	if _unit != noone { _distance = _y - _unit.y; }
+	
+	audio_pplay( sfx_fast_woosh);
+	audio_pplay( sfx_fireball);
 	
 	with vfx_create( vfx_fireball, _x, _y - _distance*_direction, 0.17, 0.1)
 	{

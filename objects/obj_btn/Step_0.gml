@@ -6,5 +6,7 @@ if (type == __btn.RESHUFFLE) {
 }
 
 active = visible;
+var _was_mouseover = mouseover;
 mouseover = false;
 event_inherited();
+if !_was_mouseover and mouseover { audio_pplay( sfx_button_hover, 0.25); }

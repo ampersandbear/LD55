@@ -5,7 +5,7 @@ for (var j = 0; j < 5; j++) {
 		var _unit = unit_find(i, j);
 		if (_unit != noone && !_unit.acted) {
 			unit_act(_unit);
-			alarm[1] = 10;
+			alarm[1] = 12;
 			exit;
 		}
 	}

@@ -18,7 +18,10 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 		
 		hp = max(0, hp - _dmg);
 		if (hp == 0)
-		{			
+		{
+			audio_pplay( sfx_dead);
+			audio_pplay( sfx_hit, 0.5);
+			
 			if (!head)
 			{ // enemy unit dies:
 				 if (type == __unit.RAM) {
@@ -44,5 +47,7 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 			ypos = noone;
 			instance_destroy();
 		}
+		else
+			audio_pplay( sfx_hit);
 	}
 }

@@ -9,7 +9,9 @@ if (drag) {
 	//card_pos = clamp((x + 45) div 91, global.left_hand - 1, global.right_hand + 1);
 	card_pos = clamp((x + 45) div 91, 0, 6);
 	
-    if (mouse_check_button_released(mb_left)) {
+    if (mouse_check_button_released(mb_left))
+	{
+		audio_pplay( sfx_card_drop);
 		
 		var _can_play = y > 100 || drag_ystart > 100;
 		if (room == rm_shop) _can_play = y > 100 && drag_ystart < 100;
@@ -43,16 +45,19 @@ if (drag) {
 			// Quickhead ability:
 			if (type == __card.QUICK && !ability_used) {
 				var _unit = unit_find_up(card_pos);
+				
+				// fireball VFX
+				vfx_fire_attack( y + cell_height, _unit, unit_get_x(xpos), y + 52);
+				
 				if (_unit != noone) unit_take_damage(_unit, 2)
 				ability_used = true;
 			}
 			
 			// Ragehead ability:
 			if (type == __card.STUN_ON_SUMMON && !ability_used) {
-				with (obj_unit) if (!head) stun = 1;
+				with (obj_unit) if (!head) { unit_stun(id); }
 				ability_used = true;
 			}
-			
 			
 			with (obj_card) if (in_hand) { 
 				if (card_pos == other.card_pos) {
