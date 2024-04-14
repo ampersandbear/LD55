@@ -28,7 +28,7 @@ if (drag) {
 				y = shop_deck_ystart;
 				drag = false;
 				with (obj_card) if (y < 100) instance_destroy();
-				btn_create(__btn.EXIT_SHOP, 320, 200);
+				btn_create(__btn.EXIT_SHOP, 270, 110);
 				exit;
 			}
 			

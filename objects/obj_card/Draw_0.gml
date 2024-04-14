@@ -16,7 +16,8 @@ if (room == rm_shop && drag_ystart < 100 && drag) {
 		shop_deck_ystart,
 		1, 1, 0, c_white, _a
 	);*/
-	draw_sprite_ext( spr_card_preview, 1, shop_deck_xstart + (ds_list_size(deck) + 1) * card_width, shop_deck_ystart, 1, 1, 0, c_white, 0.9);
+	var _a = (y > 100) ? 0.9 : 0.6;
+	draw_sprite_ext( spr_card_add, 1, shop_deck_xstart + (ds_list_size(deck) + 1) * card_width, shop_deck_ystart, 1, 1, 0, c_white, _a);
 }
 
 lerp_x = lerp( lerp_x, _x, 0.3);
