@@ -51,9 +51,18 @@ if (drag) {
 			
 			with (obj_card) if (in_hand) { 
 				if (card_pos == other.card_pos) {
-					in_hand = false;
-					x = card_draw_xstart;
-					y = card_draw_ystart;
+					if (other.drag_ystart < 100) {
+						in_hand = false;
+						x = card_draw_xstart;
+						y = card_draw_ystart;
+						instance_destroy(unit, false);
+						unit = noone;
+					} else {
+						x = other.drag_xstart;
+						y = other.drag_ystart;
+						card_pos = clamp((x + 45) div 91, 0, 6);
+						unit.xpos = card_pos;
+					}
 					_replace = true;
 				}
 			}
