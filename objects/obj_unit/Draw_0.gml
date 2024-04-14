@@ -124,6 +124,21 @@ if (!head && hp_max > 1) { // health:
 	var _hp_color	= (hp < hp_max) ? cc_atk : c_white;
 	draw_sprite_ext(spr_heart_numbers, hp, _x - 10, _y + 8, 1, 1, 0, _hp_color, 1);
 }
+if stun
+{
+	stun_anim += 3;
+	if stun_anim > 360 { stun_anim = 0; }
+	// non-head offset
+	_x += 1;
+	if !head { _y -= 20; } else { _y += 5; }
+	if stun_anim > 180 { _y += 1; }
+	// eclipse ( 27 x 15 )
+	draw_sprite( spr_stun, 2, _x, _y);
+	// stars
+	var _idx = floor(stun_anim/90) % 2 ? 0 : 1;
+	draw_sprite( spr_stun, _idx, _x + lengthdir_x( 14, stun_anim), _y + lengthdir_y( 7, stun_anim));
+	draw_sprite( spr_stun, _idx == 1 ? 0 : 1, _x + lengthdir_x(-14, stun_anim), _y + lengthdir_y(-7, stun_anim));
+}
 
 /*
 draw_set_color(c_lime);
