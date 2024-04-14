@@ -14,6 +14,8 @@ function macros(){
 	#macro wave_data			global.g_wave_data
 	#macro wave_total_count		10
 	
+	#macro deck					global.g_deck
+	
 	#macro card_xstart			5
 	#macro card_ystart			200
 	#macro card_draw_xstart		500
@@ -36,4 +38,7 @@ function macros(){
 	#macro cc_red_text			"#E74747"
 	#macro cc_purple			#5F41B0
 	#macro cc_green				#32BC61
+	#macro cc_gray				#6A7B82
+	#macro cc_orange			#FF7D2F
+	#macro cc_pink				#FA4EBB
 }

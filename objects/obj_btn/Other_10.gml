@@ -16,15 +16,15 @@ switch (type) {
 				
 				if (type == __unit.MAGE) { // mage attacks:
 					var _damaged_unit = false;
-					for (var j = 2; j < 5; j++) {
+					for (var j = 2; j < 4; j++) {
 						var _unit = unit_find(xpos, j);
 						if (_unit != noone) {
-							unit_take_damage(_unit, atk);
+							 unit_take_damage(_unit, atk);
 							_damaged_unit = true;
 							break;
 						}
 					}
-					if (!_damaged_unit) damage_masterhead(atk);
+					if (!_damaged_unit) damage_head(xpos, atk);
 					continue;
 				}
 				
@@ -62,9 +62,23 @@ switch (type) {
 			}
 			
 			// heads attack:
-			if (head && type == __card.ATK) {
-				var _unit = unit_find_up(xpos);
-				if (_unit != noone) unit_take_damage(_unit, 1);
+			if (head) {
+				if (type == __card.ATK) {
+					var _unit = unit_find_up(xpos);
+					if (_unit != noone) unit_take_damage(_unit, 1);
+				}
+				if (type == __card.BUFF) {
+					var _left_unit = unit_find(xpos - 1, ypos);
+					if (_left_unit != noone) {
+						var _unit = unit_find_up(_left_unit.xpos);
+						if (_unit != noone) unit_take_damage(_unit, 1);
+					}
+					var _right_unit = unit_find(xpos + 1, ypos);
+					if (_right_unit != noone) {
+						var _unit = unit_find_up(_right_unit.xpos);
+						if (_unit != noone) unit_take_damage(_unit, 1);
+					}
+				}
 			}
 		}
 		card_draw();

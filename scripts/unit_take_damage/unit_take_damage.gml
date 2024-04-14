@@ -24,6 +24,8 @@ function unit_take_damage(_unit, _dmg){
 					 if (_cell == noone) unit_create(__unit.RAM_KNIGHT, xpos + _x, ypos);
 				 }
 			}
+			xpos = noone;
+			ypos = noone;
 			instance_destroy();
 		}
 	}

@@ -13,3 +13,4 @@ sprite = card_data[type].unit_sprite;
 hp_max = hp;
 
 drag_xstart = x;
+ability_used = false;

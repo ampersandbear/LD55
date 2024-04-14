@@ -19,3 +19,4 @@ name = "";
 desc = "";
 color = c_white;
 sprite = noone;
+ability_used = false;

@@ -1,7 +1,10 @@
 enum __card {
 	SUPERHEAD,
 	ATK,
-	MOVE
+	MOVE,
+	BLOCK,
+	QUICK,
+	BUFF
 }
 
 enum __unit {
@@ -32,12 +35,19 @@ function build_data(){
 	card_data = [];
 	unit_data = [];
 	
+	deck = ds_list_create(); 
+	ds_list_add(deck, __card.ATK, __card.ATK, __card.QUICK, __card.QUICK, __card.MOVE, __card.BUFF, __card.BLOCK);
+	ds_list_shuffle(deck);
+	
 	wave_data[0] = ds_list_create(); ds_list_add(wave_data[0], __unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT); ds_list_shuffle(wave_data[0]);
 	
 	
-	card_add("Masterhead", "Draws a card at the start of the turn", 2, cc_purple, spr_head_purple, spr_neck_purple);
-	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] to the opposing enemy", 1, cc_red, spr_head_red, spr_neck_red);
+	card_add("Masterhead", "Draws a card every turn", 3, cc_purple, spr_head_purple, spr_neck_purple);
+	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);
 	card_add("Hypnohead", "When moved, moves the opposing enemy", 1, cc_green, spr_head_green, spr_neck_green);
+	card_add("Ironhead", "Redirects damage from nearby heads to itself", 5, cc_gray, spr_head_gray, spr_neck_gray);
+	card_add("Quickhead", "Deals [" + cc_atk_string + "]2[spr_atk][/c] when first placed", 2, cc_orange, spr_head_orange, spr_neck_orange);
+	card_add("Hothead", "Nearby heads deal [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_pink, spr_head_pink, spr_neck_pink);
 	
 	unit_add("Peasant", "", 1, 1, true, spr_peasant);
 	unit_add("Knight", "", 2, 1, true, spr_knight);

@@ -40,6 +40,14 @@ if (drag) {
 				global.unit_to_move = noone;
 			}
 			
+			// Quickhead ability:
+			if (type == __card.QUICK && !ability_used) {
+				var _unit = unit_find_up(card_pos);
+				if (_unit != noone) unit_take_damage(_unit, 2)
+				ability_used = true;
+			}
+			
+			
 			with (obj_card) if (in_hand) { 
 				if (card_pos == other.card_pos) {
 					in_hand = false;
