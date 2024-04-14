@@ -12,7 +12,7 @@ function macros(){
 	#macro unit_data			global.g_unit_data
 	
 	#macro wave_data			global.g_wave_data
-	#macro wave_total_count		10
+	#macro wave_total_count		global.g_wave_total_count
 	
 	#macro deck					global.g_deck
 	

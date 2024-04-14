@@ -32,15 +32,17 @@ function build_data(){
 	randomize();
 	unit_total_count = 0;
 	card_total_count = 0;
+	wave_total_count = 0;
 	card_data = [];
 	unit_data = [];
+	wave_data = [];
 	
 	deck = ds_list_create(); 
-	ds_list_add(deck, __card.ATK, __card.ATK, __card.QUICK, __card.QUICK, __card.MOVE, __card.BUFF, __card.BLOCK);
+	ds_list_add(deck, __card.ATK, __card.QUICK, __card.MOVE, __card.BUFF, __card.BLOCK);
 	ds_list_shuffle(deck);
 	
-	wave_data[0] = ds_list_create(); ds_list_add(wave_data[0], __unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT); ds_list_shuffle(wave_data[0]);
-	
+	wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
+	wave_add(__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
 	
 	card_add("Masterhead", "Draws a card every turn", 3, cc_purple, spr_head_purple, spr_neck_purple);
 	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);
@@ -88,4 +90,12 @@ function unit_add(_name, _desc, _hp, _atk, _melee, _sprite){
 		unit_desc	: _desc,
 		unit_sprite : _sprite
 	};
+}
+
+function wave_add(){
+	var _i = wave_total_count++;
+	
+	wave_data[_i] = ds_list_create(); 
+	for (var _j = 0; _j < argument_count; _j++) ds_list_add(wave_data[_i], argument[_j]); 
+	ds_list_shuffle(wave_data[_i]);
 }

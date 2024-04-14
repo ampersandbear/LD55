@@ -83,5 +83,10 @@ switch (type) {
 		}
 		card_draw();
 		spawn_enemy();
+		
+		// check the wave was defeated:
+		var _enemy_count = 0;
+		with (obj_unit) if (!head) _enemy_count++;
+		if (_enemy_count == 0) global.wave++;
 	break;
 }
