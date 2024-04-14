@@ -4,8 +4,12 @@ var _a = 1;
 
 lerp_x = lerp( lerp_x, x, 0.25);
 lerp_y = lerp( lerp_y, y, 0.25);
-var _x = lerp_x;
-var _y = lerp_y;
+
+nudge_x = lerp( nudge_x, 0, 0.2);
+nudge_y = lerp( nudge_y, 0, 0.2);
+
+var _x = lerp_x + nudge_x;
+var _y = lerp_y + nudge_y;
 
 if (head && instance_exists(owner)) { // head unit
 	_x = unit_get_x(owner.card_pos);

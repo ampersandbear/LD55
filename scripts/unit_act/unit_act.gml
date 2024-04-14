@@ -1,5 +1,5 @@
 function unit_act(_obj){
-	
+	#macro ATTACK_NUDGE 20
 	with (_obj) {
 		acted = true;
 			
@@ -10,6 +10,10 @@ function unit_act(_obj){
 			}
 				
 			if (type == __unit.MAGE) { // mage attacks:
+				
+				// VFX
+				nudge_y = ATTACK_NUDGE;
+				
 				var _damaged_unit = false;
 				for (var j = 2; j < 4; j++) {
 					var _unit = unit_find(xpos, j);
@@ -24,6 +28,8 @@ function unit_act(_obj){
 			}
 				
 			if (type == __unit.ARCHER) { // archer attacks:
+				// VFX
+				nudge_y = ATTACK_NUDGE;
 				damage_head(xpos, atk);
 				return;
 			}
@@ -38,8 +44,15 @@ function unit_act(_obj){
 			}
 				
 			if (type == __unit.NECRO) { // necromancer spawns skellies:
+				nudge_y -= ATTACK_NUDGE;
 				if (unit_find(xpos, ypos + 1) == noone) {
-					unit_create(__unit.SKELETON, xpos, ypos + 1);
+					with unit_create(__unit.SKELETON, xpos, ypos + 1)
+					{
+						lerp_x = x;
+						lerp_y = y;
+						
+						nudge_y = 5;
+					}
 				}
 				return;
 			}
@@ -48,7 +61,8 @@ function unit_act(_obj){
 				unit_move(id, xpos, ypos + 1);
 			} else { // units attack:
 				damage_head(xpos, atk);
-					
+				nudge_y = 10;
+				
 				if (type == __unit.AXEMAN) {
 					damage_head(xpos + 1, atk);
 					damage_head(xpos - 1, atk);
@@ -58,22 +72,40 @@ function unit_act(_obj){
 			
 		// heads attack:
 		if (head) {
-			if (type == __card.ATK) {
+			if (type == __card.ATK)
+			{
+				vfx_head_attack( id);
+				
 				var _unit = unit_find_up(xpos);
 				if (_unit != noone) unit_take_damage(_unit, 1);
 			}
-			if (type == __card.BUFF) {
+			if (type == __card.BUFF)
+			{
 				var _left_unit = unit_find(xpos - 1, ypos);
 				if (_left_unit != noone) {
 					var _unit = unit_find_up(_left_unit.xpos);
-					if (_unit != noone) unit_take_damage(_unit, 1);
+					vfx_head_attack(_left_unit);
+					if (_unit != noone) {
+						unit_take_damage(_unit, 1);
+					}
 				}
 				var _right_unit = unit_find(xpos + 1, ypos);
 				if (_right_unit != noone) {
 					var _unit = unit_find_up(_right_unit.xpos);
-					if (_unit != noone) unit_take_damage(_unit, 1);
+					vfx_head_attack(_right_unit);
+					if (_unit != noone) {
+						unit_take_damage(_unit, 1);
+					}
 				}
 			}
 		}
+	}
+}
+
+function vfx_head_attack(_unit)
+{
+	with _unit
+	{
+		nudge_y = -ATTACK_NUDGE;
 	}
 }

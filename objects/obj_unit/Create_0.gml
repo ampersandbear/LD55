@@ -16,6 +16,9 @@ acted = false;
 // lerp
 lerp_x = 0;
 lerp_y = 0;
+// nudge
+nudge_x = 0;
+nudge_y = 0;
 
 // head: wobbly idle
 head_animate_angle = 0;
