@@ -41,4 +41,5 @@ function macros(){
 	#macro cc_gray				#6A7B82
 	#macro cc_orange			#FF7D2F
 	#macro cc_pink				#FA4EBB
+	#macro cc_yellow			#F18842
 }

@@ -4,7 +4,8 @@ enum __card {
 	MOVE,
 	BLOCK,
 	QUICK,
-	BUFF
+	BUFF,
+	STUN
 }
 
 enum __unit {
@@ -38,7 +39,7 @@ function build_data(){
 	wave_data = [];
 	
 	deck = ds_list_create(); 
-	ds_list_add(deck, __card.ATK, __card.QUICK, __card.MOVE, __card.BUFF, __card.BLOCK);
+	ds_list_add(deck, __card.ATK, __card.STUN);
 	ds_list_shuffle(deck);
 	
 	wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
@@ -50,6 +51,7 @@ function build_data(){
 	card_add("Ironhead", "Redirects damage from nearby heads to itself", 5, cc_gray, spr_head_gray, spr_neck_gray);
 	card_add("Quickhead", "Deals [" + cc_atk_string + "]2[spr_atk][/c] when first placed", 2, cc_orange, spr_head_orange, spr_neck_orange);
 	card_add("Hothead", "Nearby heads deal [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_pink, spr_head_pink, spr_neck_pink);
+	card_add("Spikehead", "Stuns the enemy when attacked", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
 	
 	unit_add("Peasant", "", 1, 1, true, spr_peasant);
 	unit_add("Knight", "", 2, 1, true, spr_knight);
