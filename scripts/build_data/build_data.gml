@@ -62,7 +62,7 @@ function build_data(){
 	card_add("Quickhead", "Deals [" + cc_atk_string + "]2[spr_atk][/c] when summoned", 2, cc_orange, spr_head_orange, spr_neck_orange);
 	card_add("Hothead", "Nearby heads deal [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_pink, spr_head_pink, spr_neck_pink);
 	card_add("Spikehead", "Stuns attackers", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
-	card_add("Ragehead", "Stuns all enemies when summoned", 1, cc_yellow, spr_head_yellow, spr_neck_yellow);
+	card_add("Flashhead", "Stuns all enemies when summoned", 1, cc_light_blue, spr_head_light_blue, spr_neck_light_blue);
 	
 	unit_add("Peasant", "", 1, 1, true, spr_peasant);
 	unit_add("Knight", "", 2, 1, true, spr_knight);

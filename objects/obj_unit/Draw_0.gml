@@ -34,7 +34,7 @@ if (head && instance_exists(owner)) { // head unit
 	if head_animate_angle > 360 { head_animate_angle = 0; }
 	else if head_animate_angle < 0 { head_animate_angle = 360; }
 	_x += lengthdir_x( 3, head_animate_angle);
-	_y += lengthdir_y( 5, head_animate_angle);
+	_y += lengthdir_y( 5, head_animate_angle) - 5;
 	
 	// Draw neck unless we aren't fully visible?
 	if neck_sprite != noone
@@ -117,6 +117,9 @@ if (global.unit_to_move == id
 	_x = unit_get_x(_pos);
 	_a = .25;
 }
+// head drop shadow
+if head and _a >= 1 { draw_sprite_ext( sprite, 0, _x-1, _y+1, 1, 1, 0, c_black, 1); }
+
 // shaders
 if		hurt  > 0 { shader_set( shd_hurt); }
 else if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
