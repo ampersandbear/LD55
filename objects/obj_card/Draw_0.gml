@@ -3,19 +3,7 @@ var _x = x;
 var _y = y;
 
 if (global.card_drag != noone && !drag && (global.card_drag.y > 100 || global.card_drag.drag_ystart > 100) && in_hand) {
-	
-	// preview
-	if room != rm_shop
-	{
-		// draw guide
-		for(var i= 0; i < 7; i++)
-		{
-			var _selected = (global.card_drag.card_pos == i);
-			draw_sprite_ext( spr_card_preview, _selected, 5 + 90*i, _y + 10, 1, 1, 0, c_white, 0.6 + _selected*0.3);
-		}
-	}
-	
-	_y += 50;
+	_y += 50; // move down so you get a better of the board
 }
 
 // card add preview for the shop:
