@@ -1,7 +1,9 @@
 function card_draw_from_deck(){
 	
-	if (ds_list_empty(temp_deck)) return;
-	
+	if (ds_list_empty(temp_deck)) {
+		global.card_picked = true;
+		return;
+	}
 	var _type = temp_deck[| 0];
 	ds_list_delete(temp_deck, 0);
 	

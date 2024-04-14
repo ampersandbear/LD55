@@ -32,6 +32,8 @@ if (drag) {
 				exit;
 			}
 			
+			if (drag_ystart < 100) global.replace_used = true;
+			
 			// Hypnohead ability:
 			if (type == __card.MOVE && global.unit_to_move != noone) {
 				unit_move(global.unit_to_move, card_pos, global.unit_to_move.ypos);
@@ -71,7 +73,6 @@ if (drag) {
 			unit.xpos = card_pos;
 			y = card_ystart;
 			x = card_xstart + card_pos * card_width;
-			
 
 			if (card_pos < global.left_hand) {
 				global.left_hand--;
