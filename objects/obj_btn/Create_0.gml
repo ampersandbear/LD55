@@ -2,7 +2,7 @@ event_inherited();
 type = noone;
 active = true;
 width = 100;
-height = 30;
+height = 31;
 text = "";
 image_speed = 0;
 
