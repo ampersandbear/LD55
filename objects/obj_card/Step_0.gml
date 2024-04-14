@@ -32,6 +32,8 @@ if (drag) {
 				exit;
 			}
 			
+			if (drag_ystart < 100) global.replace_used = true;
+			
 			// Hypnohead ability:
 			if (type == __card.MOVE && global.unit_to_move != noone) {
 				unit_move(global.unit_to_move, card_pos, global.unit_to_move.ypos);
@@ -42,6 +44,12 @@ if (drag) {
 			if (type == __card.QUICK && !ability_used) {
 				var _unit = unit_find_up(card_pos);
 				if (_unit != noone) unit_take_damage(_unit, 2)
+				ability_used = true;
+			}
+			
+			// Ragehead ability:
+			if (type == __card.STUN_ON_SUMMON && !ability_used) {
+				with (obj_unit) if (!head) stun = 1;
 				ability_used = true;
 			}
 			
@@ -71,7 +79,6 @@ if (drag) {
 			unit.xpos = card_pos;
 			y = card_ystart;
 			x = card_xstart + card_pos * card_width;
-			
 
 			if (card_pos < global.left_hand) {
 				global.left_hand--;

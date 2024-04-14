@@ -19,8 +19,8 @@ function macros(){
 	
 	#macro card_xstart			5
 	#macro card_ystart			200
-	#macro card_draw_xstart		500
-	#macro card_draw_ystart		30
+	#macro card_draw_xstart		510
+	#macro card_draw_ystart		10
 	#macro card_width			90
 	#macro card_default_depth   -10
 	

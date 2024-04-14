@@ -5,7 +5,7 @@ global.left_hand = 3;
 global.right_hand = 3;
 global.unit_to_move = noone;
 global.wave = -1;
-global.shop = false;
+global.replace_used = false;
 
 alarm[0] = 1;
 
@@ -42,4 +42,5 @@ screenshake_less = 0;
 screenshake_direction = 0;
 
 // end turn button:
-btn_create(__btn.END_TURN, 480, 60);
+btn_create(__btn.END_TURN, 505, 60);
+btn_create(__btn.RESHUFFLE, 505, 125);

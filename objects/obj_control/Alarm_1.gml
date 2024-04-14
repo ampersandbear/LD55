@@ -31,3 +31,4 @@ if (_enemy_count == 0) { // it was!
 }
 
 card_draw_from_deck();
+global.replace_used = false;
