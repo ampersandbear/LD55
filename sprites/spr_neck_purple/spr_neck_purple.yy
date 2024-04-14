@@ -23,7 +23,7 @@
   ],
   "name":"spr_neck_purple",
   "nineSlice":null,
-  "origin":3,
+  "origin":4,
   "parent":{
     "name":"heads",
     "path":"folders/Sprites/heads.yy",
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":11,
     "yorigin":11,
   },
   "swatchColours":null,

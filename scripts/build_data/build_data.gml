@@ -41,7 +41,7 @@ function build_data(){
 	ds_list_add(deck, __card.ATK, __card.QUICK, __card.MOVE, __card.BUFF, __card.BLOCK);
 	ds_list_shuffle(deck);
 	
-	wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
+	repeat( 5) { wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);  }
 	wave_add(__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
 	
 	card_add("Masterhead", "Draws a card every turn", 3, cc_purple, spr_head_purple, spr_neck_purple);

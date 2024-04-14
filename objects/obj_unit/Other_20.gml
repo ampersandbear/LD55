@@ -1,6 +1,7 @@
 if (ypos > 3) {
 	sprite = card_data[type].unit_sprite;
 	hp	   = card_data[type].card_hp;
+	neck_sprite = card_data[type].neck_sprite;
 	head = true;
 	
 } else {

@@ -18,6 +18,42 @@ if (head && instance_exists(owner)) { // head unit
 	) { 
 		_y += 20;
 	}
+	
+	// Animate head:
+	head_animate_angle += head_animate_speed;
+	if head_animate_angle > 360 { head_animate_angle = 0; }
+	else if head_animate_angle < 0 { head_animate_angle = 360; }
+	_x += lengthdir_x( 3, head_animate_angle);
+	_y += lengthdir_y( 5, head_animate_angle);
+	
+	// Draw neck unless we aren't fully visible?
+	if _a == 1 and neck_sprite != noone
+	{
+		var _balls = 1;
+		var _nx = game_width*0.5;
+		var _ny = 240;
+		
+		switch xpos
+		{
+			case 0: _nx -= 30; _ny += 30; _balls = 4; break;
+			case 1: _nx -= 20; _ny += 20; _balls = 3; break;
+			case 2: _nx -= 10; _ny += 10; _balls = 2; break;
+			//case 3: _nx -= 20; _ny += 20; break;
+			case 4: _nx += 10; _ny += 10; _balls = 2; break;
+			case 5: _nx += 20; _ny += 20; _balls = 3; break;
+			case 6: _nx += 30; _ny += 30; _balls = 4; break;
+		}
+		
+		var _distance = point_distance(_x, _y, _nx, _ny);
+		var _angle	  = point_direction(_nx, _ny, _x, _y);
+		var _interval = _distance/(_balls+1);
+		
+		for(var i= 1; i <= _balls; i++)
+		{
+			draw_sprite( neck_sprite, 0, _nx + lengthdir_x(_interval*i, _angle)
+									   , _ny + lengthdir_y(_interval*i, _angle));
+		}
+	}
 }
 
 var _attack_warn = ypos == 3;
