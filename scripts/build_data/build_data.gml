@@ -50,11 +50,11 @@ function build_data(){
 	
 	card_add("Masterhead", "Takes damage from empty cell attacks", 5, cc_purple, spr_head_purple, spr_neck_purple);
 	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);
-	card_add("Hypnohead", "When moved, moves the opposing enemy", 1, cc_green, spr_head_green, spr_neck_green);
+	card_add("Hypnohead", "When moved, moves the opposing enemy", 2, cc_green, spr_head_green, spr_neck_green);
 	card_add("Ironhead", "Redirects damage from nearby heads to itself", 5, cc_gray, spr_head_gray, spr_neck_gray);
-	card_add("Quickhead", "Deals [" + cc_atk_string + "]2[spr_atk][/c] when first placed", 2, cc_orange, spr_head_orange, spr_neck_orange);
+	card_add("Quickhead", "Deals [" + cc_atk_string + "]2[spr_atk][/c] when summoned", 2, cc_orange, spr_head_orange, spr_neck_orange);
 	card_add("Hothead", "Nearby heads deal [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_pink, spr_head_pink, spr_neck_pink);
-	card_add("Spikehead", "Stuns the enemy when attacked", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
+	card_add("Spikehead", "Stuns attackers", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
 	
 	unit_add("Peasant", "", 1, 1, true, spr_peasant);
 	unit_add("Knight", "", 2, 1, true, spr_knight);

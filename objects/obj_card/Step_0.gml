@@ -9,31 +9,27 @@ if (drag) {
 	//card_pos = clamp((x + 45) div 91, global.left_hand - 1, global.right_hand + 1);
 	card_pos = clamp((x + 45) div 91, 0, 6);
 	
-	// shift the cards in hand:
-	/*with (obj_card) if (in_hand) { 
-		temp_card_pos = card_pos;
-	}*/
-	with (obj_card) if (in_hand) { 
-		if (card_pos == other.card_pos) {
-			
-			//var _dir = ((other.x + 45) mod 91 > 45) ? -1 : 1;
-			
-			/*if (_dir == 1) {
-				if (card_pos == global.left_hand && global.right_hand > global.left_hand) _dir = -1; // don't move the leftmost card to the right
-			}
-			if (_dir == -1) {
-				if (card_pos == global.left_hand && global.right_hand > global.left_hand) _dir = -1; // don't move the leftmost card to the right
-			}*/
-			//card_row_move(_dir);
-		}
-	}
-	
-	
     if (mouse_check_button_released(mb_left)) {
-		if (y > 100 || drag_ystart > 100) { // play the card:
+		
+		var _can_play = y > 100 || drag_ystart > 100;
+		if (room == rm_shop) _can_play = y > 100 && drag_ystart < 100;
+		
+		if (_can_play) { // play the card:
 			
 			var _replace = false;
 			global.card_drag = noone;
+			
+			// if in shop, add a card to your deck:
+			if (room == rm_shop) { 
+				ds_list_add(deck, type);
+				ds_list_shuffle(deck);
+				ds_list_copy(temp_deck, deck);
+				x = shop_deck_xstart + ds_list_size(deck) * card_width;
+				y = shop_deck_ystart;
+				drag = false;
+				with (obj_card) if (y < 100) instance_destroy();
+				exit;
+			}
 			
 			// Hypnohead ability:
 			if (type == __card.MOVE && global.unit_to_move != noone) {

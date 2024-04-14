@@ -22,4 +22,4 @@ if (_enemy_count == 0) { // it was!
 	with (obj_unit) if (head) instance_destroy();
 	room_goto(rm_shop);
 	
-} else card_draw();
+} else card_draw_from_deck();

@@ -14,9 +14,9 @@ for (var i = 0; i < 3; i++) {
 ds_list_destroy(_pool);
 
 // your deck:
-card_create(__card.SUPERHEAD, 10, 250);
+card_create(__card.SUPERHEAD, shop_deck_xstart, shop_deck_ystart);
 
 for (var i = 0; i < ds_list_size(deck); i++) {
 	var _type = deck[| i];
-	card_create(_type, 100 + i * 90, 250);
+	card_create(_type, shop_deck_xstart + (i + 1) * card_width, shop_deck_ystart);
 }

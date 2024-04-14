@@ -9,7 +9,7 @@
     {"name":"rm_shop","order":1,"path":"rooms/rm_shop/rm_shop.yy",},
     {"name":"btn_create","order":4,"path":"scripts/btn_create/btn_create.yy",},
     {"name":"card_create_on_start","order":14,"path":"scripts/card_create_on_start/card_create_on_start.yy",},
-    {"name":"card_draw","order":2,"path":"scripts/card_draw/card_draw.yy",},
+    {"name":"card_draw_from_deck","order":2,"path":"scripts/card_draw_from_deck/card_draw_from_deck.yy",},
     {"name":"card_row_move","order":3,"path":"scripts/card_row_move/card_row_move.yy",},
     {"name":"damage_head","order":12,"path":"scripts/damage_head/damage_head.yy",},
     {"name":"damage_masterhead","order":10,"path":"scripts/damage_masterhead/damage_masterhead.yy",},

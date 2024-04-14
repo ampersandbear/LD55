@@ -111,7 +111,7 @@
     {"id":{"name":"build_data","path":"scripts/build_data/build_data.yy",},},
     {"id":{"name":"card_create_on_start","path":"scripts/card_create_on_start/card_create_on_start.yy",},},
     {"id":{"name":"card_create","path":"scripts/card_create/card_create.yy",},},
-    {"id":{"name":"card_draw","path":"scripts/card_draw/card_draw.yy",},},
+    {"id":{"name":"card_draw_from_deck","path":"scripts/card_draw_from_deck/card_draw_from_deck.yy",},},
     {"id":{"name":"card_row_move","path":"scripts/card_row_move/card_row_move.yy",},},
     {"id":{"name":"damage_head","path":"scripts/damage_head/damage_head.yy",},},
     {"id":{"name":"damage_masterhead","path":"scripts/damage_masterhead/damage_masterhead.yy",},},
