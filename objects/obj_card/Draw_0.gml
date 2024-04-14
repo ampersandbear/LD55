@@ -2,7 +2,7 @@
 var _x = x;
 var _y = y;
 
-if (global.card_drag != noone && !drag && global.card_drag.y > 100 && in_hand) {
+if (global.card_drag != noone && !drag && (global.card_drag.y > 100 || global.card_drag.drag_ystart > 100) && in_hand) {
 	_y += 50;
 }
 

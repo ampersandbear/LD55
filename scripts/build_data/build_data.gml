@@ -41,10 +41,10 @@ function build_data(){
 	ds_list_add(deck, __card.ATK, __card.QUICK, __card.MOVE, __card.BUFF, __card.BLOCK);
 	ds_list_shuffle(deck);
 	
-	repeat( 5) { wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);  }
+	wave_add(__unit.PEASANT, __unit.PEASANT, __unit.MAGE, __unit.KNIGHT);
 	wave_add(__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
 	
-	card_add("Masterhead", "Draws a card every turn", 3, cc_purple, spr_head_purple, spr_neck_purple);
+	card_add("Masterhead", "Takes damage from empty cell attacks", 5, cc_purple, spr_head_purple, spr_neck_purple);
 	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);
 	card_add("Hypnohead", "When moved, moves the opposing enemy", 1, cc_green, spr_head_green, spr_neck_green);
 	card_add("Ironhead", "Redirects damage from nearby heads to itself", 5, cc_gray, spr_head_gray, spr_neck_gray);

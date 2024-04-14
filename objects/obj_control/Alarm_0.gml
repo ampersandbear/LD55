@@ -14,13 +14,10 @@ with (card_create(card.ATK, 200, 200)) {
 }*/
 
 
-var _base = card_create(__card.SUPERHEAD, card_xstart + 3 * card_width, 200);
-_base.in_hand = true;
+card_create_on_start(__card.SUPERHEAD, 3);
+card_create_on_start(__card.ATK, 2);
+card_create_on_start(__card.MOVE, 4);
 
-with (unit_create(__card.SUPERHEAD, 3, 4)) {
-	owner = _base;
-	_base.unit = id;
-}
 
 card_draw();
 spawn_enemy();

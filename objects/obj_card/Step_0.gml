@@ -30,7 +30,7 @@ if (drag) {
 	
 	
     if (mouse_check_button_released(mb_left)) {
-		if (y > 100) { // play the card:
+		if (y > 100 || drag_ystart > 100) { // play the card:
 			
 			var _replace = false;
 			global.card_drag = noone;
@@ -81,7 +81,7 @@ if (drag) {
 		} else { // cancel dragging:
 			drag = false;
 	        global.card_drag = noone;
-			with (unit) instance_destroy();
+			instance_destroy(unit, false);
 			unit = noone;
 			x = drag_xstart;
 			y = drag_ystart;

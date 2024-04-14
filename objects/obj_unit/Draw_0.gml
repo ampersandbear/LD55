@@ -7,7 +7,7 @@ var _y = y;
 if (head && instance_exists(owner)) { // head unit
 	_x = unit_get_x(owner.card_pos);
 	_a = owner.in_hand ? 1 : .25;
-	if (owner.y <= 100) exit;
+	if (owner.y <= 100 && owner.drag_ystart < 100) exit;
 	
 	_y += 52;
 	
