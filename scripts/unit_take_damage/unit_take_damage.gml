@@ -8,7 +8,11 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 		else	{ nudge_y = _direction*ATTACK_NUDGE; }
 		
 		hp = max(0, hp - _dmg);
-		if (hp == 0) {
+		if (hp == 0)
+		{
+			// Explode!
+			vfx_create( vfx_explosion, x, y);
+			
 			if (!head) { // enemy unit dies:
 				 if (type == __unit.RAM) {
 					 unit_create(__unit.RAM_KNIGHT, xpos, ypos);

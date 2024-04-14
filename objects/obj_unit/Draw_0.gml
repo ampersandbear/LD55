@@ -12,7 +12,7 @@ var _x = lerp_x + nudge_x;
 var _y = lerp_y + nudge_y;
 
 if (head && instance_exists(owner)) { // head unit
-	_x = unit_get_x(owner.card_pos);
+	_x = unit_get_x(owner.card_pos) + nudge_x;
 	_a = owner.in_hand ? 1 : .25;
 	if (owner.y <= 100 && owner.drag_ystart < 100) exit;
 	
