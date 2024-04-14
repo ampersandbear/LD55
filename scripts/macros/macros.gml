@@ -11,6 +11,9 @@ function macros(){
 	#macro card_data			global.g_card_data
 	#macro unit_data			global.g_unit_data
 	
+	#macro wave_data			global.g_wave_data
+	#macro wave_total_count		10
+	
 	#macro card_xstart			5
 	#macro card_ystart			200
 	#macro card_draw_xstart		500

@@ -25,7 +25,7 @@ var _attack_warn = ypos == 3;
 if (!head) {
 	_y -= 5;
 	// mage attack warning:
-	if (type == __unit.MAGE) {
+	if (type == __unit.MAGE && ypos > 0) {
 		draw_sprite_ext(spr_attack_warn, 2, x, y, 1, 1, 0, cc_red, 1);
 		if (unit_find(xpos, 3) != noone) {
 			draw_sprite_ext(spr_attack_warn, 1, unit_get_x(xpos), unit_get_y(2), 1, 1, 0, cc_red, 1);
@@ -34,11 +34,24 @@ if (!head) {
 			draw_sprite_ext(spr_attack_warn, 2, unit_get_x(xpos), unit_get_y(3), 1, 1, 0, cc_red, 1);
 			_attack_warn = true;
 		}
-		
+	}
+	// archer attack warning:
+	if (type == __unit.ARCHER && ypos > 0) {
+		for (var i = 1; i < 4; i++) {
+			draw_sprite_ext(spr_attack_warn, 2, unit_get_x(xpos), unit_get_y(i), 1, 1, 0, cc_red, 1);
+		}
+		_attack_warn = true;
+	}
+	// spearman attack warning:
+	if (type == __unit.SPEARMAN && ypos > 1) {
+		for (var i = 2; i < 4; i++) {
+			draw_sprite_ext(spr_attack_warn, 2, unit_get_x(xpos), unit_get_y(i), 1, 1, 0, cc_red, 1);
+		}
+		_attack_warn = true;
 	}
 }
 
-if (_attack_warn) { // attack warnings:
+if (_attack_warn) { // melee attack warning:
 	draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
 }
 
@@ -54,6 +67,10 @@ if (global.unit_to_move == id
 }
 
 draw_sprite_ext(sprite, 0, _x, _y, 1, 1, 0, c_white, _a);
+
+if (ypos == 0) { // darken spawned units:
+	draw_sprite_ext(spr_cell, 0, x - cell_width div 2, y - cell_height div 2, 1, 1, 0, c_black, .5);
+}
 
 if (!head && hp_max > 1) { // health:
 	draw_sprite_ext(spr_heart, 0, _x - 20, _y + 8, 1, 1, 0, c_white, 1);

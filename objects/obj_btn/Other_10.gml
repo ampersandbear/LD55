@@ -2,8 +2,18 @@
 
 switch (type) {
 	case __btn.END_TURN:
-		with (obj_unit) {
+		
+		with (obj_unit) acted = false;
+		
+		with (obj_unit) if (!acted) {
+			acted = true;
+			
 			if (!head) {
+				if (ypos == 0) { // spawn:
+					unit_move(id, xpos, 1);
+					continue;
+				}
+				
 				if (type == __unit.MAGE) { // mage attacks:
 					var _damaged_unit = false;
 					for (var j = 2; j < 5; j++) {
@@ -18,14 +28,35 @@ switch (type) {
 					continue;
 				}
 				
+				if (type == __unit.ARCHER) { // archer attacks:
+					damage_head(xpos, atk);
+					continue;
+				}
+				
+				if (type == __unit.SPEARMAN) { // spearman moves & attacks:
+					if (ypos < 2) {
+						unit_move(id, xpos, ypos + 1);
+					} else {
+						damage_head(xpos, atk);
+					}
+					continue;
+				}
+				
+				if (type == __unit.NECRO) { // necromancer spawns skellies:
+					if (unit_find(xpos, ypos + 1) == noone) {
+						unit_create(__unit.SKELETON, xpos, ypos + 1);
+					}
+					continue;
+				}
+				
 				if (melee && ypos < 3) { // units move:
 					unit_move(id, xpos, ypos + 1);
 				} else { // units attack:
-					var _unit = unit_find(xpos, 4);
-					if (_unit != noone) {
-						unit_take_damage(_unit, atk);
-					} else { // damage the masterhead:
-						damage_masterhead(atk);
+					damage_head(xpos, atk);
+					
+					if (type == __unit.AXEMAN) {
+						damage_head(xpos + 1, atk);
+						damage_head(xpos - 1, atk);
 					}
 				}
 			}
@@ -37,6 +68,6 @@ switch (type) {
 			}
 		}
 		card_draw();
-		spawn_enemies();
+		spawn_enemy();
 	break;
 }

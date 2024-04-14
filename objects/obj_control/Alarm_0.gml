@@ -21,8 +21,10 @@ with (unit_create(__card.SUPERHEAD, 3, 4)) {
 }
 
 card_draw();
+spawn_enemy();
 
+/*
 unit_create(__unit.PEASANT, 3, 1);
-
-unit_create(__unit.MAGE, 4, 1);
-unit_create(__unit.KNIGHT, 5, 1);
+unit_create(__unit.AXEMAN, 4, 1);
+unit_create(__unit.NECRO, 5, 1);
+unit_create(__unit.SKELETON, 6, 1);

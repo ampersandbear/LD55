@@ -8,6 +8,7 @@ function unit_move(_unit, _x, _y){
 		ypos = _y;
 		x = unit_get_x(xpos);
 		y = unit_get_y(ypos);
+		depth = -ypos;
 		return true;
 	}
 }

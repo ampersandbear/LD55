@@ -1,7 +1,6 @@
 if (ypos > 3) {
 	sprite = card_data[type].unit_sprite;
 	hp	   = card_data[type].card_hp;
-	hp_max = hp;
 	head = true;
 	
 } else {
@@ -9,5 +8,8 @@ if (ypos > 3) {
 	hp	   = unit_data[type].unit_hp;
 	atk	   = unit_data[type].unit_atk;
 	melee  = unit_data[type].unit_melee;
-	hp_max = hp;
+	
 }
+
+hp_max = hp;
+acted = true;

@@ -7,6 +7,7 @@ function unit_create(_type, _x, _y){
 	_unit.type = _type;
 	_unit.xpos = _x;
 	_unit.ypos = _y;
+	_unit.depth = -_y
 	with (_unit) event_user(10);
 	return _unit;
 }
