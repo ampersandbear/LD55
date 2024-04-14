@@ -13,6 +13,8 @@ function damage_head(_attacker, _x, _dmg){
 		// Spikehead ability:
 		if (_unit.type == __card.STUN) {
 			_attacker.stun = 1;
+			_attacker.pulse = 7;
+			_attacker.pulse_color = c_white;
 		}
 		
 		unit_take_damage(_unit, _dmg);

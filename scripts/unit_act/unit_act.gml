@@ -24,7 +24,7 @@ function unit_act(_obj){
 				for (var j = 2; j < 4; j++) {
 					var _unit = unit_find(xpos, j);
 					if (_unit != noone) {
-							unit_take_damage(_unit, atk);
+							unit_take_damage(_unit, atk, 1);
 						_damaged_unit = true;
 						break;
 					}

@@ -52,6 +52,9 @@ if (head && instance_exists(owner)) { // head unit
 			case 5: _nx += 20; _ny += 20; _balls = 3; break;
 			case 6: _nx += 30; _ny += 30; _balls = 4; break;
 		}
+		// set up shader on neck too
+		if		hurt  > 0 { shader_set( shd_hurt); }
+		else if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
 		
 		var _distance = point_distance(_x, _y, _nx, _ny);
 		var _angle	  = point_direction(_nx, _ny, _x, _y);
@@ -63,6 +66,7 @@ if (head && instance_exists(owner)) { // head unit
 										   , _ny + lengthdir_y(_interval*i, _angle)
 										   , 1, 1, 0, c_white, _a);
 		}
+		if hurt > 0 or pulse > 0 { shader_reset(); }
 	}
 }
 
@@ -112,8 +116,15 @@ if (global.unit_to_move == id
 	_x = unit_get_x(_pos);
 	_a = .25;
 }
+// shaders
+if		hurt  > 0 { shader_set( shd_hurt); }
+else if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
 
 draw_sprite_ext(sprite, 0, _x, _y, 1, 1, 0, c_white, _a);
+
+// reset shaders
+if		hurt  > 0 { hurt -= 1; shader_reset(); }
+else if pulse > 0 { pulse -= 1; shader_reset(); }
 
 if (ypos == 0) { // darken spawned units:
 	draw_sprite_ext(spr_cell, 0, x - cell_width div 2, y - cell_height div 2, 1, 1, 0, c_black, .5);

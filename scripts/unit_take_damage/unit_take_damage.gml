@@ -1,8 +1,11 @@
-function unit_take_damage(_unit, _dmg)
+function unit_take_damage(_unit, _dmg, _direction = -1)
 {
 	with (_unit)
 	{
-		
+		// VFX
+		hurt = 7;
+		if head { nudge_y = ATTACK_NUDGE; }
+		else	{ nudge_y = _direction*ATTACK_NUDGE; }
 		
 		hp = max(0, hp - _dmg);
 		if (hp == 0) {

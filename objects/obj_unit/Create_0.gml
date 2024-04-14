@@ -8,6 +8,12 @@ ypos = 0;
 stun = 0;
 stun_anim = 0;
 
+// draw stuff
+hurt = 0;
+pulse = 0;
+pulse_color = c_white;
+pulse_alpha = 1;
+
 hp = 0;
 hp_max = 0;
 atk = 0;
