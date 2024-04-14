@@ -17,3 +17,7 @@ if (unit == noone) {
 		other.unit = id;
 	}
 }
+
+if (type == __card.MOVE) {
+	global.unit_to_move = unit_find_up(card_pos);
+}
