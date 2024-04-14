@@ -1,3 +1,5 @@
+///@description starting cards and units
+
 /*with (card_create(card.SUPERHEAD, 100, 200)) {
 	in_hand = true;
 }

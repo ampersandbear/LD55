@@ -3,7 +3,6 @@
 active = true;
 mouseover = true;
 drag = true;
-in_hand = false;
 drag_x = mouse_x - x;
 drag_y = mouse_y - y;
 drag_xstart = x;

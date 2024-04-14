@@ -1,4 +1,4 @@
-active = !in_hand;
+active = global.card_drag == noone;
 event_inherited();
 
 if (drag) {
@@ -6,7 +6,8 @@ if (drag) {
     y = mouse_y - drag_y;
     depth = -10000;
 	if (instance_exists(unit)) unit.depth = depth;
-	card_pos = clamp((x + 45) div 91, global.left_hand - 1, global.right_hand + 1);
+	//card_pos = clamp((x + 45) div 91, global.left_hand - 1, global.right_hand + 1);
+	card_pos = clamp((x + 45) div 91, 0, 6);
 	
 	// shift the cards in hand:
 	/*with (obj_card) if (in_hand) { 
@@ -61,7 +62,6 @@ if (drag) {
 			}
 			
 			drag = false;
-			in_hand = true;
 			mouseover = false;
 			active = false;
 			unit.xpos = card_pos;
@@ -69,17 +69,17 @@ if (drag) {
 			x = card_xstart + card_pos * card_width;
 			
 
-			
 			if (card_pos < global.left_hand) {
 				global.left_hand--;
 			}
 			if (card_pos > global.right_hand) {
 				global.right_hand++;
 			}
-			if (!_replace) {
+			if (!in_hand && !_replace) {
 				//card_draw();
 				global.hand_size++;
 				global.card_picked = true;
+				in_hand = true;
 			}
 		} else { // cancel dragging:
 			drag = false;
