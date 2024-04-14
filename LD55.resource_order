@@ -14,6 +14,8 @@
     {"name":"card_row_move","order":3,"path":"scripts/card_row_move/card_row_move.yy",},
     {"name":"damage_head","order":12,"path":"scripts/damage_head/damage_head.yy",},
     {"name":"damage_masterhead","order":10,"path":"scripts/damage_masterhead/damage_masterhead.yy",},
+    {"name":"screenshake_do","order":15,"path":"scripts/screenshake_do/screenshake_do.yy",},
+    {"name":"camera_nudge","order":16,"path":"scripts/camera_nudge/camera_nudge.yy",},
     {"name":"spawn_enemy","order":11,"path":"scripts/spawn_enemy/spawn_enemy.yy",},
     {"name":"unit_act","order":13,"path":"scripts/unit_act/unit_act.yy",},
     {"name":"unit_create","order":1,"path":"scripts/unit_create/unit_create.yy",},

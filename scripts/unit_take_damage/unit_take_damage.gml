@@ -4,8 +4,17 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 	{
 		// VFX
 		hurt = 7;
-		if head { nudge_y = ATTACK_NUDGE; }
-		else	{ nudge_y = _direction*ATTACK_NUDGE; }
+		if head
+		{
+			nudge_y = ATTACK_NUDGE;
+			// Screenshake!!
+			screenshake_do( 5, 5);
+		}
+		else
+		{
+			nudge_y = _direction*ATTACK_NUDGE;
+			camera_nudge( 0,2*_direction);
+		}
 		
 		hp = max(0, hp - _dmg);
 		if (hp == 0)

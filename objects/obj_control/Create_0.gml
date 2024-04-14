@@ -24,5 +24,14 @@ for (var i = 0; i < board_width; i++) {
 	}
 }
 
+// camera draw stuff
+nudge_x = 0;
+nudge_y = 0;
+// screenshake stuff
+screenshake      = 0;
+screenshake_time = 0;
+screenshake_less = 0;
+screenshake_direction = 0;
+
 // end turn button:
 btn_create(__btn.END_TURN, 480, 60);
