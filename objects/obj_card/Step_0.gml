@@ -47,6 +47,12 @@ if (drag) {
 				ability_used = true;
 			}
 			
+			// Ragehead ability:
+			if (type == __card.STUN_ON_SUMMON && !ability_used) {
+				with (obj_unit) if (!head) stun = 1;
+				ability_used = true;
+			}
+			
 			
 			with (obj_card) if (in_hand) { 
 				if (card_pos == other.card_pos) {

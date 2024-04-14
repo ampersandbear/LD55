@@ -5,7 +5,8 @@ enum __card {
 	BLOCK,
 	QUICK,
 	BUFF,
-	STUN
+	STUN,
+	STUN_ON_SUMMON
 }
 
 enum __unit {
