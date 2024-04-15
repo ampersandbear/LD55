@@ -32,9 +32,25 @@ if (drag) {
 			_can_play = y > 100 && drag_ystart < 100;
 			if (is_trinket) {
 				var _card_to_upgrade = noone;
-				with (obj_card) if (in_deck && card_pos == other.card_pos && array_length(trinkets) < max_trinkets && !has_trinket(other.type)) {
-					_card_to_upgrade = id;
-					break;
+				with (obj_card)
+				{
+					if (in_deck && card_pos == other.card_pos)
+					{
+						if array_length(trinkets) < max_trinkets && !has_trinket(other.type)
+							_card_to_upgrade = id;
+						else
+						{
+							nudge_x = choose(1,2,3)*choose(-1,1);
+							nudge_y = choose(1,2,3)*choose(-1,1);
+							
+							pulse = 9;
+							pulse_color = c_black;
+							pulse_alpha = 0.35;
+							
+							audio_pplay( sfx_bonk, 0.55,, 1.25);
+						}
+						break;
+					}
 				}
 				if (_card_to_upgrade == noone) _can_play = false;
 			}

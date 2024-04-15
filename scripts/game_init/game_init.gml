@@ -5,10 +5,8 @@ function game_init(){
 	
 	scribble_font_set_default("fnt_main");
 	build_data();
-	
-	global.music_volume = 0//0.5;
-	global.sfx_volume = 0.25;
-	
+		
+	music_init();
 	music_play( mus_hydra);
 }
 
