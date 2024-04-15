@@ -11,6 +11,7 @@ drag_xstart = 0;
 drag_ystart = 0;
 
 in_hand = false;
+in_deck = false;
 card_pos = 3;
 temp_card_pos = 3;
 
@@ -23,3 +24,5 @@ desc = "";
 color = c_white;
 sprite = noone;
 ability_used = false;
+is_trinket = false;
+trinkets = [];

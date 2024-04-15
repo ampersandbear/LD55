@@ -1,4 +1,6 @@
 if (room == rm_game) {
+	ds_list_shuffle(deck);
+	ds_list_copy(temp_deck, deck);
 	card_draw_from_deck();
 	global.wave++;
 	global.replace_used = false;
@@ -9,6 +11,9 @@ if (room == rm_game) {
 			owner.x = card_xstart + owner.card_pos * card_width;
 			owner.lerp_x = owner.x;
 			xpos = owner.card_pos;
+			owner.trinkets = global.master_trinkets;
+			hp = global.master_hp;
+			hp_max = global.master_hp_max;
 		} else { // destroy all heads:
 			instance_destroy();
 		}

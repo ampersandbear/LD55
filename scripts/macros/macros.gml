@@ -17,6 +17,10 @@ function macros(){
 	#macro deck					global.g_deck
 	#macro temp_deck			global.g_temp_deck
 	
+	#macro trinket_data			global.g_trinket_data
+	#macro trinket_total_count	global.g_trinket_total_count
+	#macro max_trinkets			3
+	
 	#macro card_xstart			5
 	#macro card_ystart			200
 	#macro card_draw_xstart		510

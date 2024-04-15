@@ -14,21 +14,42 @@ if (drag) {
 		audio_pplay( sfx_card_drop);
 		
 		var _can_play = y > 100 || drag_ystart > 100;
-		if (room == rm_shop) _can_play = y > 100 && drag_ystart < 100;
+		if (room == rm_shop) {
+			_can_play = y > 100 && drag_ystart < 100;
+			if (is_trinket) {
+				var _card_to_upgrade = noone;
+				with (obj_card) if (in_deck && card_pos == other.card_pos && array_length(trinkets) < max_trinkets && !has_trinket(other.type)) {
+					_card_to_upgrade = id;
+					break;
+				}
+				if (_card_to_upgrade == noone) _can_play = false;
+			}
+		}
 		
 		if (_can_play) { // play the card:
 			
 			var _replace = false;
 			global.card_drag = noone;
 			
-			// if in shop, add a card to your deck:
+			// if in shop
 			if (room == rm_shop) { 
-				ds_list_add(deck, type);
-				ds_list_shuffle(deck);
-				ds_list_copy(temp_deck, deck);
-				x = shop_deck_xstart + ds_list_size(deck) * card_width;
-				y = shop_deck_ystart;
-				drag = false;
+				if (is_trinket) { // equip trinket:
+					array_push(_card_to_upgrade.trinkets, type);
+					if (type == __trinket.HP) with (_card_to_upgrade) {
+						apply_hp_trinket();
+						if (type == __card.SUPERHEAD) {
+							global.master_hp = hp;
+							global.master_hp_max = hp_max;
+							global.master_trinkets = trinkets;
+						}
+					}
+					instance_destroy();
+				} else { // add a card to the deck:
+					ds_list_add(deck, new card(type, []));
+					x = shop_deck_xstart + ds_list_size(deck) * card_width;
+					y = shop_deck_ystart;
+					drag = false;
+				}
 				with (obj_card) if (y < 100) instance_destroy();
 				btn_create(__btn.EXIT_SHOP, 270, 110);
 				exit;

@@ -17,6 +17,8 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 		}
 		
 		hp = max(0, hp - _dmg);
+		if (head && type == __card.SUPERHEAD) global.master_hp = hp;
+		
 		if (hp == 0)
 		{
 			audio_pplay( sfx_dead);

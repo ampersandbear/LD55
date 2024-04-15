@@ -22,6 +22,14 @@ enum __unit {
 	SKELETON
 }
 
+enum __trinket {
+	HP,
+	DMG,
+	PIERCE,
+	CARD_DRAW,
+	EXPLODE
+}
+
 
 enum __btn {
 	END_TURN,
@@ -37,16 +45,18 @@ function build_data(){
 	unit_total_count = 0;
 	card_total_count = 0;
 	wave_total_count = 0;
+	trinket_total_count = 0;
 	card_data = [];
 	unit_data = [];
 	wave_data = [];
+	trinket_data = [];
 	
 	deck = ds_list_create(); 
 	temp_deck = ds_list_create();
-	ds_list_add(deck, __card.ATK, __card.STUN);
-	ds_list_shuffle(deck);
-	ds_list_copy(temp_deck, deck);
 	
+	ds_list_add(deck, new card(__card.ATK, []), new card(__card.STUN, []));
+
+	wave_add(__unit.PEASANT)
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
@@ -63,6 +73,12 @@ function build_data(){
 	card_add("Hothead", "Nearby heads deal [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_pink, spr_head_pink, spr_neck_pink);
 	card_add("Spikehead", "Stuns attackers", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
 	card_add("Flashhead", "Stuns all enemies when summoned", 1, cc_light_blue, spr_head_light_blue, spr_neck_light_blue);
+	
+	trinket_add("Scales", "+[spr_heart_numbers,2][spr_heart]", spr_trinket_hp, spr_trinket_hp_small);
+	trinket_add("Fire Breath", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", spr_trinket_hp, spr_trinket_hp_small);
+	trinket_add("Piercing", "Damage is piercing", spr_trinket_hp, spr_trinket_hp_small);
+	trinket_add("Breeding", "Draw a card when summoned", spr_trinket_hp, spr_trinket_hp_small);
+	trinket_add("Explosive", "Deals [" + cc_atk_string + "]2[spr_atk][/c] to the whole column on death", spr_trinket_hp, spr_trinket_hp_small);
 	
 	unit_add("Peasant", "", 1, 1, true, spr_peasant);
 	unit_add("Knight", "", 2, 1, true, spr_knight);
@@ -111,4 +127,21 @@ function wave_add(){
 	wave_data[_i] = ds_list_create(); 
 	for (var _j = 0; _j < argument_count; _j++) ds_list_add(wave_data[_i], argument[_j]); 
 	ds_list_shuffle(wave_data[_i]);
+}
+
+function trinket_add(_name, _desc, _card_sprite, _ui_sprite){
+	var _i = trinket_total_count++;
+	
+	trinket_data[_i] = {
+		trinket_id			: _i,
+		trinket_name		: _name,
+		trinket_desc		: _desc,
+		trinket_sprite		: _card_sprite,
+		trinket_ui_sprite	: _ui_sprite
+	};
+}
+
+function card(_type, _trinkets) constructor {
+	type = _type;
+	trinkets = _trinkets;
 }

@@ -20,6 +20,8 @@ global.card_drag = id;
 if (unit == noone && room == rm_game) {
 	with (unit_create(type, 3, 4)) {
 		owner = other.id;
+		hp = owner.hp;
+		hp_max = hp;
 		other.unit = id;
 	}
 }

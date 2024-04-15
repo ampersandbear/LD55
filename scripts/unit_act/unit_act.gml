@@ -95,42 +95,17 @@ function unit_act(_obj){
 			
 		// heads attack:
 		if (head) {
-			if (type == __card.ATK)
-			{
-				vfx_head_attack( id);
-				
-				var _unit = unit_find_up(xpos);
-				
-				// fireball VFX
-				vfx_fire_attack( y + cell_height, _unit, unit_get_x(xpos), y + 52);
-				
-				// deal damage
-				if (_unit != noone) unit_take_damage(_unit, 1);
+			if (type == __card.ATK){
+				head_attack();
 			}
-			if (type == __card.BUFF)
-			{
+			if (type == __card.BUFF) {
 				var _left_unit = unit_find(xpos - 1, ypos);
-				if (_left_unit != noone) {
-					var _unit = unit_find_up(_left_unit.xpos);
-					vfx_head_attack(_left_unit);
-					// fireball VFX
-					vfx_fire_attack(_left_unit.y + cell_height, _unit, unit_get_x(_left_unit.xpos), _left_unit.y + 52);
-					
-					if (_unit != noone)
-					{
-						unit_take_damage(_unit, 1);
-					}
-				}
+				if (_left_unit != noone) with (_left_unit) head_attack();
 				var _right_unit = unit_find(xpos + 1, ypos);
-				if (_right_unit != noone) {
-					var _unit = unit_find_up(_right_unit.xpos);
-					vfx_head_attack(_right_unit);
-					// fireball VFX
-					vfx_fire_attack(_right_unit.y + cell_height, _unit, unit_get_x(_right_unit.xpos), _right_unit.y + 52);
-					if (_unit != noone) {
-						unit_take_damage(_unit, 1);
-					}
-				}
+				if (_right_unit != noone) with (_right_unit) head_attack();
+			}
+			if (has_trinket(__trinket.DMG)) {
+				head_attack();
 			}
 		}
 	}
@@ -157,4 +132,13 @@ function vfx_head_attack(_unit)
 	{
 		nudge_y = -ATTACK_NUDGE;
 	}
+}
+
+function head_attack() {
+	vfx_head_attack( id);
+	var _unit = unit_find_up(xpos);
+	// fireball VFX
+	vfx_fire_attack( y + cell_height, _unit, unit_get_x(xpos), y + 52);		
+	// deal damage
+	if (_unit != noone) unit_take_damage(_unit, 1);
 }

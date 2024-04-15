@@ -4,9 +4,11 @@ function card_draw_from_deck(){
 		global.card_picked = true;
 		return;
 	}
-	var _type = temp_deck[| 0];
+	var _card = temp_deck[| 0];
 	ds_list_delete(temp_deck, 0);
 	
-	card_create(_type, card_draw_xstart, card_draw_ystart);
+	with (card_create(_card.type, card_draw_xstart, card_draw_ystart)) {
+		apply_trinkets(_card.trinkets);
+	}
 	global.card_picked = false;
 }

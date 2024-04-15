@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_hydra_card",
-    "path":"sprites/spr_hydra_card/spr_hydra_card.yy",
+    "name":"spr_trinket_card",
+    "path":"sprites/spr_trinket_card/spr_trinket_card.yy",
   },
   "spriteMaskId":null,
   "visible":true,

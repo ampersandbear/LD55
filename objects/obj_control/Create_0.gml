@@ -6,6 +6,9 @@ global.right_hand = 3;
 global.unit_to_move = noone;
 global.wave = -1;
 global.replace_used = false;
+global.master_hp = 5;
+global.master_hp_max = 5;
+global.master_trinkets = [];
 
 alarm[0] = 1;
 
