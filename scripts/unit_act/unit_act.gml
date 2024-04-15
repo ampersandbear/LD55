@@ -4,7 +4,11 @@ function unit_act(_obj)
 	// not the same as variable "acted", this is to make alarm[1] be 12 frames or 6 frames if the unit acted or not
 	#macro ATTACK_NUDGE 20
 	with (_obj) {
-		acted = true;
+		if (type == __unit.HORSE && can_act_again) {
+			can_act_again = false;
+		} else {
+			acted = true;
+		}
 			
 		if (!head) {
 			

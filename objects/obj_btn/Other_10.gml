@@ -2,7 +2,10 @@ audio_pplay(sfx_button_press);
 
 switch (type) {
 	case __btn.END_TURN:
-		with (obj_unit) acted = false;
+		with (obj_unit) {
+			acted = false;
+			can_act_again = true;
+		}
 		global.card_picked = false;
 		with (obj_control) alarm[1] = 12;
 		tutorial_proceed(2);

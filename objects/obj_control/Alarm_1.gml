@@ -5,7 +5,12 @@ for (var j = 3; j >= 0; j--) {
 	for (var i = 0; i < 7; i++) {
 		var _unit = unit_find(i, j);
 		if (_unit != noone && !_unit.acted && ((_unit.melee && _unit.ypos < 3) || _unit.ypos == 0)) {
-			_unit.acted = true;
+			// horse moves twice:
+			if (_unit.type == __unit.HORSE && _unit.can_act_again) {
+				_unit.can_act_again = false;
+			} else {
+				_unit.acted = true;
+			}
 			if unit_move(_unit, _unit.xpos, _unit.ypos + 1) {
 				alarm[1] = 12;
 			} else {
