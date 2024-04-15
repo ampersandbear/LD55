@@ -1,4 +1,4 @@
-active = global.card_drag == noone && !covered;
+active = global.card_drag == noone && !covered && (type != __card.BUFF || !in_hand);
 event_inherited();
 
 if (drag) {
@@ -14,6 +14,14 @@ if (drag) {
 		audio_pplay( sfx_card_drop);
 		
 		var _can_play = y > 100 || drag_ystart > 100;
+		
+		with (obj_card) if (in_hand) { 
+			if (card_pos == other.card_pos && type == __card.BUFF) {
+				_can_play = false;
+			}
+		}
+		
+		
 		if (room == rm_shop) {
 			_can_play = y > 100 && drag_ystart < 100;
 			if (is_trinket) {
@@ -131,10 +139,16 @@ if (drag) {
 		} else { // cancel dragging:
 			drag = false;
 	        global.card_drag = noone;
-			instance_destroy(unit, false);
-			unit = noone;
 			x = drag_xstart;
 			y = drag_ystart;
+			if (drag_ystart < 100) { // return to the draw pile:
+				instance_destroy(unit, false);
+				unit = noone;
+			} else { // unit placed on top of Hothead:
+				card_pos = clamp((x + 45) div 91, 0, 6);
+				unit.xpos = card_pos;
+			}
+			
 		}
     }
 	exit;
