@@ -29,3 +29,5 @@ nudge_x = lerp( nudge_x, 0, 0.25);
 nudge_y = lerp( nudge_y, 0, 0.25);
 
 draw_surface( application_surface, _x, _y);
+
+if (debug) draw_text(10, 10, string(mouse_x) + " " + string(mouse_y))

@@ -1,16 +1,15 @@
-if (room == rm_shop) exit;
-
-// Draw damage preview(s)
-var _preview = global.attack_preview;
-for(var i= 0; i < 7; i++)
-{
-	var _value = _preview[i];
-	if _value > 1 { draw_sprite( spr_attack_multiplier, _value, unit_get_x(0) + i*cell_width, unit_get_y(3) + 40); }
-	_preview[i]= 0;
+if (room == rm_game) {
+	// Draw damage preview(s)
+	var _preview = global.attack_preview;
+	for(var i= 0; i < 7; i++)
+	{
+		var _value = _preview[i];
+		if _value > 1 { draw_sprite( spr_attack_multiplier, _value, unit_get_x(0) + i*cell_width, unit_get_y(3) + 40); }
+		_preview[i]= 0;
+	}
+	draw_sprite(spr_hydra_body, 0, game_width / 2, 330);
+	scribble("[fa_right][fnt_huge]WAVE\n" + string(global.wave + 1) + "/" + string(wave_total_count + 1)).transform(2, 2, 0).line_height(14, 14).draw(160, 30);
 }
-draw_sprite(spr_hydra_body, 0, game_width / 2, 330);
-scribble("[fa_right][fnt_huge]WAVE\n" + string(global.wave + 1) + "/" + string(wave_total_count + 1)).transform(2, 2, 0).line_height(14, 14).draw(160, 30);
-
 // preview:
 /*
 if (global.card_drag != noone && (global.card_drag.y > 100 || global.card_drag.drag_ystart > 100)) {

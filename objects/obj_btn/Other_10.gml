@@ -21,6 +21,20 @@ switch (type) {
 	break;
 	
 	case __btn.RESTART:
-		game_restart();
+		transition_to(rm_game);
+		with (all) if (!persistent) instance_destroy();
+		global.wave = -1;
+		//with (obj_control) event_perform(ev_other, ev_room_start);
+	break;
+	
+	case __btn.TO_TITLE:
+	break;
+	
+	case __btn.START:
+		transition_to(rm_game);
+	break;
+	
+	case __btn.QUIT:
+		game_end();
 	break;
 }

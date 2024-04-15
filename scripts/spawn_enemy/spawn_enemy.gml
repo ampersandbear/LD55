@@ -1,7 +1,9 @@
 function spawn_enemy(){
 	
-	var _list = wave_data[global.wave];
-	if (ds_list_empty(_list)) return noone;
+	var _list = temp_wave_data;
+	if (ds_list_empty(_list)) {
+		return noone;
+	}
 	
 	var _type = _list[| 0];
 	ds_list_delete(_list, 0);

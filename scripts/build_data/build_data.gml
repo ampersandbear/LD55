@@ -36,7 +36,10 @@ enum __btn {
 	EXIT_SHOP,
 	RESHUFFLE,
 	RESTART,
-	TO_TITLE
+	TO_TITLE,
+	START,
+	TUTORIAL,
+	QUIT
 }
 
 function build_data(){
@@ -55,8 +58,7 @@ function build_data(){
 	
 	deck = ds_list_create(); 
 	temp_deck = ds_list_create();
-	
-	ds_list_add(deck, new card(__card.ATK, []), new card(__card.STUN, []));
+	temp_wave_data = ds_list_create();
 
 	wave_add(__unit.ARCHER);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
@@ -68,7 +70,7 @@ function build_data(){
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN, __unit.ARCHER, __unit.ARCHER, __unit.AXEMAN, __unit.AXEMAN, __unit.RAM, __unit.RAM);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN, __unit.ARCHER, __unit.ARCHER, __unit.AXEMAN, __unit.AXEMAN, __unit.RAM, __unit.RAM, __unit.NECRO, __unit.NECRO);
 	
-	card_add("Masterhead", "Takes damage from empty cell attacks", 5, cc_purple, spr_head_purple, spr_neck_purple);
+	card_add("Masterhead", "Takes damage from empty cell attacks", 1, cc_purple, spr_head_purple, spr_neck_purple);
 	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);
 	card_add("Hypnohead", "When moved, moves the opposing enemy", 2, cc_green, spr_head_green, spr_neck_green);
 	card_add("Ironhead", "Redirects damage from nearby heads to itself", 5, cc_gray, spr_head_gray, spr_neck_gray);
@@ -129,7 +131,6 @@ function wave_add(){
 	
 	wave_data[_i] = ds_list_create(); 
 	for (var _j = 0; _j < argument_count; _j++) ds_list_add(wave_data[_i], argument[_j]); 
-	ds_list_shuffle(wave_data[_i]);
 }
 
 function trinket_add(_name, _desc, _sprite){

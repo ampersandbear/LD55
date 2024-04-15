@@ -6,6 +6,8 @@ function macros(){
 	#macro game_height			360
 	#macro window_scale			2
 	
+	#macro debug				true
+	
 	#macro card_total_count		global.g_card_total_count
 	#macro unit_total_count		global.g_unit_total_count
 	#macro card_data			global.g_card_data
@@ -13,6 +15,7 @@ function macros(){
 	
 	#macro wave_data			global.g_wave_data
 	#macro wave_total_count		global.g_wave_total_count
+	#macro temp_wave_data		global.g_temp_wave_data
 	
 	#macro deck					global.g_deck
 	#macro temp_deck			global.g_temp_deck
