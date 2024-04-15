@@ -1,7 +1,7 @@
 function macros(){
 	
 	#macro game_name			"Hydra Core"
-	#macro game_version			0.1
+	#macro game_version			"0.1"
 	#macro game_width			640
 	#macro game_height			360
 	#macro window_scale			2

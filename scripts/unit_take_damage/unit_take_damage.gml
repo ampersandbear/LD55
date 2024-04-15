@@ -48,6 +48,7 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 					vfx_fire_attack( y + cell_height, noone, unit_get_x(xpos), y + 52);
 					damage_column(xpos, 2);
 				}
+				if (type == __card.SUPERHEAD) game_over();
 			}
 			xpos = noone;
 			ypos = noone;

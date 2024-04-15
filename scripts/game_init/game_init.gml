@@ -43,5 +43,6 @@ function transition_to(_room, _speed = 0.05)
 	{
 		transition_speed = _speed;
 		transition_room = _room;
+		transition_max_alpha = 1.1;
 	}
 }

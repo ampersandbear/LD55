@@ -10,6 +10,8 @@ global.master_hp = 5;
 global.master_hp_max = 5;
 global.master_trinkets = [];
 global.gameover = false;
+global.best_wave = 0;
+global.tutorial = 0;
 
 alarm[0] = 1;
 
@@ -35,6 +37,7 @@ previous_power = 0;
 transition = 0;
 transition_speed = 0;
 transition_room = noone;
+transition_max_alpha = 0;
 
 // camera draw stuff
 nudge_x = 0;

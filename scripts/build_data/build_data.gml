@@ -34,7 +34,9 @@ enum __trinket {
 enum __btn {
 	END_TURN,
 	EXIT_SHOP,
-	RESHUFFLE
+	RESHUFFLE,
+	RESTART,
+	TO_TITLE
 }
 
 function build_data(){
@@ -54,9 +56,9 @@ function build_data(){
 	deck = ds_list_create(); 
 	temp_deck = ds_list_create();
 	
-	ds_list_add(deck, new card(__card.ATK, []), new card(__card.STUN, []), new card(__card.MOVE, []));
+	ds_list_add(deck, new card(__card.ATK, []), new card(__card.STUN, []));
 
-	wave_add(__unit.PEASANT, __unit.ARCHER, __unit.AXEMAN);
+	wave_add(__unit.ARCHER);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);

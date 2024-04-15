@@ -19,4 +19,8 @@ switch (type) {
 		}
 		card_draw_from_deck();
 	break;
+	
+	case __btn.RESTART:
+		game_restart();
+	break;
 }

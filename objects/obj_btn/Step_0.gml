@@ -1,8 +1,8 @@
 if (type == __btn.END_TURN) {
-	visible = global.card_picked;
+	visible = global.card_picked && !global.gameover;
 }
 if (type == __btn.RESHUFFLE) {
-	visible = !global.replace_used && !ds_list_empty(temp_deck);
+	visible = !global.replace_used && !ds_list_empty(temp_deck) && !global.gameover;
 }
 
 active = visible;

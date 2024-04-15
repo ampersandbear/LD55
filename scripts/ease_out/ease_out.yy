@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"ease_out",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ease_out",
+  "parent":{
+    "name":"ext",
+    "path":"folders/Scripts/ext.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -6,7 +6,7 @@ var _cy = 70;
 // a card to choose:
 for (var i = 0; i < 3; i++) {
 	
-	var _trinket = 1;
+	var _trinket = false;
 	if ((i == 2 && ((irandom(100) > 50 && global.wave > 0) || global.wave > 3)) || ds_list_size(deck) == 6) {
 		_trinket = true;
 	}
@@ -20,7 +20,7 @@ for (var i = 0; i < 3; i++) {
 	ds_list_add(_pool, _type);
 	var _card = _type;
 	if (_trinket) _card -= _trinket_offset;
-	card_create(0, _cx + i * 120, _cy, _trinket);
+	card_create(_card, _cx + i * 120, _cy, _trinket);
 }
 ds_list_destroy(_pool);
 

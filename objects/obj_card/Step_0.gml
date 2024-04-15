@@ -1,4 +1,10 @@
-active = global.card_drag == noone && !covered && (type != __card.BUFF || !in_hand) && obj_control.alarm[1] <= 0;
+active = 
+	global.card_drag == noone
+	&& !covered
+	&& (type != __card.BUFF || !in_hand)
+	&& obj_control.alarm[1] <= 0
+	&& !global.gameover;
+	
 event_inherited();
 
 if (drag) {
@@ -32,9 +38,12 @@ if (drag) {
 			_can_play = y > 100 && drag_ystart < 100;
 			if (is_trinket) {
 				var _card_to_upgrade = noone;
-				with (obj_card) if (in_deck && card_pos == other.card_pos && array_length(trinkets) < max_trinkets && !has_trinket(other.type)) {
-					_card_to_upgrade = id;
-					break;
+				with (obj_card) if (in_deck
+					&& card_pos == other.card_pos
+					&& can_equip_trinket(other.type)
+					) {
+						_card_to_upgrade = id;
+						break;
 				}
 				if (_card_to_upgrade == noone) _can_play = false;
 			}

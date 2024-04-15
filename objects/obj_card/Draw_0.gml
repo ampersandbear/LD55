@@ -15,12 +15,11 @@ if (room == rm_shop && drag_ystart < 100 && drag && !is_trinket) {
 // trinket preview:
 if (room == rm_shop 
 && in_deck 
-&& array_length(trinkets) < max_trinkets
 && global.card_drag != noone
 && global.card_drag.y > 100
 && global.card_drag.is_trinket
 && global.card_drag.card_pos == card_pos
-&& !has_trinket(global.card_drag.type)
+&& can_equip_trinket(global.card_drag.type)
 ) {
 	_y += 20;
 	draw_sprite_ext( spr_card_preview, 0, x, y, 1, 1, 0, c_white, 0.9);
