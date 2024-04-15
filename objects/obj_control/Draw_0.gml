@@ -8,7 +8,7 @@ if (room == rm_game) {
 		_preview[i]= 0;
 	}
 	draw_sprite(spr_hydra_body, 0, game_width / 2, 330);
-	scribble("[fa_middle][fnt_huge]WAVE " + string(max(0, global.wave) + 1)).transform(2, 2, 0).line_height(14, 14).draw(35, 65);
+	scribble("[fa_middle][fnt_huge]WAVE " + string(max(0, global.wave) + 1)).transform(2, 2, 0).line_height(14, 14).draw(35, 74);
 }
 // preview:
 /*
