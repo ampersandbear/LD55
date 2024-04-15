@@ -26,6 +26,8 @@ if _power < 100 { previous_power = _power; }
 var _enemy_count = 0;
 with (obj_unit) if (!head) _enemy_count++;
 if (_enemy_count == 0) { // it was!
+	music_pause(1, music_fade_time);
+	alarm[3] = 20;
 	transition_to(rm_shop);
 	exit;
 }

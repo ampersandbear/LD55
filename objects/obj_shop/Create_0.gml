@@ -1,3 +1,5 @@
+music_play(mus_shop);
+
 var _pool = ds_list_create();
 var _trinket_offset = 1000;
 var _cx = 155;

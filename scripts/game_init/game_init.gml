@@ -7,7 +7,7 @@ function game_init(){
 	build_data();
 		
 	music_init();
-	music_play( mus_hydra);
+	
 }
 
 // custom jaime scripts:

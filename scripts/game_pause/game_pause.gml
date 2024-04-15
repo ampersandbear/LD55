@@ -7,6 +7,7 @@ function game_pause(){
 	
 		with (obj_card) if (drag) event_user(2);
 		
+		audio_sound_gain(global.music_tracks[1], 0.1, 0)
 		
 		with (btn_create(__btn.RESUME, game_width / 2 - 50, 140)) {
 			menu = true;
@@ -21,5 +22,7 @@ function game_pause(){
 		with (obj_control) transition = 0;
 		with (obj_pause) instance_destroy();
 		with (obj_btn) if (menu) instance_destroy();
+		
+		audio_sound_gain(global.music_tracks[1], global.music_volume, 0)
 	}
 }

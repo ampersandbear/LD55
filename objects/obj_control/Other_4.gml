@@ -1,5 +1,12 @@
 if (room == rm_game) {
 	
+	if (global.music_tracks[1] == noone || global.wave == -1) {
+		music_play(mus_hydra, 1);
+	} else {
+		audio_resume_sound(global.music_tracks[1]);
+		audio_sound_gain(global.music_tracks[1], global.music_volume, 300);
+	}
+	
 	if (global.wave == -1) {
 		with (all) if (!persistent) instance_destroy();
 		// create the board:
