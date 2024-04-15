@@ -1,0 +1,4 @@
+// 
+function music_pause(){
+
+}

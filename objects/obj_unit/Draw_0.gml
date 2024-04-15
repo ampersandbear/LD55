@@ -105,13 +105,12 @@ if (!head)
 }
 
 if (_attack_warn) { // melee attack warning:
-	draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+	
 	// axeman
 	if type == __unit.AXEMAN
-	{
-		draw_sprite_ext(spr_attack_warn, 1, x - 20, unit_get_y(3) + 20, 1, 1,-45, cc_red, 1)
-		draw_sprite_ext(spr_attack_warn, 1, x + 20, unit_get_y(3) + 20, 1, 1, 45, cc_red, 1)
-	}
+		draw_sprite_ext(spr_attack_axe_warn, 1, x - 20, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+	else
+		draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
 }
 
 // preview for the Hypnohead ability:
