@@ -77,19 +77,19 @@ function unit_act(_obj){
 				unit_move(id, xpos, ypos + 1);
 			} else { // units attack:
 				audio_pplay( sfx_melee_attack);
-				vfx_create( vfx_attack, x, y + cell_height*0.5);
 				damage_head(id, xpos, atk);
 				nudge_y = 10;
 				
 				if (type == __unit.AXEMAN)
 				{
 					audio_pplay(sfx_rock_impact,,,0.85);
-					vfx_create( vfx_attack, x - cell_width, y + cell_height*0.5);
-					vfx_create( vfx_attack, x - cell_width, y + cell_height*0.5);
+					with vfx_create( vfx_attack, x, y + cell_height*0.5) { image_xscale = 3; }
 					
 					damage_head(id, xpos + 1, atk);
 					damage_head(id, xpos - 1, atk);
 				}
+				else
+					vfx_create( vfx_attack, x, y + cell_height*0.5);
 			}
 		}
 			

@@ -88,11 +88,12 @@ if (!head)
 		}
 	}
 	// archer attack warning:
-	if (type == __unit.ARCHER && ypos > 0 && !stun) {
-		for (var i = 1; i < 4; i++) {
-			draw_sprite_ext(spr_attack_warn, 2, unit_get_x(xpos), unit_get_y(i), 1, 1, 0, cc_red, 1);
-		}
-		_attack_warn = true;
+	if (type == __unit.ARCHER && ypos > 0 && !stun)
+	{
+		if unit_find(xpos, ypos+1) == noone { draw_sprite_ext(spr_attack_warn_arced, 1, unit_get_x(xpos), unit_get_y(ypos+1)-5, 1, 1, 0, cc_red, 1); }
+		var _front_row = unit_find(xpos, 3);
+		if _front_row == noone or _front_row.stun
+			draw_sprite_ext(spr_attack_warn_arced, 0, unit_get_x(xpos), unit_get_y(3) + 25, 1, 1, 0, cc_red, 1);
 	}
 	// spearman attack warning:
 	if (type == __unit.SPEARMAN && ypos > 1 && !stun) {
@@ -105,6 +106,12 @@ if (!head)
 
 if (_attack_warn) { // melee attack warning:
 	draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+	// axeman
+	if type == __unit.AXEMAN
+	{
+		draw_sprite_ext(spr_attack_warn, 1, x - 20, unit_get_y(3) + 20, 1, 1,-45, cc_red, 1)
+		draw_sprite_ext(spr_attack_warn, 1, x + 20, unit_get_y(3) + 20, 1, 1, 45, cc_red, 1)
+	}
 }
 
 // preview for the Hypnohead ability:

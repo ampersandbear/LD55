@@ -1,5 +1,11 @@
-if (!active) exit;
-
+if (!active) 
+{
+	if (distance_to_point(mouse_x, mouse_y) == 0) and mouse_check_button_pressed(mb_left)
+	{
+		event_user(9);
+	}
+	exit;
+}
 if (distance_to_point(mouse_x, mouse_y) == 0)
 {
     mouseover = true;

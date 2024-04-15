@@ -16,11 +16,17 @@ if (drag) {
 		var _can_play = y > 100 || drag_ystart > 100;
 		
 		with (obj_card) if (in_hand) { 
-			if (card_pos == other.card_pos && type == __card.BUFF) {
+			if (card_pos == other.card_pos && type == __card.BUFF)
+			{
+				pulse = 9;
+				pulse_color = c_black;
+				pulse_alpha = 0.35;
+				
+				audio_pplay( sfx_bonk, 0.55,, 1.25);
+				
 				_can_play = false;
 			}
 		}
-		
 		
 		if (room == rm_shop) {
 			_can_play = y > 100 && drag_ystart < 100;
