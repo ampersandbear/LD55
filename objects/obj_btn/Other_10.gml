@@ -5,6 +5,7 @@ switch (type) {
 		with (obj_unit) acted = false;
 		global.card_picked = false;
 		with (obj_control) alarm[1] = 12;
+		tutorial_proceed(2);
 	break;
 	
 	case __btn.EXIT_SHOP:
@@ -47,5 +48,10 @@ switch (type) {
 	
 	case __btn.RESUME:
 		game_pause();
+	break;
+	
+	case __btn.TUTORIAL_NEXT:
+		tutorial_proceed(0);
+		instance_destroy();
 	break;
 }

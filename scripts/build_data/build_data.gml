@@ -38,9 +38,10 @@ enum __btn {
 	RESTART,
 	TO_TITLE,
 	START,
-	TUTORIAL,
+	TUTORIAL_RESET,
 	QUIT,
-	RESUME
+	RESUME,
+	TUTORIAL_NEXT
 }
 
 function build_data(){
@@ -60,6 +61,7 @@ function build_data(){
 	deck = ds_list_create(); 
 	temp_deck = ds_list_create();
 	temp_wave_data = ds_list_create();
+
 	
 	//if debug { wave_add(__unit.ARCHER, __unit.NECRO, __unit.PEASANT, __unit.PEASANT); }
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
@@ -99,6 +101,14 @@ function build_data(){
 	unit_add("Ram Carrier", "", 1, 1, true, spr_ram_knight);
 	unit_add("Necromancer", "", 3, 1, false, spr_necro);
 	unit_add("Skeleton", "", 1, 1, true, spr_skeleton);
+	
+	tutorial_text = [
+		"You are a [#5F41B0]Hydra![/c] Use your heads to fight off enemy waves.",
+		"Heads are cards. [#E74747][shake]Summon[/shake][/c] one now!",
+		"You only draw one head from your deck each turn. So [#318472]end the turn[/c] now.",
+		"Nice! [c_white]Move[/c] the [#E74747]Headacher[/c] to attack the approaching peasant.",
+		"[#7BD568]Mutations[/c] can be used to upgrade head cards from your deck."
+	];
 }
 
 function card_add(_name, _desc, _hp, _color, _sprite, _neck) {

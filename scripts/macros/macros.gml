@@ -45,6 +45,8 @@ function macros(){
 	
 	#macro music_fade_time		300
 	
+	#macro tutorial_text		global.g_tutorial_text
+	
 	#macro cc_atk				#E72929
 	#macro cc_atk_string		"#E72929"
 	#macro cc_red				#E74747

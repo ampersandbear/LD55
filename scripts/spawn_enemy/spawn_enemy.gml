@@ -1,5 +1,7 @@
 function spawn_enemy(){
 	
+	if (!tutorial_beaten()) return noone;
+	
 	var _list = temp_wave_data;
 	if (ds_list_empty(_list)) {
 		return noone;

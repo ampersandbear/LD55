@@ -1,7 +1,7 @@
 /// @description card dropped
 
 audio_pplay( sfx_card_drop);
-		
+	
 var _can_play = y > 100 || drag_ystart > 100;
 		
 with (obj_card) if (in_hand) { 
@@ -54,6 +54,7 @@ if (_can_play) { // play the card:
 	if (room == rm_shop) { 
 		if (is_trinket) { // equip trinket:
 			array_push(_card_to_upgrade.trinkets, type);
+			tutorial_proceed(4);
 			if (type == __trinket.HP) with (_card_to_upgrade) {
 				apply_hp_trinket();
 				if (type == __card.SUPERHEAD) {
@@ -142,10 +143,13 @@ if (_can_play) { // play the card:
 	if (card_pos > global.right_hand) {
 		global.right_hand++;
 	}
+	
+	if (type == __card.ATK && unit_find(card_pos, 0) != noone) tutorial_proceed(3);
 			
 	var _cards_to_pick = 0;
 	with (obj_card) if (!in_hand) _cards_to_pick++;
 	global.card_picked = (_cards_to_pick == 0);
+	if (global.card_picked) tutorial_proceed(1);
 
 } else { // cancel dragging:
 	drag = false;

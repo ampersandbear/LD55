@@ -23,10 +23,15 @@ if (room == rm_game) {
 				_cell.tile = (i + j) mod 2 * 2 + irandom(1);
 			}
 		}
-
+		
+		if (!tutorial_beaten()) {
+			instance_create_depth(220, 50, 1, obj_tutorial_box);
+		} else {
+			btn_create(__btn.END_TURN, 505, 60);
+			btn_create(__btn.RESHUFFLE, 505, 125);
+		}
+		
 		card_create_on_start(__card.SUPERHEAD, 3);
-		btn_create(__btn.END_TURN, 505, 60);
-		btn_create(__btn.RESHUFFLE, 505, 125);
 		
 		global.card_drag = noone;
 		global.card_picked = false;
@@ -43,12 +48,13 @@ if (room == rm_game) {
 		global.master_hp_max = global.master_hp;
 		
 		ds_list_clear(deck);
-		ds_list_add(deck, new card(__card.ATK, []), new card(__card.STUN, []));
+		ds_list_add(deck, new card(__card.ATK, []));
+		if (tutorial_beaten()) ds_list_add(deck, new card(__card.STUN, []));
 	}
 	
 	ds_list_copy(temp_deck, deck);
 	ds_list_shuffle(temp_deck);
-	card_draw_from_deck( false);
+	if (tutorial_beaten()) card_draw_from_deck( false);
 	
 	global.wave++;
 	global.replace_used = false;

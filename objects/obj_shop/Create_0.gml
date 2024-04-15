@@ -36,6 +36,14 @@ for (var i = 0; i < 3; i++) {
 	var _card = _type;
 	if (_trinket) _card -= _trinket_offset;
 	card_create(_card, _cx + i * 120, _cy, _trinket);
+	
+	if (_trinket && global.tutorial == 4) {
+		with (instance_create_depth(500, 70, 1, obj_tutorial_box)) {
+			button = false;
+			width = 120;
+			height = 65;
+		}
+	}
 }
 ds_list_destroy(_pool);
 
