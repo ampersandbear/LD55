@@ -25,11 +25,13 @@ enum __unit {
 }
 
 enum __trinket {
+	NONE,
 	HP,
 	DMG,
 	PIERCE,
 	CARD_DRAW,
-	EXPLODE
+	EXPLODE,
+	SHUFFLE
 }
 
 
@@ -87,11 +89,13 @@ function build_data(){
 	card_add("Spikehead", "Stuns attackers when damaged", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
 	card_add("Flashhead", "Stuns all enemies when summoned", 1, cc_light_blue, spr_head_light_blue, spr_neck_light_blue);
 	
+	trinket_add("", "", 0); // never spawns
 	trinket_add("Mean Heart", "+[spr_heart_numbers,2][spr_heart]", 0);
 	trinket_add("Duelist", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 5);
 	trinket_add("Fire Breath", "Damage is piercing", 10);
 	trinket_add("Breeding", "Draws a card when summoned", 8);
 	trinket_add("Explosive", "Deals [" + cc_atk_string + "]2[spr_atk][/c] to the whole column on death", 3);
+	trinket_add("Recycling", "If summonned on top of a head, shuffle it to the deck", 7);
 	
 	unit_add("Farmer", "Melee attack.", 1, 1, true, spr_peasant);
 	unit_add("Knight", "Melee attack.", 2, 1, true, spr_knight);

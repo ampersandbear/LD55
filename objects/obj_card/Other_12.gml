@@ -4,9 +4,11 @@ audio_pplay( sfx_card_drop);
 	
 var _can_play = y > 100 || drag_ystart > 100;
 		
-with (obj_card) if (in_hand) { 
-	if (card_pos == other.card_pos && type == __card.BUFF)
-	{
+with (obj_card) if (in_hand && card_pos == other.card_pos) { 
+	if (type == __card.BUFF || (type == __card.SUPERHEAD 
+								&& has_trinket(__trinket.SHUFFLE, other) 
+								&& !other.trinket_used[__trinket.CARD_DRAW])
+	){
 		pulse = 9;
 		pulse_color = c_black;
 		pulse_alpha = 0.35;
@@ -99,9 +101,9 @@ if (_can_play) { // play the card:
 	}
 			
 	// Draw a card trinket:
-	if (has_trinket(__trinket.CARD_DRAW) && !trinket_used) {
+	if (has_trinket(__trinket.CARD_DRAW) && !trinket_used[__trinket.CARD_DRAW]) {
 		card_draw_from_deck();
-		trinket_used = true;
+		trinket_used[__trinket.CARD_DRAW] = true;
 	}
 			
 	with (obj_card) covered = false;
@@ -109,16 +111,25 @@ if (_can_play) { // play the card:
 	with (obj_card) if (in_hand) { 
 		if (card_pos == other.card_pos) {
 			if (other.drag_ystart < 100) {
-				in_hand = false;
-				x = card_draw_xstart;
-				y = card_draw_ystart;
-				var _card = instance_place(x, y, obj_card);
-				if (_card != noone) {
-					y += 17;
-					_card.covered = true;
-				}
 				instance_destroy(unit, false);
 				unit = noone;
+				
+				// shuffle trinket:
+				if (has_trinket(__trinket.SHUFFLE, other) && !trinket_used[__trinket.SHUFFLE]) {
+					ds_list_add(temp_deck, new card(type, trinkets));
+					ds_list_shuffle(temp_deck);
+					trinket_used[__trinket.SHUFFLE] = true;
+					instance_destroy();
+				} else {
+					in_hand = false;
+					x = card_draw_xstart;
+					y = card_draw_ystart;
+					var _card = instance_place(x, y, obj_card);
+					if (_card != noone) {
+						y += 17;
+						_card.covered = true;
+					}
+				}
 			} else {
 				x = other.drag_xstart;
 				y = other.drag_ystart;
