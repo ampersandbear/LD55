@@ -8,6 +8,7 @@ if (is_trinket) {
 	name   = trinket_data[type].trinket_name;
 	desc   = trinket_data[type].trinket_desc;
 	sprite = trinket_data[type].trinket_sprite;
+	color  = #7BD568;
 } else {
 	name   = card_data[type].card_name;
 	desc   = card_data[type].card_desc;

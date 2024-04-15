@@ -9,6 +9,7 @@ global.replace_used = false;
 global.master_hp = 5;
 global.master_hp_max = 5;
 global.master_trinkets = [];
+global.gameover = false;
 
 alarm[0] = 1;
 

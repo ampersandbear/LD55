@@ -6,8 +6,8 @@ var _cy = 70;
 // a card to choose:
 for (var i = 0; i < 3; i++) {
 	
-	var _trinket = false;
-	if ((i == 2 && (irandom(100) > 50 && global.wave > 0) || global.wave > 3) || ds_list_size(deck) == 6) {
+	var _trinket = 1;
+	if ((i == 2 && ((irandom(100) > 50 && global.wave > 0) || global.wave > 3)) || ds_list_size(deck) == 6) {
 		_trinket = true;
 	}
 	

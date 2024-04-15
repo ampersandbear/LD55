@@ -74,11 +74,11 @@ function build_data(){
 	card_add("Spikehead", "Stuns attackers", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
 	card_add("Flashhead", "Stuns all enemies when summoned", 1, cc_light_blue, spr_head_light_blue, spr_neck_light_blue);
 	
-	trinket_add("Scales", "+[spr_heart_numbers,2][spr_heart]", spr_trinket_hp, spr_trinket_hp_small);
-	trinket_add("Fire Breath", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", spr_trinket_hp, spr_trinket_hp_small);
-	trinket_add("Piercing", "Damage is piercing", spr_trinket_hp, spr_trinket_hp_small);
-	trinket_add("Breeding", "Draw a card when summoned", spr_trinket_hp, spr_trinket_hp_small);
-	trinket_add("Explosive", "Deals [" + cc_atk_string + "]2[spr_atk][/c] to the whole column on death", spr_trinket_hp, spr_trinket_hp_small);
+	trinket_add("Scales", "+[spr_heart_numbers,2][spr_heart]", 0);
+	trinket_add("Fire Breath", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 5);
+	trinket_add("Piercing", "Damage is piercing", 10);
+	trinket_add("Breeding", "Draws a card when summoned", 8);
+	trinket_add("Explosive", "Deals [" + cc_atk_string + "]2[spr_atk][/c] to the whole column on death", 3);
 	
 	unit_add("Peasant", "", 1, 1, true, spr_peasant);
 	unit_add("Knight", "", 2, 1, true, spr_knight);
@@ -129,15 +129,14 @@ function wave_add(){
 	ds_list_shuffle(wave_data[_i]);
 }
 
-function trinket_add(_name, _desc, _card_sprite, _ui_sprite){
+function trinket_add(_name, _desc, _sprite){
 	var _i = trinket_total_count++;
 	
 	trinket_data[_i] = {
 		trinket_id			: _i,
 		trinket_name		: _name,
 		trinket_desc		: _desc,
-		trinket_sprite		: _card_sprite,
-		trinket_ui_sprite	: _ui_sprite
+		trinket_sprite		: _sprite
 	};
 }
 

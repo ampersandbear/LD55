@@ -1,4 +1,4 @@
-audio_pplay( sfx_melee_attack, 0.9,, 1.25);
+audio_pplay(sfx_button_press);
 
 switch (type) {
 	case __btn.END_TURN:

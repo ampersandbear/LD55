@@ -48,14 +48,22 @@ if (!is_trinket) { // hp
 	var _tx = _x + 88;
 	for (var i = 0; i < array_length(trinkets); i++) {
 		var _t = trinkets[i];
-		var _spr = trinket_data[_t].trinket_ui_sprite;
-		_tx -= sprite_get_width(_spr) + 2;
-		draw_sprite(_spr, 0, _tx, _y + 4);
+		var _spr = trinket_data[_t].trinket_sprite;
+		_tx -= 15;
+		draw_sprite(spr_trinket_icons, _spr, _tx, _y + 4);
 	}
+} else {
+	draw_sprite_ext(spr_trinket_icons, sprite, _x + 88 - 15, _y + 4, 1, 1, 0, c_white, 1);
 }
 
-scribble("[fa_center][fnt_bold]" + name).draw(_x + card_width / 2, _y + 86);
+// name
+var _dx  = (is_trinket) ? 0 : 0;
+var _dy  = (is_trinket) ? 86 : 86;
+var _str = "[fa_center][fnt_bold]" + name;
+scribble(_str).draw(_x + card_width / 2 + _dx, _y + _dy);
 
-var _desc = scribble("[fa_center]" + desc).wrap(card_width - 12).line_height(12, 12);
-_desc.draw(_x + card_width / 2, _y + 22 + (60 - _desc.get_height()) div 2);
+// description
+var _dy = (is_trinket) ? 26 : 22;
+var _desc = scribble("[fa_center]" + desc).wrap(card_width - 14).line_height(12, 12);
+_desc.draw(_x + card_width / 2, _y + _dy + (60 - _desc.get_height()) div 2);
 
