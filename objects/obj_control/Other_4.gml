@@ -49,7 +49,7 @@ if (room == rm_game) {
 		
 		ds_list_clear(deck);
 		ds_list_add(deck, new card(__card.ATK, []));
-		if (tutorial_beaten()) ds_list_add(deck, new card(__card.STUN, []));
+		if (tutorial_beaten()) ds_list_add(deck, new card(__card.STUN, [__trinket.HP]));
 	}
 	
 	ds_list_copy(temp_deck, deck);

@@ -71,7 +71,7 @@ function build_data(){
 	ds_list_add(late_game_units, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.HORSE);
 	ds_list_shuffle(late_game_units);
 	
-	//if debug { wave_add(__unit.CHAMPION); }
+	if debug { wave_add(__unit.RAM); }
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
@@ -99,24 +99,24 @@ function build_data(){
 	
 	trinket_add("", "", 0); // never spawns
 	trinket_add("Mean Heart", "+[spr_heart_numbers,2][spr_heart]", 0);
-	trinket_add("Duelist", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 5);
+	trinket_add("Duelist", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn.", 5);
 	trinket_add("Fire Breath", "Damage is piercing", 10);
 	trinket_add("Breeding", "Draws a card when summoned", 8);
 	trinket_add("Explosive", "Deals [" + cc_atk_string + "]2[spr_atk][/c] to the whole column on death", 3);
 	trinket_add("Recycling", "If summonned on top of a head, shuffle it to the deck", 7);
 	
-	unit_add("Farmer", "Melee attack.", 1, 1, true, spr_peasant);
-	unit_add("Knight", "Melee attack.", 2, 1, true, spr_knight);
-	unit_add("Mage", "Ranged attack.", 1, 1, false, spr_mage);
-	unit_add("Archer", "Ranged attack that flies over allies.", 1, 1, false, spr_archer);
-	unit_add("Axeman", "Melee attack that targets three heads.", 2, 1, true, spr_axeman);
-	unit_add("Spearman", "Melee attack with long reach.", 2, 1, true, spr_spearman);
-	unit_add("Battering Ram", "Splits into two Ram Knights on defeat.", 1, 1, true, spr_ram);
-	unit_add("Ram Knight", "Melee attack.", 1, 1, true, spr_ram_knight);
-	unit_add("Necromancer", "Defeated allies become skeletons.", 3, 1, false, spr_necro);
-	unit_add("Skeleton", "Melee attack.", 1, 1, true, spr_skeleton);
-	unit_add("Cavalry", "Melee attack. Acts twice each turn.", 2, 1, true, spr_cavalry);
-	unit_add("Champion", "Melee attack. Big Boy.", 5, 1, true, spr_champion);
+	unit_add("Farmer", "Melee attack", 1, 1, true, spr_peasant);
+	unit_add("Knight", "Melee attack", 2, 1, true, spr_knight);
+	unit_add("Mage", "Ranged attack", 1, 1, false, spr_mage);
+	unit_add("Archer", "Ranged attack that flies over allies", 1, 1, false, spr_archer);
+	unit_add("Axeman", "Melee attack that targets three heads", 2, 1, true, spr_axeman);
+	unit_add("Spearman", "Melee attack with long reach", 2, 1, true, spr_spearman);
+	unit_add("Battering Ram", "Splits into two Ram Knights on defeat", 1, 1, true, spr_ram);
+	unit_add("Ram Knight", "Melee attack", 1, 1, true, spr_ram_knight);
+	unit_add("Necromancer", "Defeated allies become skeletons", 3, 1, false, spr_necro);
+	unit_add("Skeleton", "Melee attack", 1, 1, true, spr_skeleton);
+	unit_add("Cavalry", "Melee attack. Acts twice each turn", 2, 1, true, spr_cavalry);
+	unit_add("Champion", "Melee attack. Stuns itself at the end of the turn", 9, 1, true, spr_champion);
 	
 	tutorial_text = [
 		"You are a [#5F41B0]Hydra![/c] Use your heads to fight off enemy waves.",

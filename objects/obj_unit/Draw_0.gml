@@ -181,6 +181,6 @@ if stun
 	draw_sprite( spr_stun, _idx == 1 ? 0 : 1, _x + lengthdir_x(-14, stun_anim), _y + lengthdir_y(-7, stun_anim));
 }
 
-/*
+
 draw_set_color(c_lime);
 draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);

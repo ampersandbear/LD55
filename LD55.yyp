@@ -261,6 +261,7 @@
     {"id":{"name":"spr_card_preview","path":"sprites/spr_card_preview/spr_card_preview.yy",},},
     {"id":{"name":"spr_cavalry","path":"sprites/spr_cavalry/spr_cavalry.yy",},},
     {"id":{"name":"spr_cell","path":"sprites/spr_cell/spr_cell.yy",},},
+    {"id":{"name":"spr_unit","path":"sprites/spr_unit/spr_unit.yy",},},
     {"id":{"name":"spr_champion","path":"sprites/spr_champion/spr_champion.yy",},},
     {"id":{"name":"spr_checkerboard","path":"sprites/spr_checkerboard/spr_checkerboard.yy",},},
     {"id":{"name":"spr_cleric","path":"sprites/spr_cleric/spr_cleric.yy",},},
