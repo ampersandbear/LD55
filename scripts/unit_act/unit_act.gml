@@ -75,8 +75,8 @@ function unit_act(_obj)
 			}
 			
 			if (melee && ypos < 3) { // units move:
-				unit_move(id, xpos, ypos + 1);
-				return true;
+				//unit_move(id, xpos, ypos + 1);
+				return false;
 			} else { // units attack:
 				audio_pplay( sfx_melee_attack);
 				damage_head(id, xpos, atk);

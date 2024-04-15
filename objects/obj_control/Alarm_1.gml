@@ -1,4 +1,21 @@
 /// @description units act
+
+// units move first
+for (var j = 3; j >= 0; j--) {
+	for (var i = 0; i < 7; i++) {
+		var _unit = unit_find(i, j);
+		if (_unit != noone && !_unit.acted && ((_unit.melee && _unit.ypos < 3) || _unit.ypos == 0)) {
+			if unit_move(_unit, _unit.xpos, _unit.ypos + 1) {
+				_unit.acted = true;
+				alarm[1] = 12;
+			} else {
+				alarm[1] = 6;
+			}
+			exit;
+		}
+	}
+}
+
 for (var j = 1; j < 4; j++) {
 	for (var i = 0; i < 7; i++) {
 		var _unit = unit_find(i, j);
@@ -10,17 +27,6 @@ for (var j = 1; j < 4; j++) {
 				alarm[1] = 6;
 			exit;
 		}
-	}
-}
-// row 0 acts last
-for (var i = 0; i < 7; i++) {
-	var _unit = unit_find(i, 0);
-	if (_unit != noone && !_unit.acted) {
-		if unit_act(_unit)
-			alarm[1] = 12;
-		else
-			alarm[1] = 6;
-		exit;
 	}
 }
 
