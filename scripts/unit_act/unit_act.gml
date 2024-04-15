@@ -19,7 +19,7 @@ function unit_act(_obj)
 				
 				// VFX
 				nudge_y = ATTACK_NUDGE;
-				attacking = 7;
+				attacking = 10;
 				
 				// fireball VFX
 				var _distance = unit_get_y(4) + 42 - y + cell_height;
@@ -43,7 +43,7 @@ function unit_act(_obj)
 			if (type == __unit.ARCHER) { // archer attacks:
 				// VFX
 				nudge_y = ATTACK_NUDGE;
-				attacking = 7;
+				attacking = 10;
 				damage_head(id, xpos, atk);
 				// SFX
 				audio_pplay(sfx_fast_woosh);
@@ -56,7 +56,7 @@ function unit_act(_obj)
 					return false;
 				} else {
 					audio_pplay( sfx_melee_attack);
-					attacking = 7;
+					attacking = 10;
 					vfx_create( vfx_attack, x, y + cell_height*2);
 					damage_head(id, xpos, atk);
 				}
@@ -74,7 +74,13 @@ function unit_act(_obj)
 				audio_pplay( sfx_melee_attack);
 				damage_head(id, xpos, atk);
 				nudge_y = 10;
-				attacking = 7;
+				attacking = 10;
+				
+				if type == __unit.CHAMPION
+				{
+					screenshake_do( 7, 7);
+					audio_pplay( sfx_rock_impact);
+				}
 				
 				if (type == __unit.AXEMAN)
 				{

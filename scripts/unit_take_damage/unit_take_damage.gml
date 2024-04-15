@@ -59,7 +59,7 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 				if _necromancer_exists
 				{
 					nudge_y -= ATTACK_NUDGE;
-					attacking = 7;
+					attacking = 10;
 					with unit_create(__unit.SKELETON, xpos, ypos)
 					{
 						lerp_x = x;

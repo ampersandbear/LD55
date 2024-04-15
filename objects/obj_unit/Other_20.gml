@@ -10,7 +10,10 @@ if (ypos > 3) {
 	atk	   = unit_data[type].unit_atk;
 	melee  = unit_data[type].unit_melee;
 	
+	name = unit_data[type].unit_name;
+	desc = unit_data[type].unit_desc;
 }
+
 
 hp_max = hp;
 acted = true;

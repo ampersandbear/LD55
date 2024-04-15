@@ -20,7 +20,8 @@ enum __unit {
 	RAM_KNIGHT,
 	NECRO,
 	SKELETON,
-	HORSE
+	HORSE,
+	CHAMPION
 }
 
 enum __trinket {
@@ -62,9 +63,8 @@ function build_data(){
 	deck = ds_list_create(); 
 	temp_deck = ds_list_create();
 	temp_wave_data = ds_list_create();
-
 	
-	//if debug { wave_add(__unit.ARCHER, __unit.NECRO, __unit.PEASANT, __unit.PEASANT); }
+	if debug { wave_add(__unit.CHAMPION); }
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
@@ -73,6 +73,7 @@ function build_data(){
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO, __unit.KNIGHT);
 	
 	// use this for procedural waves
 	global.wave_procedural = ds_list_create();
@@ -92,23 +93,24 @@ function build_data(){
 	trinket_add("Breeding", "Draws a card when summoned", 8);
 	trinket_add("Explosive", "Deals [" + cc_atk_string + "]2[spr_atk][/c] to the whole column on death", 3);
 	
-	unit_add("Peasant", "", 1, 1, true, spr_peasant);
-	unit_add("Knight", "", 2, 1, true, spr_knight);
-	unit_add("Mage", "", 1, 1, false, spr_mage);
-	unit_add("Archer", "", 1, 1, false, spr_archer);
-	unit_add("Axeman", "", 2, 1, true, spr_axeman);
-	unit_add("Spearman", "", 2, 1, true, spr_spearman);
-	unit_add("Battering Ram", "", 1, 1, true, spr_ram);
-	unit_add("Ram Carrier", "", 1, 1, true, spr_ram_knight);
-	unit_add("Necromancer", "", 3, 1, false, spr_necro);
-	unit_add("Skeleton", "", 1, 1, true, spr_skeleton);
-	unit_add("Cavalry", "", 2, 1, true, spr_cavalry);
+	unit_add("Farmer", "Melee attack.", 1, 1, true, spr_peasant);
+	unit_add("Knight", "Melee attack.", 2, 1, true, spr_knight);
+	unit_add("Mage", "Ranged attack.", 1, 1, false, spr_mage);
+	unit_add("Archer", "Ranged attack that flies over allies.", 1, 1, false, spr_archer);
+	unit_add("Axeman", "Melee attack that targets three heads.", 2, 1, true, spr_axeman);
+	unit_add("Spearman", "Melee attack with long reach.", 2, 1, true, spr_spearman);
+	unit_add("Battering Ram", "Splits into two Ram Knights on defeat.", 1, 1, true, spr_ram);
+	unit_add("Ram Knight", "Melee attack.", 1, 1, true, spr_ram_knight);
+	unit_add("Necromancer", "Defeated allies become skeletons.", 3, 1, false, spr_necro);
+	unit_add("Skeleton", "Melee attack.", 1, 1, true, spr_skeleton);
+	unit_add("Cavalry", "Melee attack. Acts twice each turn.", 2, 1, true, spr_cavalry);
+	unit_add("Champion", "Melee attack. Big Boy.", 9, 1, true, spr_champion);
 	
 	tutorial_text = [
 		"You are a [#5F41B0]Hydra![/c] Use your heads to fight off enemy waves.",
 		"Heads are cards. [#E74747][shake]Summon[/shake][/c] one now!",
 		"You only draw one head from your deck each turn. So [#318472]end the turn[/c] now.",
-		"Nice! [c_white]Move[/c] the [#E74747]Headacher[/c] to attack the approaching peasant.",
+		"Nice! [c_white]Move[/c] the [#E74747]Headacher[/c] to attack the approaching farmer.",
 		"[#7BD568]Mutations[/c] can be used to upgrade head cards from your deck."
 	];
 }

@@ -5,7 +5,9 @@
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
-    "children":[],
+    "children":[
+      {"children":[],"name":"Release",},
+    ],
     "name":"Default",
   },
   "defaultScriptType":1,
@@ -258,6 +260,7 @@
     {"id":{"name":"spr_card_preview","path":"sprites/spr_card_preview/spr_card_preview.yy",},},
     {"id":{"name":"spr_cavalry","path":"sprites/spr_cavalry/spr_cavalry.yy",},},
     {"id":{"name":"spr_cell","path":"sprites/spr_cell/spr_cell.yy",},},
+    {"id":{"name":"spr_champion","path":"sprites/spr_champion/spr_champion.yy",},},
     {"id":{"name":"spr_checkerboard","path":"sprites/spr_checkerboard/spr_checkerboard.yy",},},
     {"id":{"name":"spr_cleric","path":"sprites/spr_cleric/spr_cleric.yy",},},
     {"id":{"name":"spr_gameover","path":"sprites/spr_gameover/spr_gameover.yy",},},
@@ -298,7 +301,7 @@
     {"id":{"name":"spr_title","path":"sprites/spr_title/spr_title.yy",},},
     {"id":{"name":"spr_trinket_card","path":"sprites/spr_trinket_card/spr_trinket_card.yy",},},
     {"id":{"name":"spr_trinket_icons","path":"sprites/spr_trinket_icons/spr_trinket_icons.yy",},},
-    {"id":{"name":"spr_champion","path":"sprites/spr_champion/spr_champion.yy",},},
+    {"id":{"name":"spr_unit_tooltip","path":"sprites/spr_unit_tooltip/spr_unit_tooltip.yy",},},
     {"id":{"name":"vfx_attack","path":"sprites/vfx_attack/vfx_attack.yy",},},
     {"id":{"name":"vfx_explosion","path":"sprites/vfx_explosion/vfx_explosion.yy",},},
     {"id":{"name":"vfx_fireball","path":"sprites/vfx_fireball/vfx_fireball.yy",},},

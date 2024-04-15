@@ -6,7 +6,8 @@ function macros(){
 	#macro game_height			360
 	#macro window_scale			2
 	
-	#macro debug				false
+	#macro debug				true
+	#macro Release:debug		false
 	
 	#macro card_total_count		global.g_card_total_count
 	#macro unit_total_count		global.g_unit_total_count

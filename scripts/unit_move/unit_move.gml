@@ -17,6 +17,11 @@ function unit_move(_unit, _x, _y){
 		y = unit_get_y(ypos);
 		depth = -ypos;
 		
+		if type == __unit.CHAMPION
+		{
+			screenshake_do( 7, 7);
+			audio_pplay( sfx_rock_impact);
+		}
 		audio_pplay( choose( sfx_footstep_0, sfx_footstep_1, sfx_footstep_2), 0.5);
 		
 		return true;
