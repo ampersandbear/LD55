@@ -156,8 +156,8 @@ if		hurt  > 0 { hurt -= 1; shader_reset(); }
 else if pulse > 0 { pulse -= 1; shader_reset(); }
 
 if (ypos == 0) { // darken spawned units:
-	//draw_sprite_ext(spr_cell, 0, x - cell_width div 2, y - cell_height div 2, 1, 1, 0, c_black, .5);
-	draw_sprite_ext(sprite, _img_idx, _x, _y, 1, 1, 0, c_black, .5);
+	if type != __unit.CHAMPION { draw_sprite_ext(spr_cell, 0, x - cell_width div 2, y - cell_height div 2, 1, 1, 0, c_black, .5); }
+	else { draw_sprite_ext(sprite, _img_idx, _x, _y, 1, 1, 0, c_black, .5); }
 }
 
 if (!head && hp_max > 1) { // health:

@@ -70,12 +70,13 @@ function build_data(){
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO, __unit.KNIGHT);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.HORSE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.HORSE, __unit.HORSE);
 	
 	// use this for procedural waves
 	global.wave_procedural = ds_list_create();
@@ -108,7 +109,7 @@ function build_data(){
 	unit_add("Necromancer", "Defeated allies become skeletons.", 3, 1, false, spr_necro);
 	unit_add("Skeleton", "Melee attack.", 1, 1, true, spr_skeleton);
 	unit_add("Cavalry", "Melee attack. Acts twice each turn.", 2, 1, true, spr_cavalry);
-	unit_add("Champion", "Melee attack. Big Boy.", 9, 1, true, spr_champion);
+	unit_add("Champion", "Big Boy. Acts twice but self stuns.", 9, 1, true, spr_champion);
 	
 	tutorial_text = [
 		"You are a [#5F41B0]Hydra![/c] Use your heads to fight off enemy waves.",

@@ -10,9 +10,9 @@ if !head and point_distance( x, y, mouse_x, mouse_y) < 32
 	
 	// name
 	var _str = "[fa_center][fnt_bold]" + name;
-	scribble(_str).draw(_mx + 107, _my + 11);
+	scribble(_str).draw(_mx + 107, _my + 9);
 	
 	// description
 	var _desc = scribble("[fa_top][fa_center]" + desc).wrap(105).line_height(12, 12);
-	_desc.draw(_mx + 107, _my + 25);
+	_desc.draw(_mx + 107, _my + 23);
 }

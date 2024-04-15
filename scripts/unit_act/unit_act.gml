@@ -181,9 +181,22 @@ function handle_stun(_unit) {
 
 function unit_mark_as_acted(_unit) {
 	// horse moves twice:
-	if (_unit.type == __unit.HORSE && _unit.can_act_again) {
-		_unit.can_act_again = false;
-	} else {
+	if ((_unit.type == __unit.HORSE or _unit.type == __unit.CHAMPION) and _unit.stun <= 0 && _unit.can_act_again > 0) {
+		_unit.can_act_again -= 1;
+	} 
+	else
+	{
 		_unit.acted = true;
 	}
+}
+
+function unit_after_effects(_unit)
+{
+	// mark as acted if horse/champion got stunned
+	if _unit.stun > 0 and (_unit.type == __unit.HORSE or _unit.type == __unit.CHAMPION)
+	{
+		_unit.acted = true;
+	}
+	// stun champion after acting
+	if _unit.type == __unit.CHAMPION and _unit.can_act_again <= 0 and _unit.acted { _unit.stun = 1; }	
 }

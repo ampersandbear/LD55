@@ -4,7 +4,7 @@ switch (type) {
 	case __btn.END_TURN:
 		with (obj_unit) {
 			acted = false;
-			can_act_again = true;
+			can_act_again = 1;
 		}
 		global.card_picked = false;
 		with (obj_control) alarm[1] = 12;

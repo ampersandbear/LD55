@@ -11,6 +11,7 @@ for (var j = 3; j >= 0; j--) {
 			} else {
 				alarm[1] = 6;
 			}
+			unit_after_effects(_unit);
 			exit;
 		}
 	}
@@ -25,6 +26,8 @@ for (var j = 1; j < 4; j++) {
 				alarm[1] = 12;
 			else
 				alarm[1] = 6;
+			
+			unit_after_effects(_unit);
 			exit;
 		}
 	}

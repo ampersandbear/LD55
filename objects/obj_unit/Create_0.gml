@@ -24,7 +24,7 @@ atk = 0;
 melee = true;
 head = false;
 acted = false;
-can_act_again = false;
+can_act_again = 0;
 
 // lerp
 lerp_x = 0;
