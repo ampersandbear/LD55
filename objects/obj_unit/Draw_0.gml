@@ -145,6 +145,24 @@ if !head
 // head drop shadow
 if head and _a >= 1 { draw_sprite_ext( sprite, 0, _x-1, _y+1, 1, 1, 0, c_black, 1); }
 
+// outline if highlighted
+var _highlighted = (!head and mouseover);
+if _highlighted
+{
+	if ypos == 0 { draw_sprite_ext(spr_cell, 0, x - cell_width div 2, y - cell_height div 2, 1, 1, 0, c_black, .5); }
+	
+	shader_set_color( c_white, 1);
+	
+	for(var i= -1; i < 2; i++) {
+		for(var e= -1; e < 2; e++)
+		{
+			draw_sprite( sprite, _img_idx, _x + i*2, _y + e*2);
+		}
+	}
+	
+	shader_reset();
+}
+
 // shaders
 if		hurt  > 0 { shader_set( shd_hurt); }
 else if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
@@ -155,7 +173,7 @@ draw_sprite_ext(sprite, _img_idx, _x, _y, 1, 1, 0, c_white, _a);
 if		hurt  > 0 { hurt -= 1; shader_reset(); }
 else if pulse > 0 { pulse -= 1; shader_reset(); }
 
-if (ypos == 0) { // darken spawned units:
+if (ypos == 0 and !_highlighted) { // darken spawned units:
 	if type != __unit.CHAMPION { draw_sprite_ext(spr_cell, 0, x - cell_width div 2, y - cell_height div 2, 1, 1, 0, c_black, .5); }
 	else { draw_sprite_ext(sprite, _img_idx, _x, _y, 1, 1, 0, c_black, .5); }
 }
@@ -181,6 +199,8 @@ if stun
 	draw_sprite( spr_stun, _idx == 1 ? 0 : 1, _x + lengthdir_x(-14, stun_anim), _y + lengthdir_y(-7, stun_anim));
 }
 
-
-draw_set_color(c_lime);
-draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+if debug
+{
+	draw_set_color(c_lime);
+	draw_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, true);
+}

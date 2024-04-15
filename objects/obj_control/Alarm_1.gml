@@ -4,7 +4,7 @@
 for (var j = 3; j >= 0; j--) {
 	for (var i = 0; i < 7; i++) {
 		var _unit = unit_find(i, j);
-		if (_unit != noone && !_unit.acted && ((_unit.melee && _unit.ypos < 3) || _unit.ypos == 0)) {
+		if (_unit != noone && !_unit.acted && ((_unit.melee && _unit.ypos < 3 - (_unit.type == __unit.SPEARMAN)) || _unit.ypos == 0)) {
 			unit_mark_as_acted(_unit);
 			if (!handle_stun(_unit) && unit_move(_unit, _unit.xpos, _unit.ypos + 1)) {
 				alarm[1] = 12;

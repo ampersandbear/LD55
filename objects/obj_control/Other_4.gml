@@ -82,6 +82,8 @@ if (room == rm_game) {
 										  ,__unit.NECRO
 										  ,__unit.MAGE));
 		}
+		// Champion joins the fight starting...
+		if global.wave >= 10 { ds_list_add(_wave_data, __unit.CHAMPION); }
 	}
 	
 	ds_list_copy(temp_wave_data, _wave_data);

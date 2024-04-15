@@ -17,10 +17,13 @@ function unit_create(_type, _x, _y){
 	switch _type
 	{
 		case __unit.PEASANT: _unit.unit_power = 1; break;
+		
 		case __unit.AXEMAN:	 _unit.unit_power = 3; break;
 		case __unit.ARCHER:	 _unit.unit_power = 3; break;
 		case __unit.NECRO:	 _unit.unit_power = 4; break;
 		case __unit.RAM:	 _unit.unit_power = 3; break;
+		case __unit.HORSE:	 _unit.unit_power = 3; break;
+		case __unit.CHAMPION: _unit.unit_power = 5; break;
 	}
 	
 	_unit.depth = -_y

@@ -192,11 +192,14 @@ function unit_mark_as_acted(_unit) {
 
 function unit_after_effects(_unit)
 {
-	// mark as acted if horse/champion got stunned
-	if _unit.stun > 0 and (_unit.type == __unit.HORSE or _unit.type == __unit.CHAMPION)
+	if instance_exists(_unit)
 	{
-		_unit.acted = true;
+		// mark as acted if horse/champion got stunned
+		if _unit.stun > 0 and (_unit.type == __unit.HORSE or _unit.type == __unit.CHAMPION)
+		{
+			_unit.acted = true;
+		}
+		// stun champion after acting
+		if _unit.type == __unit.CHAMPION and _unit.can_act_again <= 0 and _unit.acted { _unit.stun = 1; }
 	}
-	// stun champion after acting
-	if _unit.type == __unit.CHAMPION and _unit.can_act_again <= 0 and _unit.acted { _unit.stun = 1; }	
 }
