@@ -28,13 +28,21 @@ switch (type) {
 	break;
 	
 	case __btn.TO_TITLE:
+		transition_to(rm_title);
+		with (obj_gameover) depth = 1;
+		with (obj_pause) depth = 1;
 	break;
 	
 	case __btn.START:
+		global.wave = -1;
 		transition_to(rm_game);
 	break;
 	
 	case __btn.QUIT:
 		game_end();
+	break;
+	
+	case __btn.RESUME:
+		game_pause();
 	break;
 }

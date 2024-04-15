@@ -1,6 +1,7 @@
 if (room == rm_game) {
 	
 	if (global.wave == -1) {
+		with (all) if (!persistent) instance_destroy();
 		// create the board:
 		for (var i = 0; i < board_width; i++) {
 			for (var j = 0; j < board_height; j++) {
@@ -28,6 +29,7 @@ if (room == rm_game) {
 		global.unit_to_move = noone;
 		global.replace_used = false;
 		global.gameover = false;
+		global.pause = false;
 		global.attack_preview = array_create( 7, 0);
 		global.master_trinkets = [];
 		global.master_hp = card_data[__card.SUPERHEAD].card_hp;

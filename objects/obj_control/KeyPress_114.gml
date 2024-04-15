@@ -1,4 +1,2 @@
-/// @description Вставьте описание здесь
-// Вы можете записать свой код в этом редакторе
-
-game_over();
+/// @description game over
+if (debug) game_over();
