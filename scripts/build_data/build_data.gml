@@ -66,16 +66,24 @@ function build_data(){
 	temp_deck = ds_list_create();
 	temp_wave_data = ds_list_create();
 	
+	late_game_units = ds_list_create();
+	unlocked_units = ds_list_create();
+	ds_list_add(late_game_units, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.HORSE);
+	ds_list_shuffle(late_game_units);
+	
 	if debug { wave_add(__unit.CHAMPION); }
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO, __unit.KNIGHT);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.NECRO);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.NECRO, __unit.KNIGHT);
+	
+	ds_list_destroy(late_game_units);
+	ds_list_destroy(unlocked_units);
 	
 	// use this for procedural waves
 	global.wave_procedural = ds_list_create();
@@ -153,6 +161,14 @@ function wave_add(){
 	
 	wave_data[_i] = ds_list_create(); 
 	for (var _j = 0; _j < argument_count; _j++) ds_list_add(wave_data[_i], argument[_j]); 
+	for (var _j = 0; _j < ds_list_size(unlocked_units); _j++) ds_list_add(wave_data[_i], unlocked_units[| _j]); 
+	
+	if (_i > 2 && !ds_list_empty(late_game_units)) {
+		var _unit = late_game_units[| 0];
+		ds_list_add(wave_data[_i], _unit);
+		ds_list_add(unlocked_units, _unit);
+		ds_list_delete(late_game_units, 0);
+	}
 }
 
 function trinket_add(_name, _desc, _sprite){
