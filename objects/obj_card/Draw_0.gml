@@ -10,7 +10,7 @@ if (global.card_drag != noone && !drag && (global.card_drag.y > 100 || global.ca
 // card add preview for the shop:
 if (room == rm_shop && drag_ystart < 100 && drag && !is_trinket) {
 	var _a = (y > 100) ? 0.9 : 0.6;
-	draw_sprite_ext( spr_card_add, 1, shop_deck_xstart + (ds_list_size(deck) + 1) * card_width, shop_deck_ystart, 1, 1, 0, c_white, _a);
+	draw_sprite_ext( spr_card_preview, 2, shop_deck_xstart + (ds_list_size(deck) + 1) * card_width, shop_deck_ystart + 2, 1, 1, 0, c_white, _a);
 }
 // trinket preview:
 if (room == rm_shop 

@@ -1,19 +1,29 @@
 var _pool = ds_list_create();
+var _trinket_offset = 1000;
+var _cx = 155;
+var _cy = 70;
 
 // a card to choose:
 for (var i = 0; i < 3; i++) {
-		
+	
+	var _trinket = false;
+	if ((i == 2 && (irandom(100) > 50 && global.wave > 0) || global.wave > 3) || ds_list_size(deck) == 6) {
+		_trinket = true;
+	}
+	
 	do {
-		var _type = irandom_range(1, card_total_count - 1);
+		var _range = _trinket ? trinket_total_count - 1 : card_total_count - 1;
+		var _type = irandom_range(1, _range) + _trinket * _trinket_offset;
+		
 	} until (ds_list_find_index(_pool, _type) == -1);
 		
 	ds_list_add(_pool, _type);
-	card_create(_type, 155 + i * 120, 70);
+	var _card = _type;
+	if (_trinket) _card -= _trinket_offset;
+	card_create(_card, _cx + i * 120, _cy, _trinket);
 }
 ds_list_destroy(_pool);
 
-// trinket:
-card_create(__trinket.CARD_DRAW, 155 + 3 * 120, 70, true);
 
 for (var i = -1; i < ds_list_size(deck); i++) {
 	var _struct = deck[| i];
