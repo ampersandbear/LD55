@@ -10,6 +10,7 @@ global.master_hp = 5;
 global.master_hp_max = 5;
 global.master_trinkets = [];
 global.gameover = false;
+global.attack_preview = array_create( 7, 0);
 
 alarm[0] = 1;
 
@@ -27,6 +28,7 @@ for (var i = 0; i < board_width; i++) {
 		_cell.tile = (i + j) mod 2 * 2 + irandom(1);
 	}
 }
+
 
 // previous power, in case we made too many powerful units in one turn
 previous_power = 0;
