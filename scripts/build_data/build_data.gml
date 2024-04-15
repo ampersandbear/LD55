@@ -39,7 +39,8 @@ enum __btn {
 	TO_TITLE,
 	START,
 	TUTORIAL,
-	QUIT
+	QUIT,
+	RESUME
 }
 
 function build_data(){

@@ -1,7 +1,7 @@
 if (!active) 
 {
 	if (distance_to_point(mouse_x, mouse_y) == 0) and mouse_check_button_pressed(mb_left)
-	and obj_control.alarm[1] <= 0 and !global.gameover
+	and obj_control.alarm[1] <= 0 and !global.gameover and !global.pause
 	{
 		event_user(9);
 	}

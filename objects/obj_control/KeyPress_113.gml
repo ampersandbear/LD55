@@ -1,4 +1,2 @@
-/// @description Вставьте описание здесь
-// Вы можете записать свой код в этом редакторе
-
-room_goto(rm_shop);
+/// @description go to shop
+if (debug) room_goto(rm_shop);

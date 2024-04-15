@@ -7,4 +7,5 @@ switch(type) {
 	case __btn.START:		text = "START"; break; 
 	case __btn.TUTORIAL:	text = "RESET TUTORIAL"; break; 
 	case __btn.QUIT:		text = "QUIT"; break;
+	case __btn.RESUME:		text = "RESUME"; break;
 }

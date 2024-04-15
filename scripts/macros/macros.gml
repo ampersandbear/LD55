@@ -43,6 +43,8 @@ function macros(){
 	#macro board_width			7
 	#macro board_height			4
 	
+	#macro music_fade_time		300
+	
 	#macro cc_atk				#E72929
 	#macro cc_atk_string		"#E72929"
 	#macro cc_red				#E74747

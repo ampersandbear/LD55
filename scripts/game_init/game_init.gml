@@ -7,7 +7,7 @@ function game_init(){
 	build_data();
 		
 	music_init();
-	music_play( mus_hydra);
+	
 }
 
 // custom jaime scripts:
@@ -39,8 +39,10 @@ function transition_to(_room, _speed = 0.05)
 {
 	with obj_control
 	{
+		// if room is noone it means we are triggering pause or gameover
+		
 		transition_speed = _speed;
 		transition_room = _room;
-		transition_max_alpha = 1.1;
+		transition_max_alpha = (_room == noone) ? 0.8 : 1.1;
 	}
 }
