@@ -1,7 +1,7 @@
 // 
 function music_init()
 {
-	global.music_volume = 0.5;
+	global.music_volume = 0.25;
 	global.sfx_volume = 0.25;
 	
 	global.music_tracks = array_create( 3, noone);
