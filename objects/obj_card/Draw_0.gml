@@ -26,11 +26,17 @@ if (room == rm_shop
 	draw_sprite_ext( spr_card_preview, 0, x, y, 1, 1, 0, c_white, 0.9);
 }
 
+// shader stuff?
+if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
+
 lerp_x = lerp( lerp_x, _x, 0.3);
 lerp_y = lerp( lerp_y, _y, 0.3);
 
-_x = lerp_x;
-_y = lerp_y;
+nudge_x = lerp( nudge_x, 0, 0.25);
+nudge_y = lerp( nudge_y, 0, 0.25);
+
+_x = lerp_x + nudge_x;
+_y = lerp_y + nudge_y;
 
 draw_sprite(_spr, 1, _x, _y);
 draw_sprite_ext(_spr, 0, _x, _y, 1, 1, 0, color, 1);
@@ -59,3 +65,4 @@ scribble("[fa_center][fnt_bold]" + name).draw(_x + card_width / 2, _y + 86);
 var _desc = scribble("[fa_center]" + desc).wrap(card_width - 12).line_height(12, 12);
 _desc.draw(_x + card_width / 2, _y + 22 + (60 - _desc.get_height()) div 2);
 
+if pulse > 0 { pulse -= 1; shader_reset(); }

@@ -1,7 +1,7 @@
 if (room == rm_game) {
 	ds_list_shuffle(deck);
 	ds_list_copy(temp_deck, deck);
-	card_draw_from_deck();
+	card_draw_from_deck( false);
 	global.wave++;
 	global.replace_used = false;
 	spawn_enemy();

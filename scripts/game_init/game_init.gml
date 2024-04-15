@@ -7,7 +7,7 @@ function game_init(){
 	build_data();
 	
 	global.music_volume = 0//0.5;
-	global.sfx_volume = 1;
+	global.sfx_volume = 0.25;
 	
 	music_play( mus_hydra);
 }
