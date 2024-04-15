@@ -5,7 +5,7 @@ function game_init(){
 	
 	scribble_font_set_default("fnt_main");
 	build_data();
-		
+	
 	music_init();
 	
 }
