@@ -228,6 +228,7 @@
     {"id":{"name":"__shd_scribble","path":"shaders/__shd_scribble/__shd_scribble.yy",},},
     {"id":{"name":"shd_color","path":"shaders/shd_color/shd_color.yy",},},
     {"id":{"name":"shd_hurt","path":"shaders/shd_hurt/shd_hurt.yy",},},
+    {"id":{"name":"mus_gameover","path":"sounds/mus_gameover/mus_gameover.yy",},},
     {"id":{"name":"mus_hydra","path":"sounds/mus_hydra/mus_hydra.yy",},},
     {"id":{"name":"mus_shop","path":"sounds/mus_shop/mus_shop.yy",},},
     {"id":{"name":"mus_title","path":"sounds/mus_title/mus_title.yy",},},
