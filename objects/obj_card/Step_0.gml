@@ -1,4 +1,4 @@
-active = global.card_drag == noone && !covered && (type != __card.BUFF || !in_hand);
+active = global.card_drag == noone && !covered && (type != __card.BUFF || !in_hand) && obj_control.alarm[1] <= 0;
 event_inherited();
 
 if (drag) {
@@ -148,13 +148,12 @@ if (drag) {
 			x = drag_xstart;
 			y = drag_ystart;
 			if (drag_ystart < 100) { // return to the draw pile:
-				instance_destroy(unit, false);
+				if (instance_exists(unit)) instance_destroy(unit, false);
 				unit = noone;
 			} else { // unit placed on top of Hothead:
 				card_pos = clamp((x + 45) div 91, 0, 6);
-				unit.xpos = card_pos;
+				if (instance_exists(unit)) unit.xpos = card_pos;
 			}
-			
 		}
     }
 	exit;

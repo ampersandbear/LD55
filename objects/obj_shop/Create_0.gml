@@ -20,7 +20,7 @@ for (var i = 0; i < 3; i++) {
 	ds_list_add(_pool, _type);
 	var _card = _type;
 	if (_trinket) _card -= _trinket_offset;
-	card_create(_card, _cx + i * 120, _cy, _trinket);
+	card_create(0, _cx + i * 120, _cy, _trinket);
 }
 ds_list_destroy(_pool);
 
