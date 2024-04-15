@@ -33,5 +33,5 @@ sprite = noone;
 ability_used = false;
 is_trinket = false;
 trinkets = [];
-trinket_used = false;
+trinket_used = array_create(trinket_total_count, false);
 covered = false;

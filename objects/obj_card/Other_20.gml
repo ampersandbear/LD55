@@ -17,7 +17,7 @@ if (is_trinket) {
 	sprite = card_data[type].unit_sprite;
 	hp_max = hp;
 	ability_used = false;
-	trinket_used = false;
+	trinket_used = array_create(trinket_total_count, false);
 }
 
 lerp_x = x;
