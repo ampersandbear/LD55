@@ -15,10 +15,11 @@ function apply_hp_trinket() {
 	hp_max = max(hp, hp_max);
 }
 
-function has_trinket(_type) {
+function has_trinket(_type, _obj = noone) {
 	
-	var _obj = id;
-	if (object_index == obj_unit) _obj = owner;
+	if (_obj == noone) {
+		_obj = (object_index == obj_unit) ? owner : id;
+	}
 	
 	for (var i = 0; i < array_length(_obj.trinkets); i++) {
 		if (_obj.trinkets[i] == _type) return true;
