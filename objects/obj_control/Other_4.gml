@@ -70,7 +70,12 @@ if (room == rm_game) {
 		// Basic troops
 		ds_list_add(_wave_data, __unit.PEASANT, __unit.PEASANT, __unit.KNIGHT, __unit.MAGE);
 		// Add one of each
-		for(var _u = 0; _u < unit_total_count; _u++) { ds_list_add(_wave_data, _u, _u); }
+		ds_list_add(_wave_data, __unit.AXEMAN);
+		ds_list_add(_wave_data, __unit.ARCHER);
+		ds_list_add(_wave_data, __unit.RAM);
+		ds_list_add(_wave_data, __unit.SPEARMAN);
+		ds_list_add(_wave_data, __unit.NECRO);
+		ds_list_add(_wave_data, __unit.HORSE);
 		// Each waves adds an additional random enemy (that's not a peasant)
 		repeat (global.wave - array_length(wave_data) + 1)
 		{
