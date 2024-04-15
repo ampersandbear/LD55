@@ -29,10 +29,10 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 				 if (type == __unit.RAM) {
 					 unit_create(__unit.RAM_KNIGHT, xpos, ypos);
 					 var _x = choose(1, -1);
-					 var _cell = unit_find(xpos + _x, ypos);
+					 var _cell = unit_find(clamp(xpos + _x, 0, 6), ypos);
 					 if (_cell != noone) {
 						 _x *= -1;
-						 _cell = unit_find(xpos + _x, ypos);
+						 _cell = unit_find(clamp(xpos + _x, 0, 6), ypos);
 					 }
 					 if (_cell == noone) unit_create(__unit.RAM_KNIGHT, xpos + _x, ypos);
 				 }

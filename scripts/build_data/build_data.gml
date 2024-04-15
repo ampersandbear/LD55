@@ -71,7 +71,7 @@ function build_data(){
 	ds_list_add(late_game_units, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.HORSE);
 	ds_list_shuffle(late_game_units);
 	
-	if debug { wave_add(__unit.CHAMPION); }
+	//if debug { wave_add(__unit.CHAMPION); }
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
@@ -116,7 +116,7 @@ function build_data(){
 	unit_add("Necromancer", "Defeated allies become skeletons.", 3, 1, false, spr_necro);
 	unit_add("Skeleton", "Melee attack.", 1, 1, true, spr_skeleton);
 	unit_add("Cavalry", "Melee attack. Acts twice each turn.", 2, 1, true, spr_cavalry);
-	unit_add("Champion", "Melee attack. Big Boy.", 9, 1, true, spr_champion);
+	unit_add("Champion", "Melee attack. Big Boy.", 5, 1, true, spr_champion);
 	
 	tutorial_text = [
 		"You are a [#5F41B0]Hydra![/c] Use your heads to fight off enemy waves.",
