@@ -26,6 +26,7 @@ switch (type) {
 	break;
 	
 	case __btn.RESTART:
+		audio_stop_sound(mus_gameover);
 		transition_to(rm_game);
 		with (all) if (!persistent) instance_destroy();
 		global.wave = -1;
