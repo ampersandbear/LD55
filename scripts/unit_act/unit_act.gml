@@ -4,23 +4,11 @@ function unit_act(_obj)
 	// not the same as variable "acted", this is to make alarm[1] be 12 frames or 6 frames if the unit acted or not
 	#macro ATTACK_NUDGE 20
 	with (_obj) {
-		if (type == __unit.HORSE && can_act_again) {
-			can_act_again = false;
-		} else {
-			acted = true;
-		}
+		unit_mark_as_acted(id);
 			
 		if (!head) {
 			
-			if (stun) {
-				stun--;
-				if stun <= 0
-				{
-					audio_pplay(sfx_card_pick, 0.5,, 1.35);
-					nudge_y += 3;
-				}
-				return false;
-			}
+			if (handle_stun(id)) return false;
 			
 			if (ypos == 0) { // spawn:
 				//unit_move(id, xpos, 1);
@@ -167,5 +155,29 @@ function damage_column(_x, _dmg = 1) {
 	for (var j = 3; j > 0; j--) {
 		var _unit = unit_find(_x, j);
 		if (_unit != noone) unit_take_damage(_unit, _dmg);
+	}
+}
+
+function handle_stun(_unit) {
+	with (_unit) {
+		if (stun) {
+			stun--;
+			if stun <= 0
+			{
+				audio_pplay(sfx_card_pick, 0.5,, 1.35);
+				nudge_y += 3;
+			}
+			return true;
+		}
+	}
+	return false;
+}
+
+function unit_mark_as_acted(_unit) {
+	// horse moves twice:
+	if (_unit.type == __unit.HORSE && _unit.can_act_again) {
+		_unit.can_act_again = false;
+	} else {
+		_unit.acted = true;
 	}
 }
