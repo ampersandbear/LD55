@@ -19,8 +19,8 @@ function unit_act(_obj)
 			}
 			
 			if (ypos == 0) { // spawn:
-				unit_move(id, xpos, 1);
-				return true;
+				//unit_move(id, xpos, 1);
+				return false;
 			}
 				
 			if (type == __unit.MAGE) { // mage attacks:
@@ -60,7 +60,8 @@ function unit_act(_obj)
 				
 			if (type == __unit.SPEARMAN) { // spearman moves & attacks:
 				if (ypos < 2) {
-					unit_move(id, xpos, ypos + 1);
+					//unit_move(id, xpos, ypos + 1);
+					return false;
 				} else {
 					audio_pplay( sfx_melee_attack);
 					attacking = 7;
