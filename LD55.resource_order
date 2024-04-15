@@ -46,6 +46,7 @@
     {"name":"unit_move","order":8,"path":"scripts/unit_move/unit_move.yy",},
     {"name":"unit_take_damage","order":5,"path":"scripts/unit_take_damage/unit_take_damage.yy",},
     {"name":"shd_hurt","order":1,"path":"shaders/shd_hurt/shd_hurt.yy",},
+    {"name":"mus_gameover","order":18,"path":"sounds/mus_gameover/mus_gameover.yy",},
     {"name":"mus_hydra","order":2,"path":"sounds/mus_hydra/mus_hydra.yy",},
     {"name":"mus_shop","order":17,"path":"sounds/mus_shop/mus_shop.yy",},
     {"name":"mus_title","order":16,"path":"sounds/mus_title/mus_title.yy",},

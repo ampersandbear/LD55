@@ -1,6 +1,7 @@
 /// @description gameover
 
 transition_to(noone);
+audio_pplay(mus_gameover);
 
 instance_create_depth(game_width / 2,  game_height + 100, -10000, obj_gameover);
 
