@@ -44,9 +44,36 @@ if (room == rm_game) {
 	global.wave++;
 	global.replace_used = false;
 	
-	ds_list_copy(temp_wave_data, wave_data[global.wave]);
+	
+	var _wave_data = noone;
+	
+	if global.wave < array_length(wave_data)
+		_wave_data = wave_data[global.wave];
+	else // If we are at a wave that doesn't exist, procedurally generate it
+	{
+		_wave_data = global.wave_procedural;
+		ds_list_clear(_wave_data);
+		// Basic troops
+		ds_list_add(_wave_data, __unit.PEASANT, __unit.PEASANT, __unit.KNIGHT, __unit.MAGE);
+		// Add one of each
+		for(var _u = 0; _u < unit_total_count; _u++) { ds_list_add(_wave_data, _u, _u); }
+		// Each waves adds an additional random enemy (that's not a peasant)
+		repeat (global.wave - array_length(wave_data) + 1)
+		{
+			ds_list_add(_wave_data, choose(__unit.AXEMAN
+										  ,__unit.ARCHER
+										  ,__unit.SPEARMAN
+										  ,__unit.RAM
+										  ,__unit.KNIGHT
+										  ,__unit.NECRO
+										  ,__unit.MAGE));
+		}
+	}
+	
+	ds_list_copy(temp_wave_data, _wave_data);
 	ds_list_shuffle(temp_wave_data);
-	spawn_enemy();
+	// Every X waves, start with one extra enemy
+	repeat floor(global.wave/3) + 1 { spawn_enemy(); }
 	
 	with (obj_unit) if (head) {
 		if (type == __card.SUPERHEAD) { // move the head in the middle:

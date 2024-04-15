@@ -50,6 +50,31 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 				}
 				if (type == __card.SUPERHEAD) game_over();
 			}
+			// NECROMANCER: As long as it is alive, any unit that dies becomes a skeleton
+			if !head and type != __unit.NECRO and type != __unit.SKELETON and type != __unit.RAM
+			{
+				var _necromancer_exists = false;
+				with obj_unit { if type == __unit.NECRO { _necromancer_exists = true; break; }}
+				
+				if _necromancer_exists
+				{
+					nudge_y -= ATTACK_NUDGE;
+					attacking = 7;
+					with unit_create(__unit.SKELETON, xpos, ypos)
+					{
+						lerp_x = x;
+						lerp_y = y;
+												
+						unit_stun( id, 1);
+						
+						pulse = 25;
+						pulse_color = #df50e0;
+						pulse_alpha = 1;
+						nudge_y = 10;
+					}
+				}
+			}
+			
 			xpos = noone;
 			ypos = noone;
 			instance_destroy();

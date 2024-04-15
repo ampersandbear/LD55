@@ -1,4 +1,7 @@
-function unit_act(_obj){
+function unit_act(_obj)
+{
+	// RETURNS TRUE IF IT ACTED, FALSE IF IT DIDN'T
+	// not the same as variable "acted", this is to make alarm[1] be 12 frames or 6 frames if the unit acted or not
 	#macro ATTACK_NUDGE 20
 	with (_obj) {
 		acted = true;
@@ -7,12 +10,17 @@ function unit_act(_obj){
 			
 			if (stun) {
 				stun--;
-				return;
+				if stun <= 0
+				{
+					audio_pplay(sfx_card_pick, 0.5,, 1.35);
+					nudge_y += 3;
+				}
+				return false;
 			}
 			
 			if (ypos == 0) { // spawn:
 				unit_move(id, xpos, 1);
-				return;
+				return true;
 			}
 				
 			if (type == __unit.MAGE) { // mage attacks:
@@ -37,7 +45,7 @@ function unit_act(_obj){
 				if (!_damaged_unit) damage_head(id, xpos, atk);
 				
 				vfx_fire_attack(_distance, noone, x, y, -1);
-				return;
+				return true;
 			}
 				
 			if (type == __unit.ARCHER) { // archer attacks:
@@ -47,7 +55,7 @@ function unit_act(_obj){
 				damage_head(id, xpos, atk);
 				// SFX
 				audio_pplay(sfx_fast_woosh);
-				return;
+				return true;
 			}
 				
 			if (type == __unit.SPEARMAN) { // spearman moves & attacks:
@@ -59,26 +67,16 @@ function unit_act(_obj){
 					vfx_create( vfx_attack, x, y + cell_height*2);
 					damage_head(id, xpos, atk);
 				}
-				return;
+				return true;
 			}
 				
 			if (type == __unit.NECRO) { // necromancer spawns skellies:
-				nudge_y -= ATTACK_NUDGE;
-				attacking = 7;
-				if (unit_find(xpos, ypos + 1) == noone) {
-					with unit_create(__unit.SKELETON, xpos, ypos + 1)
-					{
-						lerp_x = x;
-						lerp_y = y;
-						
-						nudge_y = 5;
-					}
-				}
-				return;
+				return false;
 			}
-				
+			
 			if (melee && ypos < 3) { // units move:
 				unit_move(id, xpos, ypos + 1);
+				return true;
 			} else { // units attack:
 				audio_pplay( sfx_melee_attack);
 				damage_head(id, xpos, atk);
@@ -95,25 +93,34 @@ function unit_act(_obj){
 				}
 				else
 					vfx_create( vfx_attack, x, y + cell_height*0.5);
+				
+				return true;
 			}
 		}
 			
 		// heads attack:
-		if (head) {
-			if (type == __card.ATK){
+		if (head)
+		{
+			var _acted = false;
+			if (type == __card.ATK)
+			{
 				head_attack();
+				_acted = true;
 			}
 			if (type == __card.BUFF) {
 				var _left_unit = unit_find(xpos - 1, ypos);
-				if (_left_unit != noone) with (_left_unit) head_attack();
+				if (_left_unit != noone) with (_left_unit) { head_attack(); _acted = true; }
 				var _right_unit = unit_find(xpos + 1, ypos);
-				if (_right_unit != noone) with (_right_unit) head_attack();
+				if (_right_unit != noone) with (_right_unit) { head_attack(); _acted = true; }
 			}
 			if (has_trinket(__trinket.DMG)) {
 				head_attack();
+				_acted = true;
 			}
+			return _acted;
 		}
 	}
+	return false;
 }
 
 function vfx_fire_attack(_distance, _unit, _x, _y, _direction = 1)

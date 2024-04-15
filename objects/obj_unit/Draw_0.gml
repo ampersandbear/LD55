@@ -112,7 +112,7 @@ if (!head)
 if (_attack_warn) // melee attack warning:
 {
 	draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
-	global.attack_preview[xpos] += 1;
+	if xpos >= 0 and xpos < 7 { global.attack_preview[xpos] += 1; }
 	
 	// axeman
 	if type == __unit.AXEMAN

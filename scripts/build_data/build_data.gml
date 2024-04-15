@@ -59,16 +59,19 @@ function build_data(){
 	deck = ds_list_create(); 
 	temp_deck = ds_list_create();
 	temp_wave_data = ds_list_create();
-
-	wave_add(__unit.ARCHER);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN, __unit.ARCHER, __unit.ARCHER);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN, __unit.ARCHER, __unit.ARCHER, __unit.AXEMAN, __unit.AXEMAN);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN, __unit.ARCHER, __unit.ARCHER, __unit.AXEMAN, __unit.AXEMAN, __unit.RAM, __unit.RAM);
-	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.SPEARMAN, __unit.ARCHER, __unit.ARCHER, __unit.AXEMAN, __unit.AXEMAN, __unit.RAM, __unit.RAM, __unit.NECRO, __unit.NECRO);
+	
+	//if debug { wave_add(__unit.ARCHER, __unit.NECRO, __unit.PEASANT, __unit.PEASANT); }
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM);
+	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.NECRO);
+	
+	// use this for procedural waves
+	global.wave_procedural = ds_list_create();
 	
 	card_add("Masterhead", "Takes damage from empty cell attacks", 1, cc_purple, spr_head_purple, spr_neck_purple);
 	card_add("Headacher", "Deals [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_red, spr_head_red, spr_neck_red);
@@ -76,7 +79,7 @@ function build_data(){
 	card_add("Ironhead", "Redirects damage from nearby heads to itself", 5, cc_gray, spr_head_gray, spr_neck_gray);
 	card_add("Quickhead", "Deals [" + cc_atk_string + "]2[spr_atk][/c] when summoned", 2, cc_orange, spr_head_orange, spr_neck_orange);
 	card_add("Hothead", "Can't move. Nearby heads deal [" + cc_atk_string + "]1[spr_atk][/c] every turn", 1, cc_pink, spr_head_pink, spr_neck_pink);
-	card_add("Spikehead", "Stuns attackers", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
+	card_add("Spikehead", "Stuns attackers when damaged", 3, cc_yellow, spr_head_yellow, spr_neck_yellow);
 	card_add("Flashhead", "Stuns all enemies when summoned", 1, cc_light_blue, spr_head_light_blue, spr_neck_light_blue);
 	
 	trinket_add("Mean Heart", "+[spr_heart_numbers,2][spr_heart]", 0);
