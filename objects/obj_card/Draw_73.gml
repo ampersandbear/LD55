@@ -1,13 +1,13 @@
 /// @description Trinket Tooltip?
-if abs( mouse_y - y + 5) < 15
+if abs( mouse_y - y - 9) < 10 && !drag
 {
 	var _trinket_length = array_length(trinkets);
 	if _trinket_length > 0
 	{
 		var _index = floor((x + 90 - mouse_x)/14);
 		if _index < 0 or _index >= _trinket_length{ return; }
-		var _mx = mouse_x;
-		var _my = mouse_y;
+		var _mx = x + 110;
+		var _my = y;
 		var _trinket = trinket_data[trinkets[_index]];
 		
 		draw_sprite( spr_unit_tooltip, 0, _mx, _my);
