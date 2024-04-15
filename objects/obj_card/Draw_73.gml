@@ -1,5 +1,5 @@
 /// @description Trinket Tooltip?
-if abs( mouse_y - y - 9) < 10
+if abs( mouse_y - y - 9) < 10 && !drag
 {
 	var _trinket_length = array_length(trinkets);
 	if _trinket_length > 0
