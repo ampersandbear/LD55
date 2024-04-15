@@ -92,8 +92,13 @@ if (!head)
 	{
 		if unit_find(xpos, ypos+1) == noone { draw_sprite_ext(spr_attack_warn_arced, 1, unit_get_x(xpos), unit_get_y(ypos+1)-5, 1, 1, 0, cc_red, 1); }
 		var _front_row = unit_find(xpos, 3);
-		if _front_row == noone or _front_row.stun
+		var _left_unit = unit_find(xpos-1, 3);
+		var _right_unit = unit_find(xpos+1, 3);
+		if  (_front_row  == noone or _front_row.stun)
+		and (_left_unit  == noone or _left_unit.type  != __unit.AXEMAN or _left_unit.stun)
+		and (_right_unit == noone or _right_unit.type != __unit.AXEMAN or _right_unit.stun)
 			draw_sprite_ext(spr_attack_warn_arced, 0, unit_get_x(xpos), unit_get_y(3) + 25, 1, 1, 0, cc_red, 1);
+		global.attack_preview[xpos] += 1;
 	}
 	// spearman attack warning:
 	if (type == __unit.SPEARMAN && ypos > 1 && !stun) {
@@ -104,13 +109,20 @@ if (!head)
 	}
 }
 
-if (_attack_warn) { // melee attack warning:
+if (_attack_warn) // melee attack warning:
+{
+	draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+	global.attack_preview[xpos] += 1;
 	
 	// axeman
 	if type == __unit.AXEMAN
-		draw_sprite_ext(spr_attack_axe_warn, 1, x - 20, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
-	else
-		draw_sprite_ext(spr_attack_warn, 1, x, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+	{
+		if xpos > 0 { global.attack_preview[xpos-1] += 1; }
+		if xpos < 6 { global.attack_preview[xpos+1] += 1; }
+		
+		draw_sprite_ext(spr_attack_warn, 1, x - cell_width, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+		draw_sprite_ext(spr_attack_warn, 1, x + cell_width, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+	}
 }
 
 // preview for the Hypnohead ability:
@@ -123,6 +135,13 @@ if (global.unit_to_move == id
 	_x = unit_get_x(_pos);
 	_a = .25;
 }
+// img index
+var _img_idx = 0;
+if !head
+{
+	if attacking > 0 { attacking -= 1; _img_idx = 2; }
+	else			 { _img_idx = global.img_idx; }
+}
 // head drop shadow
 if head and _a >= 1 { draw_sprite_ext( sprite, 0, _x-1, _y+1, 1, 1, 0, c_black, 1); }
 
@@ -130,7 +149,7 @@ if head and _a >= 1 { draw_sprite_ext( sprite, 0, _x-1, _y+1, 1, 1, 0, c_black, 
 if		hurt  > 0 { shader_set( shd_hurt); }
 else if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
 
-draw_sprite_ext(sprite, 0, _x, _y, 1, 1, 0, c_white, _a);
+draw_sprite_ext(sprite, _img_idx, _x, _y, 1, 1, 0, c_white, _a);
 
 // reset shaders
 if		hurt  > 0 { hurt -= 1; shader_reset(); }

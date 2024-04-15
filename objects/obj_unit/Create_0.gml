@@ -12,6 +12,7 @@ stun_anim = 0;
 unit_power = 0;
 
 // draw stuff
+attacking = 0;
 hurt = 0;
 pulse = 0;
 pulse_color = c_white;
