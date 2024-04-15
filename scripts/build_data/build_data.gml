@@ -19,7 +19,8 @@ enum __unit {
 	RAM,
 	RAM_KNIGHT,
 	NECRO,
-	SKELETON
+	SKELETON,
+	HORSE
 }
 
 enum __trinket {
@@ -101,6 +102,7 @@ function build_data(){
 	unit_add("Ram Carrier", "", 1, 1, true, spr_ram_knight);
 	unit_add("Necromancer", "", 3, 1, false, spr_necro);
 	unit_add("Skeleton", "", 1, 1, true, spr_skeleton);
+	unit_add("Cavalry", "", 2, 1, true, spr_cavalry);
 	
 	tutorial_text = [
 		"You are a [#5F41B0]Hydra![/c] Use your heads to fight off enemy waves.",
