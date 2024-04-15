@@ -1,4 +1,4 @@
-active = global.card_drag == noone;
+active = global.card_drag == noone && !covered;
 event_inherited();
 
 if (drag) {
@@ -65,12 +65,10 @@ if (drag) {
 			
 			// Quickhead ability:
 			if (type == __card.QUICK && !ability_used) {
-				var _unit = unit_find_up(card_pos);
-				
-				// fireball VFX
-				vfx_fire_attack( y + cell_height, _unit, unit_get_x(xpos), y + 52);
-				
-				if (_unit != noone) unit_take_damage(_unit, 2)
+				with (unit) {
+					xpos = other.card_pos;
+					head_attack(2);
+				}
 				ability_used = true;
 			}
 			
@@ -80,12 +78,25 @@ if (drag) {
 				ability_used = true;
 			}
 			
+			// Draw a card trinket:
+			if (has_trinket(__trinket.CARD_DRAW) && !trinket_used) {
+				card_draw_from_deck();
+				trinket_used = true;
+			}
+			
+			with (obj_card) covered = false;
+			
 			with (obj_card) if (in_hand) { 
 				if (card_pos == other.card_pos) {
 					if (other.drag_ystart < 100) {
 						in_hand = false;
 						x = card_draw_xstart;
 						y = card_draw_ystart;
+						var _card = instance_place(x, y, obj_card);
+						if (_card != noone) {
+							y += 17;
+							_card.covered = true;
+						}
 						instance_destroy(unit, false);
 						unit = noone;
 					} else {
@@ -131,6 +142,7 @@ if (drag) {
 
 depth = mouseover ? -10000 : card_default_depth;
 if (instance_exists(unit)) unit.depth = unit_default_depth;
+if (covered) depth++;
 
 /*
 

@@ -5,6 +5,7 @@ if (room == rm_game) {
 	global.wave++;
 	global.replace_used = false;
 	spawn_enemy();
+	
 	with (obj_unit) if (head) {
 		if (type == __card.SUPERHEAD) { // move the head in the middle:
 			owner.card_pos = 3;

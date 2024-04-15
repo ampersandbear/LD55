@@ -13,7 +13,7 @@ for (var i = 0; i < 3; i++) {
 ds_list_destroy(_pool);
 
 // trinket:
-card_create(__trinket.DMG, 155 + 3 * 120, 70, true);
+card_create(__trinket.CARD_DRAW, 155 + 3 * 120, 70, true);
 
 for (var i = -1; i < ds_list_size(deck); i++) {
 	var _struct = deck[| i];

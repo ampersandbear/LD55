@@ -134,11 +134,21 @@ function vfx_head_attack(_unit)
 	}
 }
 
-function head_attack() {
+function head_attack(_dmg = 1) {
 	vfx_head_attack( id);
-	var _unit = unit_find_up(xpos);
+	var _pierce = has_trinket(__trinket.PIERCE);
+	var _unit = _pierce ? noone : unit_find_up(xpos);
 	// fireball VFX
 	vfx_fire_attack( y + cell_height, _unit, unit_get_x(xpos), y + 52);		
 	// deal damage
-	if (_unit != noone) unit_take_damage(_unit, 1);
+	if (_unit != noone) unit_take_damage(_unit, _dmg);
+	
+	if (_pierce) damage_column(xpos, _dmg);
+}
+
+function damage_column(_x, _dmg = 1) {
+	for (var j = 3; j > 0; j--) {
+		var _unit = unit_find(_x, j);
+		if (_unit != noone) unit_take_damage(_unit, _dmg);
+	}
 }

@@ -44,6 +44,10 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 			{
 				// Explode!
 				vfx_create( vfx_explosion, unit_get_x( xpos), y + 52);
+				if (has_trinket(__trinket.EXPLODE)) {
+					vfx_fire_attack( y + cell_height, noone, unit_get_x(xpos), y + 52);
+					damage_column(xpos, 2);
+				}
 			}
 			xpos = noone;
 			ypos = noone;

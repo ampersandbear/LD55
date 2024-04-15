@@ -14,7 +14,7 @@ switch (type) {
 	case __btn.RESHUFFLE:
 		global.replace_used = true;
 		with (obj_card) if (!in_hand) {
-			ds_list_add(temp_deck, type);
+			ds_list_add(temp_deck, new card(type, trinkets));
 			instance_destroy();
 		}
 		card_draw_from_deck();
