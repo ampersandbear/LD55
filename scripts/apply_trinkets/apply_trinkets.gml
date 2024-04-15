@@ -31,7 +31,7 @@ function can_equip_trinket(_type) {
 	
 	if (array_length(trinkets) >= max_trinkets) return false;
 	if (has_trinket(_type)) return false;
-	if (type == __card.SUPERHEAD && _type > 2) return false;
+	if (type == __card.SUPERHEAD && _type > 3) return false;
 	
 	return true;
 }
