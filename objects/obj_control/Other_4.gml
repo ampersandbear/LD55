@@ -33,9 +33,6 @@ if (room == rm_game) {
 		
 		card_create_on_start(__card.SUPERHEAD, 3);
 		
-		unit_create(__unit.HORSE, 3, 0);
-		unit_create(__unit.PEASANT, 4, 0);
-		
 		global.card_drag = noone;
 		global.card_picked = false;
 		global.hand_size = 1;
