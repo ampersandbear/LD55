@@ -11,6 +11,7 @@ global.master_hp_max = 5;
 global.master_trinkets = [];
 global.gameover = false;
 global.attack_preview = array_create( 7, 0);
+global.img_idx = 0;
 
 alarm[0] = 1;
 

@@ -135,6 +135,13 @@ if (global.unit_to_move == id
 	_x = unit_get_x(_pos);
 	_a = .25;
 }
+// img index
+var _img_idx = 0;
+if !head
+{
+	if attacking > 0 { attacking -= 1; _img_idx = 2; }
+	else			 { _img_idx = global.img_idx; }
+}
 // head drop shadow
 if head and _a >= 1 { draw_sprite_ext( sprite, 0, _x-1, _y+1, 1, 1, 0, c_black, 1); }
 
@@ -142,7 +149,7 @@ if head and _a >= 1 { draw_sprite_ext( sprite, 0, _x-1, _y+1, 1, 1, 0, c_black, 
 if		hurt  > 0 { shader_set( shd_hurt); }
 else if pulse > 0 { shader_set_color( pulse_color, pulse_alpha); }
 
-draw_sprite_ext(sprite, 0, _x, _y, 1, 1, 0, c_white, _a);
+draw_sprite_ext(sprite, _img_idx, _x, _y, 1, 1, 0, c_white, _a);
 
 // reset shaders
 if		hurt  > 0 { hurt -= 1; shader_reset(); }
