@@ -115,10 +115,10 @@ if (_can_play) { // play the card:
 				unit = noone;
 				
 				// shuffle trinket:
-				if (has_trinket(__trinket.SHUFFLE, other) && !trinket_used[__trinket.SHUFFLE]) {
+				if (has_trinket(__trinket.SHUFFLE, other) && !other.trinket_used[__trinket.SHUFFLE]) {
 					ds_list_add(temp_deck, new card(type, trinkets));
 					ds_list_shuffle(temp_deck);
-					trinket_used[__trinket.SHUFFLE] = true;
+					other.trinket_used[__trinket.SHUFFLE] = true;
 					instance_destroy();
 				} else {
 					in_hand = false;
