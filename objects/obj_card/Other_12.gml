@@ -3,12 +3,10 @@
 audio_pplay( sfx_card_drop);
 	
 var _can_play = y > 100 || drag_ystart > 100;
-		
+var _shuffle = has_trinket(__trinket.SHUFFLE) && !trinket_used[__trinket.SHUFFLE];
+
 with (obj_card) if (in_hand && card_pos == other.card_pos) { 
-	if (type == __card.BUFF || (type == __card.SUPERHEAD 
-								&& has_trinket(__trinket.SHUFFLE, other) 
-								&& !other.trinket_used[__trinket.CARD_DRAW])
-	){
+	if ((type == __card.BUFF && !_shuffle) || (type == __card.SUPERHEAD && _shuffle)){
 		pulse = 9;
 		pulse_color = c_black;
 		pulse_alpha = 0.35;
