@@ -117,11 +117,11 @@ if (_attack_warn) // melee attack warning:
 	// axeman
 	if type == __unit.AXEMAN
 	{
-		if xpos > 0 { global.attack_preview[xpos-1] += 1; }
-		if xpos < 6 { global.attack_preview[xpos+1] += 1; }
+		if xpos > 0 { global.attack_preview[xpos-1] += 1; draw_sprite_ext(spr_attack_warn, 1, x - cell_width, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1) }
+		if xpos < 6 { global.attack_preview[xpos+1] += 1; draw_sprite_ext(spr_attack_warn, 1, x + cell_width, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1) }
 		
-		draw_sprite_ext(spr_attack_warn, 1, x - cell_width, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
-		draw_sprite_ext(spr_attack_warn, 1, x + cell_width, unit_get_y(3) + 25, 1, 1, 0, cc_red, 1)
+		
+		
 	}
 }
 

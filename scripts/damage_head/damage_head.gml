@@ -1,5 +1,8 @@
 function damage_head(_attacker, _x, _dmg){
 	var _unit = unit_find(_x, 4);
+	
+	if (_x < 0 || _x >= board_width) return;
+	
 	if (_unit != noone) {
 		
 		// Ironhead ability:
