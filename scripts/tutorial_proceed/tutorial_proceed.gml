@@ -6,6 +6,7 @@ function tutorial_proceed(_stage){
 	switch(_stage) {
 		case 0: 
 			with (obj_tutorial_box) {
+				text = tutorial_text[global.tutorial];
 				height -= 20;
 				y += 10;
 			}
@@ -15,6 +16,7 @@ function tutorial_proceed(_stage){
 		case 1:
 			btn_create(__btn.END_TURN, 505, 60);
 			with (obj_tutorial_box) {
+				text = tutorial_text[global.tutorial];
 				height += 10;
 				y -= 5;
 			}
@@ -26,6 +28,7 @@ function tutorial_proceed(_stage){
 			} until (unit_find(_x, 4) == noone);
 			unit_create(__unit.PEASANT, _x, 0);
 			with (obj_tutorial_box) {
+				text = tutorial_text[global.tutorial];
 				height -= 10;
 				y += 5;
 			}
@@ -37,11 +40,6 @@ function tutorial_proceed(_stage){
 			ds_list_add(temp_deck, new card(__card.STUN, []));
 			with (btn_create(__btn.RESHUFFLE, 505, 125)) visible = false;
 			global.replace_used = true;
-			save_game();
-		break;
-		
-		case 4:
-			with (obj_tutorial_box) instance_destroy();
 			save_game();
 		break;
 	}

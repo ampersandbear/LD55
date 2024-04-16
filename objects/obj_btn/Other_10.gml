@@ -56,6 +56,11 @@ switch (type) {
 	
 	case __btn.TUTORIAL_NEXT:
 		tutorial_proceed(0);
+		if (global.masterhead_tutorial == 1) {
+			with (obj_tutorial_box) instance_destroy();
+			global.masterhead_tutorial++;
+			global.tutorial_pause = false;
+		}
 		instance_destroy();
 	break;
 }

@@ -37,12 +37,15 @@ for (var i = 0; i < 3; i++) {
 	if (_trinket) _card -= _trinket_offset;
 	card_create(_card, _cx + i * 120, _cy, _trinket);
 	
-	if (_trinket && global.tutorial == 4) {
+	if (_trinket && global.mutations_tutorial == 0) {
 		with (instance_create_depth(500, 70, 1, obj_tutorial_box)) {
 			button = false;
 			width = 120;
 			height = 65;
+			text = tutorial_text[5];
 		}
+		global.mutations_tutorial = 1;
+		save_game();
 	}
 }
 ds_list_destroy(_pool);

@@ -17,7 +17,18 @@ function unit_take_damage(_unit, _dmg, _direction = -1)
 		}
 		
 		hp = max(0, hp - _dmg);
-		if (head && type == __card.SUPERHEAD) global.master_hp = hp;
+		if (head && type == __card.SUPERHEAD) {
+			global.master_hp = hp;
+			if (global.masterhead_tutorial == 0) {
+				global.masterhead_tutorial = 1;
+				global.tutorial_pause = true;
+				with (instance_create_depth(220, 40, -1000, obj_tutorial_box)) {
+					text = tutorial_text[4];
+					height = 70;
+				}
+				save_game();
+			}
+		}
 		
 		if (hp == 0)
 		{

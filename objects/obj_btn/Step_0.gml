@@ -8,6 +8,8 @@ if (type == __btn.RESHUFFLE) {
 
 active = visible;
 if (!menu && (global.gameover || global.pause)) active = false;
+if (global.tutorial_pause && !global.pause && type != __btn.TUTORIAL_NEXT) active = false;
+
 if (global.card_drag != noone) active = false;
 
 var _was_mouseover = mouseover;

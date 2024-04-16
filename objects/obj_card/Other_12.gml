@@ -54,7 +54,10 @@ if (_can_play) { // play the card:
 	if (room == rm_shop) { 
 		if (is_trinket) { // equip trinket:
 			array_push(_card_to_upgrade.trinkets, type);
-			tutorial_proceed(4);
+			if (global.mutations_tutorial == 1) {
+				global.mutations_tutorial++;
+				with (obj_tutorial_box) instance_destroy();
+			}
 			if (type == __trinket.HP) with (_card_to_upgrade) {
 				apply_hp_trinket();
 				if (type == __card.SUPERHEAD) {

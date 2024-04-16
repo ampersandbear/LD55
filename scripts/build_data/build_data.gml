@@ -71,7 +71,7 @@ function build_data(){
 	ds_list_add(late_game_units, __unit.SPEARMAN, __unit.ARCHER, __unit.AXEMAN, __unit.RAM, __unit.HORSE);
 	ds_list_shuffle(late_game_units);
 	
-	if debug { wave_add(__unit.RAM); }
+	//if debug { wave_add(__unit.RAM); }
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.MAGE, __unit.MAGE);
 	wave_add(__unit.PEASANT,__unit.PEASANT,__unit.PEASANT, __unit.KNIGHT, __unit.KNIGHT, __unit.MAGE, __unit.MAGE);
@@ -123,6 +123,7 @@ function build_data(){
 		"Heads are cards. [#E74747][shake]Summon[/shake][/c] one now!",
 		"You only draw one head from your deck each turn. So [#318472]end the turn[/c] now.",
 		"Nice! [c_white]Move[/c] the [#E74747]Headacher[/c] to attack the approaching farmer.",
+		"Protect your [#5F41B0]Masterhead[/c]! Unlike other cards, it's [spr_heart][" + cc_atk_string  + "]HP[/c] is not reset each wave.",
 		"[#7BD568]Mutations[/c] can be used to upgrade head cards from your deck."
 	];
 }

@@ -4,7 +4,8 @@ active =
 	&& (type != __card.BUFF || !in_hand)
 	&& obj_control.alarm[1] <= 0
 	&& !global.gameover
-	&& !global.pause;
+	&& !global.pause
+	&& !global.tutorial_pause;
 	
 event_inherited();
 if (!active) mouseover = false;
