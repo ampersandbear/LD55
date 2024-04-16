@@ -111,11 +111,12 @@ if (_can_play) { // play the card:
 			
 	with (obj_card) if (in_hand) { 
 		if (card_pos == other.card_pos) {
-			if (other.drag_ystart < 100) {
+			// we place card from draw pile on top of another
+			if (other.drag_ystart < 100) { 
 				instance_destroy(unit, false);
 				unit = noone;
 				
-				// shuffle trinket:
+				// recycling:
 				if (has_trinket(__trinket.SHUFFLE, other) && !other.trinket_used[__trinket.SHUFFLE]) {
 					ds_list_add(temp_deck, new card(type, trinkets));
 					ds_list_shuffle(temp_deck);
@@ -125,13 +126,17 @@ if (_can_play) { // play the card:
 					in_hand = false;
 					x = card_draw_xstart;
 					y = card_draw_ystart;
+					if (type == __card.SUPERHEAD) {
+						hp = global.master_hp;
+						hp_max = global.master_hp_max;
+					}
 					var _card = instance_place(x, y, obj_card);
 					if (_card != noone) {
 						y += 17;
 						_card.covered = true;
 					}
 				}
-			} else {
+			} else { // we place card from hand on top of another
 				x = other.drag_xstart;
 				y = other.drag_ystart;
 				card_pos = clamp((x + 45) div 91, 0, 6);
